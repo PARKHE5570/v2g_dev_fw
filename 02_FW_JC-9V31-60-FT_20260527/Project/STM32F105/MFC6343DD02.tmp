@@ -1,0 +1,1307 @@
+
+#define __TERMINAL_C
+
+#include "stdint.h"
+#include "stm32f10x.h"
+#include "HMI_modbus.h"
+#include "main.h"
+#include "stm32f10x_it.h"
+#include "FirmwareUpdate.h"
+//#include "io.h"
+#include "infy_module.h"
+#include "PLC_3_0.h"
+#include "ctype.h"
+#include "pt1000.h"
+#include "digital_io.h"
+#include "Terminal.h"
+#include "fault_check.h"
+
+
+
+/* Type declarations ---------------------------------------------------------*/
+typedef struct{
+    
+    u16 RxInCnt,RxOutCnt;
+    u16 TxInCnt,TxOutCnt;
+    u8 RxBuf[RBUF_SIZE];
+        
+}StructUart;  
+
+extern StructUart Uart1,Uart2;
+
+
+/*******************************************************************************
+* Function Name : char HexToAscii(u8 hex)
+* Description   : 16진수를 아스키코드로 변환
+* Parameters    : 1byte
+* Return        : 아스키코드
+*******************************************************************************/
+char HexToAscii(u8 hex)
+{	
+	return hex<10 ? hex+'0' : hex-10+'A';
+}
+
+/*******************************************************************************
+* Function Name : void UART1_PutChar(u8 data)
+* Description   : UART1 1문자 출력, Transmit one byte
+* Parameters    : 아스키코드
+* Return        : None
+*******************************************************************************/
+void UART1_PutChar(u8 data)
+{
+   USART_SendData(USART1,data);
+   while(USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);  
+}
+
+/*******************************************************************************
+* Function Name : u8 UART1_GetChar(u8 *pData)
+* Description   : UART1로 수신버퍼에서 데이타(1byte) 가져오기
+* Parameters    : none
+* Return        : 데이타 수신 여부(0: 수신버퍼가 비었음, 1: 수신버퍼에 데이타가 있음)
+*******************************************************************************/
+u8 UART1_GetChar(u8 *pData)
+{       
+    if(Uart1.RxInCnt == Uart1.RxOutCnt) return 0;
+    else *pData = Uart1.RxBuf[Uart1.RxOutCnt];        
+    if(Uart1.RxOutCnt<RBUF_SIZE-1) Uart1.RxOutCnt++;
+    else Uart1.RxOutCnt = 0;
+    
+    return 1;
+}
+
+/*******************************************************************************
+* Function Name : void UART1_PutStr(char *pStr)
+* Description   : UART1 믄자열 출력
+* Parameters    : 문자열
+* Return        : 1byte
+*******************************************************************************/
+void UART1_PutStr(char *pStr)
+{
+	while(*pStr != '\0') UART1_PutChar(*(pStr++));
+}
+
+/*******************************************************************************
+* Function Name : void UART1_PutHex(u8 hex)
+* Description   : UART1 16진수값 1byte출력
+* Parameters    : 1byte
+* Return        : none
+*******************************************************************************/
+void UART1_PutHex(u8 hex)
+{
+	UART1_PutChar(HexToAscii(hex>>4));
+	UART1_PutChar(HexToAscii(hex&0x0F));
+}
+
+/*******************************************************************************
+* Function Name : void UART1_Put2Hex(u16 hex)
+* Description   : UART1 16진수값 2byte 출력
+* Parameters    : 2byte
+* Return        : none
+*******************************************************************************/
+void UART1_Put2Hex(u16 hex)
+{
+	UART1_PutHex(hex/0x100);
+	UART1_PutHex(hex%0x100);     
+}
+
+/*******************************************************************************
+* Function Name : void UART1_Put4Hex(u32 hex)
+* Description   : UART1 16진수값 4byte 출력
+* Parameters    : 4byte
+* Return        : none
+*******************************************************************************/
+void UART1_Put4Hex(u32 hex)
+{
+	UART1_Put2Hex(hex/0x10000);
+	UART1_Put2Hex(hex%0x10000);
+}
+
+/*******************************************************************************
+* Function Name : UART1_PutDec(u8 cnt,u16 dec)
+* Description   : UART1 10진수값 출력(1~5자리)
+* Parameters    : 출력 자리수, 2byte
+* Return        : none
+*******************************************************************************/
+void UART1_PutDec(u8 cnt,u16 dec)
+{      
+    if(cnt == 5) UART1_PutChar(HexToAscii(dec/10000)),cnt--;
+	if(cnt == 4) UART1_PutChar(HexToAscii(dec%10000/1000)),cnt--;     
+	if(cnt == 3) UART1_PutChar(HexToAscii(dec%1000/100)),cnt--;     
+	if(cnt == 2) UART1_PutChar(HexToAscii(dec%100/10)),cnt--;     
+	if(cnt == 1) UART1_PutChar(HexToAscii(dec%10));
+} 
+
+
+/*******************************************************************************
+* Function Name : u8 AsciiToHex(char ascii)
+* Description   : 아스키코드를 16진수로 변환
+* Parameters    : 아스키코드
+* Return        : 16진수
+*******************************************************************************/
+u8 AsciiToHex(char ascii)
+{	
+	ascii = toupper(ascii);
+	return ascii>='A' ? ascii-'A'+ 10 : ascii-'0';
+}
+
+
+UINT8 Term_Send_RAMStr( UINT8 * str )
+{
+    UINT8 count = 0;            // Initialize byte counter
+
+    while( *str != 0 )                  // Reached zero byte ?
+    {
+        UART1_PutChar( *str );
+        str++;                          // Increment ptr
+        count++;                        // Increment byte counter
+    }
+
+    return count;                       // Return byte count
+}
+
+void Term_Sand_sprintf (float val)
+{
+    char pBuf[100];
+
+    sprintf(pBuf, "value = %f  ", val);
+//    UART1_PutStr(pBuf);
+    Term_Send_RAMStr((UINT8*)pBuf);
+}
+
+
+
+void send_uart_term_system_info(void)
+{
+//ANSI Escape Code, Terminal color change, ANSI art
+//UART1_PutStr("\033[31m\n");   // RED
+//UART1_PutStr("\033[32m\n");   // GREEN
+//UART1_PutStr("\033[33m\n");   // YELLOW
+//UART1_PutStr("\033[34m\n");   // BLUE
+//ESC[ 38;2;?r?;?g?;?b? m Select RGB foreground color
+//ESC[ 48;2;?r?;?g?;?b? m Select RGB background color
+//	UART1_PutStr("\033[38;5;206m TEST \r\n"); // Using these above, you can make pink text like so:
+//	UART1_PutStr("\033[48;5;57m  TEST \r\n"); // And make an early-morning blue background using
+//	UART1_PutStr("\033[38;5;206;48;5;57m TEST \r\n"); // And, of course, you can combine these:
+//	UART1_PutStr("\033[48;5;9m  TEST \r\n"); // And make an early-morning blue background using
+    UART1_PutStr(T_BOLD);
+	UART1_PutStr(T_RED);    UART1_PutStr("\r\n     ####    ##       ####              ##     #####    ##   ##    ##     ##   ##    ####   #######  #####             ####       ##     ######   ");
+	UART1_PutStr(T_GREEN);  UART1_PutStr("\r\n      ##    ####     ##  ##            ####     ## ##   ##   ##   ####    ###  ##   ##  ##   ##   #   ## ##             ##       ####     ##  ##  ");
+	UART1_PutStr(T_YELLOW); UART1_PutStr("\r\n      ##   ##  ##   ##                ##  ##    ##  ##   ## ##   ##  ##   #### ##  ##        ## #     ##  ##            ##      ##  ##    ##  ##  ");
+	UART1_PutStr(T_BLUE);   UART1_PutStr("\r\n      ##   ##  ##   ##       ######   ##  ##    ##  ##   ## ##   ##  ##   ## ####  ##        ####     ##  ##            ##      ##  ##    #####   ");
+	UART1_PutStr(T_MAGENTA);UART1_PutStr("\r\n  ##  ##   ######   ##                ######    ##  ##    ###    ######   ##  ###  ##        ## #     ##  ##            ##   #  ######    ##  ##  ");
+	UART1_PutStr(T_CYAN);   UART1_PutStr("\r\n  ##  ##   ##  ##    ##  ##           ##  ##    ## ##     ###    ##  ##   ##   ##   ##  ##   ##   #   ## ##             ##  ##  ##  ##    ##  ##  ");
+	UART1_PutStr(T_WHITE);  UART1_PutStr("\r\n   ####    ##  ##     ####            ##  ##   #####       #     ##  ##   ##   ##    ####   #######  #####             #######  ##  ##   ######   ");
+    UART1_PutStr("\r\n");
+
+//	UART1_PutStr(T_YELLOW);
+//    char text1[] = "\r\n\n [터미널 명령어 정보]";
+//	UART1_PutStr(text1);
+//	UART1_PutStr("\r\n  start  + Enter : logging start, 100 [ms] period");
+//	UART1_PutStr("\r\n  stop   + Enter : logging stop ");
+//	UART1_PutStr("\r\n  reset  + Enter : system  reset ");
+//	UART1_PutStr("\r\n  update + Enter : f/w update mode(x-modem 1k), 반드시 UI 종료 후 실행할 것 ");
+//	UART1_PutStr("\r\n  info   + Enter : f/w ver, plc ver, power module info, device id info ");
+//	UART1_PutStr("\r\n  status + Enter : charger status, 100 [ms] period");
+//	UART1_PutStr("\r\n  xxx    + Enter : cancel command, xxx = anything");
+
+	UART1_PutStr(T_RESET); UART1_PutStr(T_BrWHITE);
+	UART1_PutStr("\r\n\n [테라텀 로그 저장 방법]");
+	UART1_PutStr("\r\n 1. Tera Term - Setup - Additional settings - Log - Log Rotate check, Size: 10MB, Rotate: 30으로 설정.");
+	UART1_PutStr("\r\n 2. file - log.. - Timestamp check and save. ");
+	UART1_PutStr("\r\n\n 테라텀 한글 안 깨지게 보는 방법 Tera Term - Setup - Terminal setup - Coding (receive) \033[32mKS5601 \n");
+	UART1_PutStr(T_BOLD); UART1_PutStr(T_YELLOW);
+	
+													UART1_PutStr("\r\n [충전기 프로그램 정보]");
+													UART1_PutStr("\r\n 파워 모듈             : 인피파워(INFYPOWER)");
+													UART1_PutStr("\r\n 펌웨어 버전           : "); UART1_PutDec(1, (u16)(fw_version*0.01F)); UART1_PutChar('.'); UART1_PutDec(1, (u16)(fw_version*0.1F)); UART1_PutChar('.'); UART1_PutDec(1, (u16)fw_version);
+													UART1_PutStr("\r\n 마지막 업데이트 일자  : "); UART1_PutDec(2, (u16)last_update_year); UART1_PutChar('.'); UART1_PutDec(2, (u16)last_update_month); UART1_PutChar('.'); UART1_PutDec(2, (u16)last_update_day);	
+	if(!GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_2))   UART1_PutStr("\r\n 보드 점퍼핀 설정 정보 : 1 (왼쪽 채널)  \r ");
+	else                                            UART1_PutStr("\r\n 보드 점퍼핀 설정 정보 : 2 (오른쪽 채널) \r ");
+                                                    UART1_PutStr("\r\n PLC 모뎀 펌웨어 버전  : "); UART1_PutDec(1, (u16)SECC_Msg.SECC_Status_1.seccVersionMajor); UART1_PutChar('.'); UART1_PutDec(1, (u16)SECC_Msg.SECC_Status_1.seccVersionMinor); UART1_PutChar('.'); UART1_PutDec(1, (u16)SECC_Msg.SECC_Status_1.seccVersionPatch);UART1_PutStr(" (정보가 나오지 않으면 모뎀과 통신이 안 된 것입니다. 모뎀 부팅시간 확보 후 다시 확인하세요.)");
+    UART1_PutStr(T_RESET);UART1_PutStr(T_BrWHITE);
+
+}
+
+
+void Send_Uart_Terminal(void)
+{
+
+//    static uint8_t channel_id;
+//	Vout_ref_temp = user_test_val;
+//	Iout_ref_temp = user_test_val;
+//	Vout = user_test_val;
+//	Iout_Module = user_test_val;
+//	sequence_step = user_test_val;
+//	dc_electric_energy = user_test_val;
+	
+//for test
+//	sequence_step = 1075;
+//	Vout_ref_temp = 750;
+//	Iout_ref_temp = 100;
+//	Vout_Module = 750;
+//	Iout_Module = 200;
+//	Vout = test_Vout_val_1;
+//    SECC_Msg.SECC_Status_2.cpVoltage_12 = 121;
+//	if(test_Vout_val_1++ > 990) test_Vout_val_1 = 0;
+//	if(test_Vout_val_2++ > 990) test_Vout_val_2 = 0;
+//	if(test_Vout_val_3++ > 990) test_Vout_val_3 = 0;
+//	if(test_Vout_val_4++ > 990) test_Vout_val_4 = 0;
+//	if(test_Vout_val_5++ > 990) test_Vout_val_5 = 0;
+//
+//	if(test_Iout_val_1++ > 100) test_Iout_val_1 = 0;
+//	if(test_Iout_val_2++ > 100) test_Iout_val_2 = 0;
+//	if(test_Iout_val_3++ > 100) test_Iout_val_3 = 0;
+//	if(test_Iout_val_4++ > 100) test_Iout_val_4 = 0;
+//	if(test_Iout_val_5++ > 100) test_Iout_val_5 = 0;
+//	
+//	module_info[1].ufVout.fValue = test_Vout_val_1;
+//	module_info[2].ufVout.fValue = test_Vout_val_2;
+//	module_info[3].ufVout.fValue = test_Vout_val_3;
+//	module_info[4].ufVout.fValue = test_Vout_val_4;
+//	module_info[5].ufVout.fValue = test_Vout_val_5;
+//
+//	module_info[1].ufIout.fValue = test_Iout_val_1;
+//	module_info[2].ufIout.fValue = test_Iout_val_2;
+//	module_info[3].ufIout.fValue = test_Iout_val_3;
+//	module_info[4].ufIout.fValue = test_Iout_val_4;
+//	module_info[5].ufIout.fValue = test_Iout_val_5;	
+	
+	elapsed_time++; // 100ms timer
+	elapsed_time_s = elapsed_time * 0.1F; // sec timer
+
+	minute = (uint16_t)(elapsed_time_s * 0.0166666667);
+	hour   = (uint16_t)(minute * 0.0166666667);
+	minute = (uint16_t)(minute % 60);
+	second = (uint16_t)((u16)elapsed_time_s % 60);
+	
+//    UART1_PutDec(1, (u16)hour); UART1_PutStr(":"); UART1_PutDec(2, (u16)minute); UART1_PutStr(":"); UART1_PutDec(2, (u16)second); UART1_PutStr("."); UART1_PutDec(1, elapsed_time);	
+
+	UART1_PutStr("\r\n Seq:"); 
+	if     ((s16)sequence_step >= 1000) {                    UART1_PutDec(4, sequence_step);}
+	else if((s16)sequence_step >=  100) {UART1_PutStr(" ");  UART1_PutDec(3, sequence_step);}
+	else if((s16)sequence_step >=   10) {UART1_PutStr("  "); UART1_PutDec(2, sequence_step);}
+	else if((s16)sequence_step >=    0) {UART1_PutStr("   ");UART1_PutDec(1, sequence_step);}
+
+	UART1_PutStr(" MODULE:");
+	if(module_on_off == 1) UART1_PutStr(" ON");
+	else                   UART1_PutStr("OFF"); 
+	
+	UART1_PutStr(" Vref:"); 
+	if     (Vout_ref_temp >= 100) {                   UART1_PutDec(3, (u16)Vout_ref_temp);}
+	else if(Vout_ref_temp >=  10) {UART1_PutStr(" "); UART1_PutDec(2, (u16)Vout_ref_temp);}
+	else if(Vout_ref_temp >=   0) {UART1_PutStr("  ");UART1_PutDec(1, (u16)Vout_ref_temp);}
+	
+    UART1_PutStr(" Vout:"); 
+	if     (Vout >= 100) {                   UART1_PutDec(3, (u16)Vout);}
+	else if(Vout >=  10) {UART1_PutStr(" "); UART1_PutDec(2, (u16)Vout);}
+	else if(Vout >=   0) {UART1_PutStr("  ");UART1_PutDec(1, (u16)Vout);}
+	
+    UART1_PutStr(" Iref:"); 
+	if     (Iout_ref_temp >= 100) {                   UART1_PutDec(3, (u16)Iout_ref_temp);}
+	else if(Iout_ref_temp >=  10) {UART1_PutStr(" "); UART1_PutDec(2, (u16)Iout_ref_temp);}
+	else if(Iout_ref_temp >=   0) {UART1_PutStr("  ");UART1_PutDec(1, (u16)Iout_ref_temp);}
+	
+	UART1_PutStr(" Iout:");
+	if     (Iout_Module >= 100) {                   UART1_PutDec(3, (u16)Iout_Module);}
+	else if(Iout_Module >=  10) {UART1_PutStr(" "); UART1_PutDec(2, (u16)Iout_Module);}
+	else if(Iout_Module >=   0) {UART1_PutStr("  ");UART1_PutDec(1, (u16)Iout_Module);}
+	
+    UART1_PutStr(" M1:"); 
+	if     (module_info[0].ufVout.fValue >= 100) {                   UART1_PutDec(3, (u16)module_info[0].ufVout.fValue);}
+	else if(module_info[0].ufVout.fValue >=  10) {UART1_PutStr(" "); UART1_PutDec(2, (u16)module_info[0].ufVout.fValue);}
+	else if(module_info[0].ufVout.fValue >=   0) {UART1_PutStr("  ");UART1_PutDec(1, (u16)module_info[0].ufVout.fValue);}
+	UART1_PutStr("[V]");
+	
+	UART1_PutStr(" M2:");
+	if     (module_info[1].ufVout.fValue >= 100) {                   UART1_PutDec(3, (u16)module_info[1].ufVout.fValue);}
+	else if(module_info[1].ufVout.fValue >=  10) {UART1_PutStr(" "); UART1_PutDec(2, (u16)module_info[1].ufVout.fValue);}
+	else if(module_info[1].ufVout.fValue >=   0) {UART1_PutStr("  ");UART1_PutDec(1, (u16)module_info[1].ufVout.fValue);}
+	UART1_PutStr("[V]");
+	
+	UART1_PutStr(" M3:");
+	if     (module_info[2].ufVout.fValue >= 100) {                   UART1_PutDec(3, (u16)module_info[2].ufVout.fValue);}
+	else if(module_info[2].ufVout.fValue >=  10) {UART1_PutStr(" "); UART1_PutDec(2, (u16)module_info[2].ufVout.fValue);}
+	else if(module_info[2].ufVout.fValue >=   0) {UART1_PutStr("  ");UART1_PutDec(1, (u16)module_info[2].ufVout.fValue);}
+	UART1_PutStr("[V]");
+	
+	UART1_PutStr(" M4:");
+	if     (module_info[3].ufVout.fValue >= 100) {                   UART1_PutDec(3, (u16)module_info[3].ufVout.fValue);}
+	else if(module_info[3].ufVout.fValue >=  10) {UART1_PutStr(" "); UART1_PutDec(2, (u16)module_info[3].ufVout.fValue);}
+	else if(module_info[3].ufVout.fValue >=   0) {UART1_PutStr("  ");UART1_PutDec(1, (u16)module_info[3].ufVout.fValue);}
+	UART1_PutStr("[V]");
+	
+	UART1_PutStr(" M5:");
+	if     (module_info[4].ufVout.fValue >= 100) {                   UART1_PutDec(3, (u16)module_info[4].ufVout.fValue);}
+	else if(module_info[4].ufVout.fValue >=  10) {UART1_PutStr(" "); UART1_PutDec(2, (u16)module_info[4].ufVout.fValue);}
+	else if(module_info[4].ufVout.fValue >=   0) {UART1_PutStr("  ");UART1_PutDec(1, (u16)module_info[4].ufVout.fValue);}
+	UART1_PutStr("[V]");
+	
+	UART1_PutStr(" "); // 구분
+	
+	UART1_PutStr(" M1:");
+	if     (module_info[0].ufIout.fValue >=  10) {                  UART1_PutDec(2, (u16)module_info[0].ufIout.fValue);}
+	else if(module_info[0].ufIout.fValue >=   0) {UART1_PutStr(" ");UART1_PutDec(1, (u16)module_info[0].ufIout.fValue);}
+	UART1_PutStr("[A]");
+	
+	UART1_PutStr(" M2:");
+	if     (module_info[1].ufIout.fValue >=  10) {                  UART1_PutDec(2, (u16)module_info[1].ufIout.fValue);}
+	else if(module_info[1].ufIout.fValue >=   0) {UART1_PutStr(" ");UART1_PutDec(1, (u16)module_info[1].ufIout.fValue);}	
+	UART1_PutStr("[A]");
+	
+	UART1_PutStr(" M3:");
+	if     (module_info[2].ufIout.fValue >=  10) {                  UART1_PutDec(2, (u16)module_info[2].ufIout.fValue);}
+	else if(module_info[2].ufIout.fValue >=   0) {UART1_PutStr(" ");UART1_PutDec(1, (u16)module_info[2].ufIout.fValue);}
+	UART1_PutStr("[A]");
+	
+	UART1_PutStr(" M4:");
+	if     (module_info[3].ufIout.fValue >=  10) {                  UART1_PutDec(2, (u16)module_info[3].ufIout.fValue);}
+	else if(module_info[3].ufIout.fValue >=   0) {UART1_PutStr(" ");UART1_PutDec(1, (u16)module_info[3].ufIout.fValue);}	
+	UART1_PutStr("[A]");
+	
+	UART1_PutStr(" M5:");
+	if     (module_info[4].ufIout.fValue >=  10) {                  UART1_PutDec(2, (u16)module_info[4].ufIout.fValue);}
+	else if(module_info[4].ufIout.fValue >=   0) {UART1_PutStr(" ");UART1_PutDec(1, (u16)module_info[4].ufIout.fValue);}	
+	UART1_PutStr("[A] ");
+
+	UART1_PutStr(" CP:"); 
+	if(SECC_Msg.SECC_Status_2.cpVoltage_12 < 0) {UART1_PutStr("-");UART1_PutDec(3, ~(SECC_Msg.SECC_Status_2.cpVoltage_12)+1);} // short형 
+	else                                        {UART1_PutStr(" ");UART1_PutDec(3, (u16)SECC_Msg.SECC_Status_2.cpVoltage_12);}
+					
+	UART1_PutStr(" ");
+	
+	if     (SECC_Msg.SECC_Status_2.CP_Status_0.bit.cpOscillator == TRUE  && cpOscillator_old != TRUE) {UART1_PutStr(" PWM:");  UART1_PutStr("  ON"); }
+	else if(SECC_Msg.SECC_Status_2.CP_Status_0.bit.cpOscillator == FALSE && cpOscillator_old != FALSE){UART1_PutStr(" PWM:");  UART1_PutStr(" OFF"); }
+	
+    cpOscillator_old = SECC_Msg.SECC_Status_2.CP_Status_0.bit.cpOscillator;
+
+
+	if     (SECC_Msg.SECC_Status_1.seccStatusCode == Idle_Wait)                             
+	{
+		UART1_PutStr(" Idle_Wait              ");
+	} 
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Idle                                 && seccStatusCode_old != Idle)                                  
+	{
+		UART1_PutStr(" Idle                   ");
+//		UART1_PutStr(" Charger F/W Ver: "); 
+//		UART1_PutDec(1, (u16)(fw_version*0.01F)); 
+//		UART1_PutChar('.');
+//		UART1_PutDec(1, (u16)(fw_version*0.1F)); 
+//		UART1_PutChar('.'); 
+//		UART1_PutDec(1, (u16)fw_version);
+//		
+//		UART1_PutStr("  PLC MODEM F/W Ver: ");
+//        UART1_PutDec(1, (u16)SECC_Msg.SECC_Status_1.seccVersionMajor); 
+//		UART1_PutChar('.');
+//		UART1_PutDec(1, (u16)SECC_Msg.SECC_Status_1.seccVersionMinor); 
+//		UART1_PutChar('.'); 
+//		UART1_PutDec(1, (u16)SECC_Msg.SECC_Status_1.seccVersionPatch);
+//		
+//	    if     (device_id == 1) UART1_PutStr(" CHANNEL_ID:1");
+//        else if(device_id == 2) UART1_PutStr(" CHANNEL_ID:2");
+		
+		UART1_PutStr(" elapsed_time Init 0:00:00.0"); elapsed_time = 0;
+	} 
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Ready                                && seccStatusCode_old != Ready)                                 {UART1_PutStr(" Ready                  "); UART1_PutStr(" elapsed_time "); UART1_PutDec(1, (u16)hour); UART1_PutStr(":"); UART1_PutDec(2, (u16)minute); UART1_PutStr(":"); UART1_PutDec(2, (u16)second); UART1_PutStr("."); UART1_PutDec(1, elapsed_time); elapsed_time = 0;}
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Low_Level_Comm                       && seccStatusCode_old != Low_Level_Comm)                        
+	{
+		UART1_PutStr(" Low_Level_Comm         "); UART1_PutStr(" elapsed_time "); UART1_PutDec(1, (u16)hour); UART1_PutStr(":"); UART1_PutDec(2, (u16)minute); UART1_PutStr(":"); UART1_PutDec(2, (u16)second); UART1_PutStr("."); UART1_PutDec(1, elapsed_time); elapsed_time = 0;
+		UART1_PutStr(" evccAttn: "); UART1_PutDec(2, SECC_Msg.SECC_EVCC_Info.evccAttn_6);
+		UART1_PutStr(" evccMAC: "); //0~5
+		
+		UART1_PutHex( SECC_Msg.SECC_EVCC_Info.evccMAC_0); UART1_PutStr("-");
+		UART1_PutHex( SECC_Msg.SECC_EVCC_Info.evccMAC_1); UART1_PutStr("-");
+		UART1_PutHex( SECC_Msg.SECC_EVCC_Info.evccMAC_2); UART1_PutStr("-");
+		UART1_PutHex( SECC_Msg.SECC_EVCC_Info.evccMAC_3); UART1_PutStr("-");
+		UART1_PutHex( SECC_Msg.SECC_EVCC_Info.evccMAC_4); UART1_PutStr("-");
+		UART1_PutHex( SECC_Msg.SECC_EVCC_Info.evccMAC_5);
+		
+		UART1_PutStr(" sessionID: "); UART1_Put4Hex(SECC_Msg.SECC_Session_ID.sessionID_High);
+		                              UART1_Put4Hex(SECC_Msg.SECC_Session_ID.sessionID_Low);
+	} 
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == High_Level_Comm                      && seccStatusCode_old != High_Level_Comm)                       
+	{
+		UART1_PutStr(" High_Level_Comm        "); UART1_PutStr(" elapsed_time "); UART1_PutDec(1, (u16)hour); UART1_PutStr(":"); UART1_PutDec(2, (u16)minute); UART1_PutStr(":"); UART1_PutDec(2, (u16)second); UART1_PutStr("."); UART1_PutDec(1, elapsed_time); elapsed_time = 0; 
+		UART1_PutStr(" evccAttn: "); UART1_PutDec(2, SECC_Msg.SECC_EVCC_Info.evccAttn_6);
+		UART1_PutStr(" evccMAC: "); //0~5
+		
+		UART1_PutHex( SECC_Msg.SECC_EVCC_Info.evccMAC_0); UART1_PutStr("-");
+		UART1_PutHex( SECC_Msg.SECC_EVCC_Info.evccMAC_1); UART1_PutStr("-");
+		UART1_PutHex( SECC_Msg.SECC_EVCC_Info.evccMAC_2); UART1_PutStr("-");
+		UART1_PutHex( SECC_Msg.SECC_EVCC_Info.evccMAC_3); UART1_PutStr("-");
+		UART1_PutHex( SECC_Msg.SECC_EVCC_Info.evccMAC_4); UART1_PutStr("-");
+		UART1_PutHex( SECC_Msg.SECC_EVCC_Info.evccMAC_5);
+		
+		UART1_PutStr(" sessionID: "); UART1_Put4Hex(SECC_Msg.SECC_Session_ID.sessionID_High);
+		                              UART1_Put4Hex(SECC_Msg.SECC_Session_ID.sessionID_Low);
+	} 
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Authorization_ContractAuthentication && seccStatusCode_old != Authorization_ContractAuthentication)  {UART1_PutStr(" Authorization          "); UART1_PutStr(" elapsed_time "); UART1_PutDec(1, (u16)hour); UART1_PutStr(":"); UART1_PutDec(2, (u16)minute); UART1_PutStr(":"); UART1_PutDec(2, (u16)second); UART1_PutStr("."); UART1_PutDec(1, elapsed_time); elapsed_time = 0;} 
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == ChargeParameterDiscovery             && seccStatusCode_old != ChargeParameterDiscovery)              {UART1_PutStr(" ParameterDiscovery     "); UART1_PutStr(" elapsed_time "); UART1_PutDec(1, (u16)hour); UART1_PutStr(":"); UART1_PutDec(2, (u16)minute); UART1_PutStr(":"); UART1_PutDec(2, (u16)second); UART1_PutStr("."); UART1_PutDec(1, elapsed_time); elapsed_time = 0;} 
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == CableCheck                           && seccStatusCode_old != CableCheck)                            {UART1_PutStr(" CableCheck             "); UART1_PutStr(" elapsed_time "); UART1_PutDec(1, (u16)hour); UART1_PutStr(":"); UART1_PutDec(2, (u16)minute); UART1_PutStr(":"); UART1_PutDec(2, (u16)second); UART1_PutStr("."); UART1_PutDec(1, elapsed_time); elapsed_time = 0;} 
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == PreCharge                            && seccStatusCode_old != PreCharge)                             {UART1_PutStr(" PreCharge              "); UART1_PutStr(" elapsed_time "); UART1_PutDec(1, (u16)hour); UART1_PutStr(":"); UART1_PutDec(2, (u16)minute); UART1_PutStr(":"); UART1_PutDec(2, (u16)second); UART1_PutStr("."); UART1_PutDec(1, elapsed_time); elapsed_time = 0;} 
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Charging)                              
+	{
+		if(SECC_Msg.SECC_Status_1.seccStatusCode == Charging                              && seccStatusCode_old != Charging )                             {UART1_PutStr(" Charging               "); UART1_PutStr(" elapsed_time "); UART1_PutDec(1, (u16)hour); UART1_PutStr(":"); UART1_PutDec(2, (u16)minute); UART1_PutStr(":"); UART1_PutDec(2, (u16)second); UART1_PutStr("."); UART1_PutDec(1, elapsed_time); elapsed_time = 0;}
+
+		if(view_count++ >= 100) // 약 10초마다
+		{
+			view_count = 0;
+			
+			UART1_PutStr(" SOC:");
+			if     ((s16)SECC_Msg.SECC_EV_SoC_Related_Parameters.evSOC_1 >= 100) {                   UART1_PutDec(3, (u16)SECC_Msg.SECC_EV_SoC_Related_Parameters.evSOC_1);}
+			else if((s16)SECC_Msg.SECC_EV_SoC_Related_Parameters.evSOC_1 >=  10) {UART1_PutStr(" "); UART1_PutDec(2, (u16)SECC_Msg.SECC_EV_SoC_Related_Parameters.evSOC_1);}
+			else if((s16)SECC_Msg.SECC_EV_SoC_Related_Parameters.evSOC_1 >=   0) {UART1_PutStr("  ");UART1_PutDec(1, (u16)SECC_Msg.SECC_EV_SoC_Related_Parameters.evSOC_1);}
+			UART1_PutStr("[%]");
+			
+			if(SECC_Msg.SECC_EV_SoC_Related_Parameters.remainingTimeToBulkSOC_67 != 0) {UART1_PutStr(" Bulk_Time: "); UART1_PutDec(3, (u16)(SECC_Msg.SECC_EV_SoC_Related_Parameters.remainingTimeToBulkSOC_67 * 0.166666666F)); UART1_PutStr(" Min");} // 1/6 = 0.166666666F
+			else                                                                       {UART1_PutStr(" Full_Time: "); UART1_PutDec(3, (u16)(SECC_Msg.SECC_EV_SoC_Related_Parameters.remainingTimeToFullSOC_45 * 0.166666666F)); UART1_PutStr(" Min");} // ex) 198 -> 198/6 = 33min	
+
+
+			if     (Vout * Iout_Module * 0.001F >= 100) {                   UART1_PutDec(3, (u16)(Vout * Iout_Module * 0.001F));}
+			else if(Vout * Iout_Module * 0.001F >=  10) {UART1_PutStr(" "); UART1_PutDec(2, (u16)(Vout * Iout_Module * 0.001F));}
+			else if(Vout * Iout_Module * 0.001F >=   0) {UART1_PutStr("  ");UART1_PutDec(1, (u16)(Vout * Iout_Module * 0.001F));}
+			UART1_PutStr("[kW] ");
+			
+		// 	UART1_PutDec(1, (u16)(dc_electric_energy * 100 * 0.0001F));
+		//	UART1_PutDec(1, (u16)(dc_electric_energy * 100 * 0.001F));
+		//	UART1_PutDec(1, (u16)(dc_electric_energy * 100 * 0.01F));
+			if     (dc_electric_energy >= 100) {                    UART1_PutDec(3, (u16)(dc_electric_energy));}
+			else if(dc_electric_energy >=  10) {UART1_PutStr(" ");  UART1_PutDec(2, (u16)(dc_electric_energy));}
+			else if(dc_electric_energy >=   0) {UART1_PutStr("  "); UART1_PutDec(1, (u16)(dc_electric_energy));}
+			UART1_PutChar('.'); 
+			UART1_PutDec(1, (u16)(dc_electric_energy * 100 * 0.1F));
+			UART1_PutDec(1, (u16)(dc_electric_energy * 100));
+			UART1_PutStr("[kWh] ");
+			
+//            UART1_PutStr("EV current_demand: "); UART1_PutDec(3, (u16)(SECC_Msg.SECC_EV_TargetVoltage_Current.targetCurrent_23 * 0.1F)); UART1_PutStr(" ");
+			
+			UART1_PutDec(1, (u16)hour); UART1_PutStr(":"); UART1_PutDec(2, (u16)minute); UART1_PutStr(":"); UART1_PutDec(2, (u16)second); UART1_PutStr("."); UART1_PutDec(1, elapsed_time);
+			
+			UART1_PutStr(" DC_METER Iout: "); UART1_PutDec(3, dc_power_meter_measure_Iout); // 2022.09.30
+		}
+	
+	} 
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Renegotiation                        && seccStatusCode_old != Renegotiation)                         {UART1_PutStr(" Renegotiation          ");} 
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == EV_Init_Stop_Charging                && seccStatusCode_old != EV_Init_Stop_Charging)                 {UART1_PutStr(" EV_Init_Stop_Charging  ");} 
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == EVSE_Init_Stop_Charging              && seccStatusCode_old != EVSE_Init_Stop_Charging)               {UART1_PutStr(" EVSE_Init_Stop_Charging");} 
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Terminate                            && seccStatusCode_old != Terminate)                             
+	{
+		UART1_PutStr("Terminate              ");
+		UART1_PutStr(" DC electric energy: ");
+		if     (dc_electric_energy >= 100) {                    UART1_PutDec(3, (u16)(dc_electric_energy));}
+		else if(dc_electric_energy >=  10) {UART1_PutStr(" ");  UART1_PutDec(2, (u16)(dc_electric_energy));}
+		else if(dc_electric_energy >=   0) {UART1_PutStr("  "); UART1_PutDec(1, (u16)(dc_electric_energy));}
+				                            UART1_PutChar('.'); 
+				                                                UART1_PutDec(1, (u16)(dc_electric_energy * 100 * 0.1F));
+				                                                UART1_PutDec(1, (u16)(dc_electric_energy * 100));
+				                                                UART1_PutStr("[kWh] ");
+		
+        UART1_PutDec(1, (u16)hour); UART1_PutStr(":"); UART1_PutDec(2, (u16)minute); UART1_PutStr(":"); UART1_PutDec(2, (u16)second); UART1_PutStr("."); UART1_PutDec(1, elapsed_time);
+	} 
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == CertificateInstallation              && seccStatusCode_old != CertificateInstallation)               {UART1_PutStr(" CertificateInstallation");} 
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == CertificatedUpdate                   && seccStatusCode_old != CertificatedUpdate)                    {UART1_PutStr(" CertificatedUpdate     ");} 
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == SECC_ERROR                           && seccStatusCode_old != SECC_ERROR)                            {UART1_PutStr(" SECC_ERROR             ");} 
+	
+	SOC__old = SECC_Msg.SECC_EV_SoC_Related_Parameters.evSOC_1;
+	
+    seccStatusCode_old = SECC_Msg.SECC_Status_1.seccStatusCode;
+	
+      	if     (SECC_Msg.SECC_Status_1.seccErrorCode == SECC_NO_ERROR                          && seccErrorCode_old != SECC_NO_ERROR)                          {UART1_PutStr(" seccError:"); UART1_PutStr("                  SECC_NO_ERROR");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED                                 && seccErrorCode_old != FAILED)                                 {UART1_PutStr(" seccError:"); UART1_PutStr("                         FAILED");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_SequenceError                   && seccErrorCode_old != FAILED_SequenceError)                   {UART1_PutStr(" seccError:"); UART1_PutStr("                  SequenceError");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ServiceIDInvalid                && seccErrorCode_old != FAILED_ServiceIDInvalid)                {UART1_PutStr(" seccError:"); UART1_PutStr("               ServiceIDInvalid");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_UnknownSession                  && seccErrorCode_old != FAILED_UnknownSession)                  {UART1_PutStr(" seccError:"); UART1_PutStr("                 UnknownSession");}  
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ServiceSelectionInvalid         && seccErrorCode_old != FAILED_ServiceSelectionInvalid)         {UART1_PutStr(" seccError:"); UART1_PutStr("        ServiceSelectionInvalid");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_PaymentSelectionInvalid         && seccErrorCode_old != FAILED_PaymentSelectionInvalid)         {UART1_PutStr(" seccError:"); UART1_PutStr("        PaymentSelectionInvalid");}  
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_CertificateExpired              && seccErrorCode_old != FAILED_CertificateExpired)              {UART1_PutStr(" seccError:"); UART1_PutStr("             CertificateExpired");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_SignatureError                  && seccErrorCode_old != FAILED_SignatureError)                  {UART1_PutStr(" seccError:"); UART1_PutStr("                 SignatureError");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_NoCertificateAvailable          && seccErrorCode_old != FAILED_NoCertificateAvailable)          {UART1_PutStr(" seccError:"); UART1_PutStr("         NoCertificateAvailable");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_CerChainError                   && seccErrorCode_old != FAILED_CerChainError)                   {UART1_PutStr(" seccError:"); UART1_PutStr("                  CerChainError");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ChallengeInvalid                && seccErrorCode_old != FAILED_ChallengeInvalid)                {UART1_PutStr(" seccError:"); UART1_PutStr("               ChallengeInvalid");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ContractCanceled                && seccErrorCode_old != FAILED_ContractCanceled)                {UART1_PutStr(" seccError:"); UART1_PutStr("               ContractCanceled");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_WrongChargeParameter            && seccErrorCode_old != FAILED_WrongChargeParameter)            {UART1_PutStr(" seccError:"); UART1_PutStr("           WrongChargeParameter");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_PowerDeliveryNotApplied         && seccErrorCode_old != FAILED_PowerDeliveryNotApplied)         {UART1_PutStr(" seccError:"); UART1_PutStr("        PowerDeliveryNotApplied");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_TariffSelectionInvalid          && seccErrorCode_old != FAILED_TariffSelectionInvalid)          {UART1_PutStr(" seccError:"); UART1_PutStr("         TariffSelectionInvalid");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ChargingProfileInvalid          && seccErrorCode_old != FAILED_ChargingProfileInvalid)          {UART1_PutStr(" seccError:"); UART1_PutStr("         ChargingProfileInvalid");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_MeteringSignatureNotValid       && seccErrorCode_old != FAILED_MeteringSignatureNotValid)       {UART1_PutStr(" seccError:"); UART1_PutStr("      MeteringSignatureNotValid");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_NoChargeServiceSelected         && seccErrorCode_old != FAILED_NoChargeServiceSelected)         {UART1_PutStr(" seccError:"); UART1_PutStr("        NoChargeServiceSelected");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_WrongEnergyTransferMode         && seccErrorCode_old != FAILED_WrongEnergyTransferMode)         {UART1_PutStr(" seccError:"); UART1_PutStr("        WrongEnergyTransferMode");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ContactorError                  && seccErrorCode_old != FAILED_ContactorError)                  {UART1_PutStr(" seccError:"); UART1_PutStr("                 ContactorError");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_CertificateNotAllowedAtThisEVSE && seccErrorCode_old != FAILED_CertificateNotAllowedAtThisEVSE) {UART1_PutStr(" seccError:"); UART1_PutStr("CertificateNotAllowedAtThisEVSE");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_CertificateRevoked              && seccErrorCode_old != FAILED_CertificateRevoked)              {UART1_PutStr(" seccError:"); UART1_PutStr("             CertificateRevoked");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_NoNegotiation                   && seccErrorCode_old != FAILED_NoNegotiation)                   {UART1_PutStr(" seccError:"); UART1_PutStr("                  NoNegotiation");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == TIMEOUT_CommunicationSetup             && seccErrorCode_old != TIMEOUT_CommunicationSetup)             {UART1_PutStr(" seccError:"); UART1_PutStr("     TIMEOUT_CommunicationSetup");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == TIMEOUT_Sequence                       && seccErrorCode_old != TIMEOUT_Sequence)                       {UART1_PutStr(" seccError:"); UART1_PutStr("               TIMEOUT_Sequence");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == TIMEOUT_NotificationMaxDelay           && seccErrorCode_old != TIMEOUT_NotificationMaxDelay)           {UART1_PutStr(" seccError:"); UART1_PutStr("   TIMEOUT_NotificationMaxDelay");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == TIMEOUT_WeldingDetection               && seccErrorCode_old != TIMEOUT_WeldingDetection)               {UART1_PutStr(" seccError:"); UART1_PutStr("       TIMEOUT_WeldingDetection");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_WrongCPLevel                    && seccErrorCode_old != FAILED_WrongCPLevel)                    {UART1_PutStr(" seccError:"); UART1_PutStr("            FAILED_WrongCPLevel");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ProximityError                  && seccErrorCode_old != FAILED_ProximityError)                  {UART1_PutStr(" seccError:"); UART1_PutStr("          FAILED_ProximityError");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_HLCError                        && seccErrorCode_old != FAILED_HLCError)                        {UART1_PutStr(" seccError:"); UART1_PutStr("                FAILED_HLCError");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_HeartbeatError                  && seccErrorCode_old != FAILED_HeartbeatError)                  {UART1_PutStr(" seccError:"); UART1_PutStr("          FAILED_HeartbeatError");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_EVSECANInit                     && seccErrorCode_old != FAILED_EVSECANInit)                     {UART1_PutStr(" seccError:"); UART1_PutStr("             FAILED_EVSECANInit");} 
+		else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAULT_HPGPLinkDown                     && seccErrorCode_old != FAULT_HPGPLinkDown)                     {UART1_PutStr(" seccError:"); UART1_PutStr("             FAULT_HPGPLinkDown");} 
+
+
+	seccErrorCode_old = SECC_Msg.SECC_Status_1.seccErrorCode;
+   
+        if     (SECC_Msg.SECC_Status_1.evErrorCode == EV_NO_ERROR                          && evErrorCode_old != EV_NO_ERROR)                              {UART1_PutStr(" evError:"); UART1_PutStr("                  EV_NO_ERROR");} 
+		else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_RESSTemperatureInhibit        && evErrorCode_old != FAILED_RESSTemperatureInhibit)            {UART1_PutStr(" evError:"); UART1_PutStr("       RESSTemperatureInhibit");} 
+		else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_EVShiftPosition               && evErrorCode_old != FAILED_EVShiftPosition)                   {UART1_PutStr(" evError:"); UART1_PutStr("              EVShiftPosition");} 
+		else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_ChargerConnectorLockFault     && evErrorCode_old != FAILED_ChargerConnectorLockFault)         {UART1_PutStr(" evError:"); UART1_PutStr("           ConnectorLockFault");} 
+		else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_EVRESSMalfunction             && evErrorCode_old != FAILED_EVRESSMalfunction)                 {UART1_PutStr(" evError:"); UART1_PutStr("            EVRESSMalfunction");} 
+		else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_ChargingCurrentdifferential   && evErrorCode_old != FAILED_ChargingCurrentdifferential)       {UART1_PutStr(" evError:"); UART1_PutStr("  ChargingCurrentdifferential");} 
+		else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_ChargingVoltageOutOfRange     && evErrorCode_old != FAILED_ChargingVoltageOutOfRange)         {UART1_PutStr(" evError:"); UART1_PutStr("    ChargingVoltageOutOfRange");} 
+		else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_ChargingSystemIncompatibility && evErrorCode_old != FAILED_ChargingSystemIncompatibility)     {UART1_PutStr(" evError:"); UART1_PutStr("ChargingSystemIncompatibility");} 
+
+	
+      evErrorCode_old = SECC_Msg.SECC_Status_1.evErrorCode;
+	if(module_info[1].Temperature >= 55) {UART1_PutStr(" M1:"); UART1_PutDec(2, (uint16_t)module_info[1].Temperature); UART1_PutStr("[℃]");}
+	if(module_info[2].Temperature >= 55) {UART1_PutStr(" M2:"); UART1_PutDec(2, (uint16_t)module_info[2].Temperature); UART1_PutStr("[℃]");}
+	if(module_info[3].Temperature >= 55) {UART1_PutStr(" M3:"); UART1_PutDec(2, (uint16_t)module_info[3].Temperature); UART1_PutStr("[℃]");}
+	if(module_info[4].Temperature >= 55) {UART1_PutStr(" M4:"); UART1_PutDec(2, (uint16_t)module_info[4].Temperature); UART1_PutStr("[℃]");}
+	if(module_info[5].Temperature >= 55) {UART1_PutStr(" M5:"); UART1_PutDec(2, (uint16_t)module_info[5].Temperature); UART1_PutStr("[℃]");}
+    if(coupler_temperature_P >= 75)             {UART1_PutStr(" COUPLER:"); UART1_PutDec(2, (uint16_t)coupler_temperature_P); UART1_PutStr("[℃]");}
+
+	if(module1_can_communication_rx_fault == _rx_fault) UART1_PutStr(" M1: CAN_RX_failure "); // 2022.09.30
+	if(module2_can_communication_rx_fault == _rx_fault) UART1_PutStr(" M2: CAN_RX_failure ");
+	if(module3_can_communication_rx_fault == _rx_fault) UART1_PutStr(" M3: CAN_RX_failure ");
+	if(module4_can_communication_rx_fault == _rx_fault) UART1_PutStr(" M4: CAN_RX_failure ");
+	if(module5_can_communication_rx_fault == _rx_fault) UART1_PutStr(" M5: CAN_RX_failure "); //모듈이 4개면 현재 라인 주석처리
+	
+/*
+	if(module_info[1].state_list0.bit._0_output_short)            UART1_PutStr(" M1: _0_output_short           ");
+	if(module_info[1].state_list0.bit._2_inner_comm_interrupt)    UART1_PutStr(" M1: _2_inner_comm_interrupt   ");
+	if(module_info[1].state_list0.bit._3_PFC_side_abnormal)       UART1_PutStr(" M1: _3_PFC_side_abnormal      ");
+    if(module_info[1].state_list0.bit._5_discharge_abnormal)      UART1_PutStr(" M1: _5_discharge_abnormal     ");
+
+//	if(module_info[1].state_list1.bit._0_Module_Off_State)        UART1_PutStr(" M1: _0_Module_Off_State       ");
+	if(module_info[1].state_list1.bit._1_Module_Fault)            UART1_PutStr(" M1: _1_Module_Fault           ");
+	if(module_info[1].state_list1.bit._2_Module_Protect)          UART1_PutStr(" M1: _2_Module_Protect         ");
+	if(module_info[1].state_list1.bit._3_Fan_fault)               UART1_PutStr(" M1: _3_Fan_fault              ");
+	if(module_info[1].state_list1.bit._4_Over_temperature)        UART1_PutStr(" M1: _4_Over_temperature       ");
+	if(module_info[1].state_list1.bit._5_Ouput_Over_Voltage)      UART1_PutStr(" M1: _5_Ouput_Over_Voltage     ");
+//	if(module_info[1].state_list1.bit._6_WALK_IN_enable)          UART1_PutStr(" M1: _6_WALK_IN_enable         ");
+	if(module_info[1].state_list1.bit._7_Communication_Interrupt) UART1_PutStr(" M1: _7_Communication_Interrupt");
+	
+    if(module_info[1].state_list2.bit._0_Power_Limit)             UART1_PutStr(" M1: _0_Power_Limit            ");
+    if(module_info[1].state_list2.bit._1_Module_ID_Repetition)    UART1_PutStr(" M1: _1_Module_ID_Repetition   ");
+	if(module_info[1].state_list2.bit._2_Load_Unsharing)          UART1_PutStr(" M1: _2_Load_Unsharing         ");
+	if(module_info[1].state_list2.bit._3_Input_Phase_Lost)        UART1_PutStr(" M1: _3_Input_Phase_Lost       ");
+	if(module_info[1].state_list2.bit._4_Input_Unbalance)         UART1_PutStr(" M1: _4_Input_Unbalance        ");
+	if(module_info[1].state_list2.bit._5_Input_Under_Voltage)     UART1_PutStr(" M1: _5_Input_Under_Voltage    ");
+	if(module_info[1].state_list2.bit._6_Input_Over_Voltage)      UART1_PutStr(" M1: _6_Input_Over_Voltage     ");
+//	if(module_info[1].state_list2.bit._7_Module_PFC_SideisOff)    UART1_PutStr(" M1: _7_Module_PFC_SideisOff   ");
+	
+	
+	if(module_info[2].state_list0.bit._0_output_short)            UART1_PutStr(" M2: _0_output_short           ");
+	if(module_info[2].state_list0.bit._2_inner_comm_interrupt)    UART1_PutStr(" M2: _2_inner_comm_interrupt   ");
+	if(module_info[2].state_list0.bit._3_PFC_side_abnormal)       UART1_PutStr(" M2: _3_PFC_side_abnormal      ");
+    if(module_info[2].state_list0.bit._5_discharge_abnormal)      UART1_PutStr(" M2: _5_discharge_abnormal     ");
+	
+//	if(module_info[2].state_list1.bit._0_Module_Off_State)        UART1_PutStr(" M2: _0_Module_Off_State       ");
+	if(module_info[2].state_list1.bit._1_Module_Fault)            UART1_PutStr(" M2: _1_Module_Fault           ");
+	if(module_info[2].state_list1.bit._2_Module_Protect)          UART1_PutStr(" M2: _2_Module_Protect         ");
+	if(module_info[2].state_list1.bit._3_Fan_fault)               UART1_PutStr(" M2: _3_Fan_fault              ");
+	if(module_info[2].state_list1.bit._4_Over_temperature)        UART1_PutStr(" M2: _4_Over_temperature       ");
+	if(module_info[2].state_list1.bit._5_Ouput_Over_Voltage)      UART1_PutStr(" M2: _5_Ouput_Over_Voltage     ");
+//	if(module_info[2].state_list1.bit._6_WALK_IN_enable)          UART1_PutStr(" M2: _6_WALK_IN_enable         ");
+	if(module_info[2].state_list1.bit._7_Communication_Interrupt) UART1_PutStr(" M2: _7_Communication_Interrupt");
+	
+    if(module_info[2].state_list2.bit._0_Power_Limit)             UART1_PutStr(" M2: _0_Power_Limit            ");
+    if(module_info[2].state_list2.bit._1_Module_ID_Repetition)    UART1_PutStr(" M2: _1_Module_ID_Repetition   ");
+	if(module_info[2].state_list2.bit._2_Load_Unsharing)          UART1_PutStr(" M2: _2_Load_Unsharing         ");
+	if(module_info[2].state_list2.bit._3_Input_Phase_Lost)        UART1_PutStr(" M2: _3_Input_Phase_Lost       ");
+	if(module_info[2].state_list2.bit._4_Input_Unbalance)         UART1_PutStr(" M2: _4_Input_Unbalance        ");
+	if(module_info[2].state_list2.bit._5_Input_Under_Voltage)     UART1_PutStr(" M2: _5_Input_Under_Voltage    ");
+	if(module_info[2].state_list2.bit._6_Input_Over_Voltage)      UART1_PutStr(" M2: _6_Input_Over_Voltage     ");
+//	if(module_info[2].state_list2.bit._7_Module_PFC_SideisOff)    UART1_PutStr(" M2: _7_Module_PFC_SideisOff   ");	
+
+	
+	if(module_info[3].state_list0.bit._0_output_short)            UART1_PutStr(" M3: _0_output_short           ");
+	if(module_info[3].state_list0.bit._2_inner_comm_interrupt)    UART1_PutStr(" M3: _2_inner_comm_interrupt   ");
+	if(module_info[3].state_list0.bit._3_PFC_side_abnormal)       UART1_PutStr(" M3: _3_PFC_side_abnormal      ");
+    if(module_info[3].state_list0.bit._5_discharge_abnormal)      UART1_PutStr(" M3: _5_discharge_abnormal     ");
+	
+//	if(module_info[3].state_list1.bit._0_Module_Off_State)        UART1_PutStr(" M3: _0_Module_Off_State       ");
+	if(module_info[3].state_list1.bit._1_Module_Fault)            UART1_PutStr(" M3: _1_Module_Fault           ");
+	if(module_info[3].state_list1.bit._2_Module_Protect)          UART1_PutStr(" M3: _2_Module_Protect         ");
+	if(module_info[3].state_list1.bit._3_Fan_fault)               UART1_PutStr(" M3: _3_Fan_fault              ");
+	if(module_info[3].state_list1.bit._4_Over_temperature)        UART1_PutStr(" M3: _4_Over_temperature       ");
+	if(module_info[3].state_list1.bit._5_Ouput_Over_Voltage)      UART1_PutStr(" M3: _5_Ouput_Over_Voltage     ");
+//	if(module_info[3].state_list1.bit._6_WALK_IN_enable)          UART1_PutStr(" M3: _6_WALK_IN_enable         ");
+	if(module_info[3].state_list1.bit._7_Communication_Interrupt) UART1_PutStr(" M3: _7_Communication_Interrupt");
+	
+    if(module_info[3].state_list2.bit._0_Power_Limit)             UART1_PutStr(" M3: _0_Power_Limit            ");
+    if(module_info[3].state_list2.bit._1_Module_ID_Repetition)    UART1_PutStr(" M3: _1_Module_ID_Repetition   ");
+	if(module_info[3].state_list2.bit._2_Load_Unsharing)          UART1_PutStr(" M3: _2_Load_Unsharing         ");
+	if(module_info[3].state_list2.bit._3_Input_Phase_Lost)        UART1_PutStr(" M3: _3_Input_Phase_Lost       ");
+	if(module_info[3].state_list2.bit._4_Input_Unbalance)         UART1_PutStr(" M3: _4_Input_Unbalance        ");
+	if(module_info[3].state_list2.bit._5_Input_Under_Voltage)     UART1_PutStr(" M3: _5_Input_Under_Voltage    ");
+	if(module_info[3].state_list2.bit._6_Input_Over_Voltage)      UART1_PutStr(" M3: _6_Input_Over_Voltage     ");
+//	if(module_info[3].state_list2.bit._7_Module_PFC_SideisOff)    UART1_PutStr(" M3: _7_Module_PFC_SideisOff   ");	
+
+	
+	if(module_info[4].state_list0.bit._0_output_short)            UART1_PutStr(" M4: _0_output_short           ");
+	if(module_info[4].state_list0.bit._2_inner_comm_interrupt)    UART1_PutStr(" M4: _2_inner_comm_interrupt   ");
+	if(module_info[4].state_list0.bit._3_PFC_side_abnormal)       UART1_PutStr(" M4: _3_PFC_side_abnormal      ");
+    if(module_info[4].state_list0.bit._5_discharge_abnormal)      UART1_PutStr(" M4: _5_discharge_abnormal     ");
+	
+//	if(module_info[4].state_list1.bit._0_Module_Off_State)        UART1_PutStr(" M4: _0_Module_Off_State       ");
+	if(module_info[4].state_list1.bit._1_Module_Fault)            UART1_PutStr(" M4: _1_Module_Fault           ");
+	if(module_info[4].state_list1.bit._2_Module_Protect)          UART1_PutStr(" M4: _2_Module_Protect         ");
+	if(module_info[4].state_list1.bit._3_Fan_fault)               UART1_PutStr(" M4: _3_Fan_fault              ");
+	if(module_info[4].state_list1.bit._4_Over_temperature)        UART1_PutStr(" M4: _4_Over_temperature       ");
+	if(module_info[4].state_list1.bit._5_Ouput_Over_Voltage)      UART1_PutStr(" M4: _5_Ouput_Over_Voltage     ");
+//	if(module_info[4].state_list1.bit._6_WALK_IN_enable)          UART1_PutStr(" M4: _6_WALK_IN_enable         ");
+	if(module_info[4].state_list1.bit._7_Communication_Interrupt) UART1_PutStr(" M4: _7_Communication_Interrupt");
+	
+    if(module_info[4].state_list2.bit._0_Power_Limit)             UART1_PutStr(" M4: _0_Power_Limit            ");
+    if(module_info[4].state_list2.bit._1_Module_ID_Repetition)    UART1_PutStr(" M4: _1_Module_ID_Repetition   ");
+	if(module_info[4].state_list2.bit._2_Load_Unsharing)          UART1_PutStr(" M4: _2_Load_Unsharing         ");
+	if(module_info[4].state_list2.bit._3_Input_Phase_Lost)        UART1_PutStr(" M4: _3_Input_Phase_Lost       ");
+	if(module_info[4].state_list2.bit._4_Input_Unbalance)         UART1_PutStr(" M4: _4_Input_Unbalance        ");
+	if(module_info[4].state_list2.bit._5_Input_Under_Voltage)     UART1_PutStr(" M4: _5_Input_Under_Voltage    ");
+	if(module_info[4].state_list2.bit._6_Input_Over_Voltage)      UART1_PutStr(" M4: _6_Input_Over_Voltage     ");
+//	if(module_info[4].state_list2.bit._7_Module_PFC_SideisOff)    UART1_PutStr(" M4: _7_Module_PFC_SideisOff   ");	
+
+	
+	if(module_info[5].state_list0.bit._0_output_short)            UART1_PutStr(" M5: _0_output_short           ");
+	if(module_info[5].state_list0.bit._2_inner_comm_interrupt)    UART1_PutStr(" M5: _2_inner_comm_interrupt   ");
+	if(module_info[5].state_list0.bit._3_PFC_side_abnormal)       UART1_PutStr(" M5: _3_PFC_side_abnormal      ");
+    if(module_info[5].state_list0.bit._5_discharge_abnormal)      UART1_PutStr(" M5: _5_discharge_abnormal     ");
+	
+//	if(module_info[5].state_list1.bit._0_Module_Off_State)        UART1_PutStr(" M5: _0_Module_Off_State       ");
+	if(module_info[5].state_list1.bit._1_Module_Fault)            UART1_PutStr(" M5: _1_Module_Fault           ");
+	if(module_info[5].state_list1.bit._2_Module_Protect)          UART1_PutStr(" M5: _2_Module_Protect         ");
+	if(module_info[5].state_list1.bit._3_Fan_fault)               UART1_PutStr(" M5: _3_Fan_fault              ");
+	if(module_info[5].state_list1.bit._4_Over_temperature)        UART1_PutStr(" M5: _4_Over_temperature       ");
+	if(module_info[5].state_list1.bit._5_Ouput_Over_Voltage)      UART1_PutStr(" M5: _5_Ouput_Over_Voltage     ");
+//	if(module_info[5].state_list1.bit._6_WALK_IN_enable)          UART1_PutStr(" M5: _6_WALK_IN_enable         ");
+	if(module_info[5].state_list1.bit._7_Communication_Interrupt) UART1_PutStr(" M5: _7_Communication_Interrupt");
+	
+    if(module_info[5].state_list2.bit._0_Power_Limit)             UART1_PutStr(" M5: _0_Power_Limit            ");
+    if(module_info[5].state_list2.bit._1_Module_ID_Repetition)    UART1_PutStr(" M5: _1_Module_ID_Repetition   ");
+	if(module_info[5].state_list2.bit._2_Load_Unsharing)          UART1_PutStr(" M5: _2_Load_Unsharing         ");
+	if(module_info[5].state_list2.bit._3_Input_Phase_Lost)        UART1_PutStr(" M5: _3_Input_Phase_Lost       ");
+	if(module_info[5].state_list2.bit._4_Input_Unbalance)         UART1_PutStr(" M5: _4_Input_Unbalance        ");
+	if(module_info[5].state_list2.bit._5_Input_Under_Voltage)     UART1_PutStr(" M5: _5_Input_Under_Voltage    ");
+	if(module_info[5].state_list2.bit._6_Input_Over_Voltage)      UART1_PutStr(" M5: _6_Input_Over_Voltage     ");
+//	if(module_info[5].state_list2.bit._7_Module_PFC_SideisOff)    UART1_PutStr(" M5: _7_Module_PFC_SideisOff   ");
+
+
+*/
+}
+
+
+void Send_Uart_Terminal_default(void)
+{
+//	if     (device_id == 1) UART1_PutStr("\r CHANNEL_ID:1");
+//	else if(device_id == 2) UART1_PutStr("\r CHANNEL_ID:2");
+//
+//    UART1_PutStr(" Seq: "); UART1_PutDec(4, sequence_step);
+
+	UART1_PutStr(" \r CP:");
+	if(SECC_Msg.SECC_Status_2.cpVoltage_12 < 0) {UART1_PutStr("-");UART1_PutDec(3, ~(SECC_Msg.SECC_Status_2.cpVoltage_12)+1);} // short형 
+	else                                        {UART1_PutStr(" ");UART1_PutDec(3, (u16)SECC_Msg.SECC_Status_2.cpVoltage_12);}
+//	if     (SECC_Msg.SECC_Status_2.CP_Status_0.bit.cpOscillator == TRUE) {UART1_PutStr(" PWM:");  UART1_PutStr("  ON"); }
+//	else if(SECC_Msg.SECC_Status_2.CP_Status_0.bit.cpOscillator == FALSE){UART1_PutStr(" PWM:");  UART1_PutStr(" OFF"); }
+	
+	UART1_PutStr(" COUPLER:"); 
+	if   (coupler_temperature_P == 1) UART1_PutStr("OPEN"); 
+    else                              UART1_PutDec(4, (uint16_t)coupler_temperature_P);
+//	UART1_PutStr(" [℃] ");
+	
+	if(Digital_input.bit.I_RY1) UART1_PutStr(" Relay1: ON"); 
+	else                        UART1_PutStr(" Relay1:OFF"); 
+	if(Digital_input.bit.I_RY2) UART1_PutStr(" Relay2: ON");
+	else                        UART1_PutStr(" Relay2:OFF");
+	if(Digital_input_buffer4.bit.I_LIMIT == 1) UART1_PutStr(" FUSE:OPEN"); 
+	else                                       UART1_PutStr(" FUSE: OK!"); 
+
+	UART1_PutStr(" MODULE:");
+	if(module_on_off == 1) UART1_PutStr(" ON");
+	else                   UART1_PutStr("OFF"); 
+						
+	UART1_PutStr(" Vref:"); UART1_PutDec(3, (u16)Vout_ref_temp);
+    UART1_PutStr(" Vout:"); UART1_PutDec(3, (u16)Vout);
+    UART1_PutStr(" Iref:"); UART1_PutDec(3, (u16)Iout_ref_temp);
+	UART1_PutStr(" Iout:"); UART1_PutDec(3, (u16)Iout_Module);
+//    UART1_PutStr(" "); // 구분
+    UART1_PutStr(" M1:"); UART1_PutDec(3, (u16)module_info[0].ufVout.fValue); UART1_PutStr("[V]");
+	UART1_PutStr(" M2:"); UART1_PutDec(3, (u16)module_info[1].ufVout.fValue); UART1_PutStr("[V]");
+	UART1_PutStr(" M3:"); UART1_PutDec(3, (u16)module_info[2].ufVout.fValue); UART1_PutStr("[V]");
+	UART1_PutStr(" M4:"); UART1_PutDec(3, (u16)module_info[3].ufVout.fValue); UART1_PutStr("[V]");
+	UART1_PutStr(" M5:"); UART1_PutDec(3, (u16)module_info[4].ufVout.fValue); UART1_PutStr("[V]"); //모듈이 4개면 주석처리
+//	UART1_PutStr(" "); // 구분
+	UART1_PutStr(" M1:"); UART1_PutDec(2, (u16)module_info[0].ufIout.fValue); UART1_PutStr("[A]");
+	UART1_PutStr(" M2:"); UART1_PutDec(2, (u16)module_info[1].ufIout.fValue); UART1_PutStr("[A]");
+	UART1_PutStr(" M3:"); UART1_PutDec(2, (u16)module_info[2].ufIout.fValue); UART1_PutStr("[A]");
+	UART1_PutStr(" M4:"); UART1_PutDec(2, (u16)module_info[3].ufIout.fValue); UART1_PutStr("[A]");
+	UART1_PutStr(" M5:"); UART1_PutDec(2, (u16)module_info[4].ufIout.fValue); UART1_PutStr("[A]"); //모듈이 4개면 주석처리
+//	if(module1_rx_fault_flag) UART1_PutStr(" M1: CAN_RX_failure ");
+//	if(module2_rx_fault_flag) UART1_PutStr(" M2: CAN_RX_failure ");
+//	if(module3_rx_fault_flag) UART1_PutStr(" M3: CAN_RX_failure ");
+//	if(module4_rx_fault_flag) UART1_PutStr(" M4: CAN_RX_failure ");
+//	if(module5_rx_fault_flag) UART1_PutStr(" M5: CAN_RX_failure "); //모듈이 4개면 주석처리
+//	UART1_PutStr(" "); // 구분
+	if     (SECC_Msg.SECC_Status_1.seccStatusCode == Idle_Wait                           ) UART1_PutStr(" Idle_Wait              ");                              
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Idle                                ) UART1_PutStr(" Idle                   ");                           
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Ready                               ) UART1_PutStr(" Ready                  "); 
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Low_Level_Comm                      ) UART1_PutStr(" Low_Level_Comm         ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == High_Level_Comm                     ) UART1_PutStr(" High_Level_Comm        "); 
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Authorization_ContractAuthentication) UART1_PutStr(" Authorization          ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == ChargeParameterDiscovery            ) UART1_PutStr(" ParameterDiscovery     ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == CableCheck                          ) UART1_PutStr(" CableCheck             ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == PreCharge                           ) UART1_PutStr(" PreCharge              ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Charging                            ) UART1_PutStr(" Charging               ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Renegotiation                       ) UART1_PutStr(" Renegotiation          ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == EV_Init_Stop_Charging               ) UART1_PutStr(" EV_Init_Stop_Charging  ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == EVSE_Init_Stop_Charging             ) UART1_PutStr(" EVSE_Init_Stop_Charging"); 
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Terminate                           ) UART1_PutStr(" Terminate              ");    
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == CertificateInstallation             ) UART1_PutStr(" CertificateInstallation");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == CertificatedUpdate                  ) UART1_PutStr(" CertificatedUpdate     ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == SECC_ERROR                          ) UART1_PutStr(" SECC_ERROR             ");
+//	UART1_PutStr(" "); // 구분
+	if     (SECC_Msg.SECC_Status_1.seccErrorCode == SECC_NO_ERROR                          ) UART1_PutStr(" SECC_NO_ERROR                  ");
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED                                 ) UART1_PutStr(" FAILED                         ");
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_SequenceError                   ) UART1_PutStr(" SequenceError                  ");
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ServiceIDInvalid                ) UART1_PutStr(" ServiceIDInvalid               ");
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_UnknownSession                  ) UART1_PutStr(" UnknownSession                 ");  
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ServiceSelectionInvalid         ) UART1_PutStr(" ServiceSelectionInvalid        "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_PaymentSelectionInvalid         ) UART1_PutStr(" PaymentSelectionInvalid        ");  
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_CertificateExpired              ) UART1_PutStr(" CertificateExpired             "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_SignatureError                  ) UART1_PutStr(" SignatureError                 "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_NoCertificateAvailable          ) UART1_PutStr(" NoCertificateAvailable         "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_CerChainError                   ) UART1_PutStr(" CerChainError                  "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ChallengeInvalid                ) UART1_PutStr(" ChallengeInvalid               "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ContractCanceled                ) UART1_PutStr(" ContractCanceled               "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_WrongChargeParameter            ) UART1_PutStr(" WrongChargeParameter           "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_PowerDeliveryNotApplied         ) UART1_PutStr(" PowerDeliveryNotApplied        "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_TariffSelectionInvalid          ) UART1_PutStr(" TariffSelectionInvalid         "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ChargingProfileInvalid          ) UART1_PutStr(" ChargingProfileInvalid         "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_MeteringSignatureNotValid       ) UART1_PutStr(" MeteringSignatureNotValid      "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_NoChargeServiceSelected         ) UART1_PutStr(" NoChargeServiceSelected        "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_WrongEnergyTransferMode         ) UART1_PutStr(" WrongEnergyTransferMode        "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ContactorError                  ) UART1_PutStr(" ContactorError                 "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_CertificateNotAllowedAtThisEVSE ) UART1_PutStr(" CertificateNotAllowedAtThisEVSE"); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_CertificateRevoked              ) UART1_PutStr(" CertificateRevoked             "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_NoNegotiation                   ) UART1_PutStr(" NoNegotiation                  "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == TIMEOUT_CommunicationSetup             ) UART1_PutStr(" TIMEOUT_CommunicationSetup     "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == TIMEOUT_Sequence                       ) UART1_PutStr(" TIMEOUT_Sequence               "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == TIMEOUT_NotificationMaxDelay           ) UART1_PutStr(" TIMEOUT_NotificationMaxDelay   "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == TIMEOUT_WeldingDetection               ) UART1_PutStr(" TIMEOUT_WeldingDetection       "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_WrongCPLevel                    ) UART1_PutStr(" FAILED_WrongCPLevel            "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ProximityError                  ) UART1_PutStr(" FAILED_ProximityError          "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_HLCError                        ) UART1_PutStr(" FAILED_HLCError                "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_HeartbeatError                  ) UART1_PutStr(" FAILED_HeartbeatError          "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_EVSECANInit                     ) UART1_PutStr(" FAILED_EVSECANInit             "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAULT_HPGPLinkDown                     ) UART1_PutStr(" FAULT_HPGPLinkDown             "); 
+//    UART1_PutStr(" "); // 구분
+	if     (SECC_Msg.SECC_Status_1.evErrorCode == EV_NO_ERROR                          ) UART1_PutStr(" EV_NO_ERROR                  "); 
+	else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_RESSTemperatureInhibit        ) UART1_PutStr(" RESSTemperatureInhibit       "); 
+	else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_EVShiftPosition               ) UART1_PutStr(" EVShiftPosition              "); 
+	else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_ChargerConnectorLockFault     ) UART1_PutStr(" ConnectorLockFault           "); 
+	else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_EVRESSMalfunction             ) UART1_PutStr(" EVRESSMalfunction            "); 
+	else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_ChargingCurrentdifferential   ) UART1_PutStr(" ChargingCurrentdifferential  "); 
+	else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_ChargingVoltageOutOfRange     ) UART1_PutStr(" ChargingVoltageOutOfRange    "); 
+	else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_ChargingSystemIncompatibility ) UART1_PutStr(" ChargingSystemIncompatibility"); 
+
+
+//		UART1_PutStr(" DC electric energy: ");
+//		if     (dc_electric_energy >= 100) {                    UART1_PutDec(3, (u16)(dc_electric_energy));}
+//		else if(dc_electric_energy >=  10) {UART1_PutStr(" ");  UART1_PutDec(2, (u16)(dc_electric_energy));}
+//		else if(dc_electric_energy >=   0) {UART1_PutStr("  "); UART1_PutDec(1, (u16)(dc_electric_energy));}
+//				                            UART1_PutChar('.'); 
+//				                                                UART1_PutDec(1, (u16)(dc_electric_energy * 100 * 0.1F));
+//				                                                UART1_PutDec(1, (u16)(dc_electric_energy * 100));
+//				                                                UART1_PutStr("[kWh] ");
+//		
+//        UART1_PutDec(1, (u16)hour); UART1_PutStr(":"); UART1_PutDec(2, (u16)minute); UART1_PutStr(":"); UART1_PutDec(2, (u16)second); UART1_PutStr("."); UART1_PutDec(1, elapsed_time);
+//		
+//			UART1_PutStr(" SOC:");
+//			if     ((s16)SECC_Msg.SECC_EV_SoC_Related_Parameters.evSOC_1 >= 100) {                   UART1_PutDec(3, (u16)SECC_Msg.SECC_EV_SoC_Related_Parameters.evSOC_1);}
+//			else if((s16)SECC_Msg.SECC_EV_SoC_Related_Parameters.evSOC_1 >=  10) {UART1_PutStr(" "); UART1_PutDec(2, (u16)SECC_Msg.SECC_EV_SoC_Related_Parameters.evSOC_1);}
+//			else if((s16)SECC_Msg.SECC_EV_SoC_Related_Parameters.evSOC_1 >=   0) {UART1_PutStr("  ");UART1_PutDec(1, (u16)SECC_Msg.SECC_EV_SoC_Related_Parameters.evSOC_1);}
+//			UART1_PutStr("[%]");
+//			
+//			if(SECC_Msg.SECC_EV_SoC_Related_Parameters.remainingTimeToBulkSOC_67 != 0) {UART1_PutStr(" Bulk_Time: "); UART1_PutDec(3, (u16)(SECC_Msg.SECC_EV_SoC_Related_Parameters.remainingTimeToBulkSOC_67 * 0.166666666F)); UART1_PutStr(" Min");} // 1/6 = 0.166666666F
+//			else                                                                       {UART1_PutStr(" Full_Time: "); UART1_PutDec(3, (u16)(SECC_Msg.SECC_EV_SoC_Related_Parameters.remainingTimeToFullSOC_45 * 0.166666666F)); UART1_PutStr(" Min");} // ex) 198 -> 198/6 = 33min	
+//
+//
+//			if     (Vout * Iout_Module * 0.001F >= 100) {                   UART1_PutDec(3, (u16)(Vout * Iout_Module * 0.001F));}
+//			else if(Vout * Iout_Module * 0.001F >=  10) {UART1_PutStr(" "); UART1_PutDec(2, (u16)(Vout * Iout_Module * 0.001F));}
+//			else if(Vout * Iout_Module * 0.001F >=   0) {UART1_PutStr("  ");UART1_PutDec(1, (u16)(Vout * Iout_Module * 0.001F));}
+//			UART1_PutStr("[kW] ");
+//			
+//		// 	UART1_PutDec(1, (u16)(dc_electric_energy * 100 * 0.0001F));
+//		//	UART1_PutDec(1, (u16)(dc_electric_energy * 100 * 0.001F));
+//		//	UART1_PutDec(1, (u16)(dc_electric_energy * 100 * 0.01F));
+//			if     (dc_electric_energy >= 100) {                    UART1_PutDec(3, (u16)(dc_electric_energy));}
+//			else if(dc_electric_energy >=  10) {UART1_PutStr(" ");  UART1_PutDec(2, (u16)(dc_electric_energy));}
+//			else if(dc_electric_energy >=   0) {UART1_PutStr("  "); UART1_PutDec(1, (u16)(dc_electric_energy));}
+//			UART1_PutChar('.'); 
+//			UART1_PutDec(1, (u16)(dc_electric_energy * 100 * 0.1F));
+//			UART1_PutDec(1, (u16)(dc_electric_energy * 100));
+//			UART1_PutStr("[kWh] ");
+//			
+////            UART1_PutStr("EV current_demand: "); UART1_PutDec(3, (u16)(SECC_Msg.SECC_EV_TargetVoltage_Current.targetCurrent_23 * 0.1F)); UART1_PutStr(" ");
+//			
+//			UART1_PutDec(1, (u16)hour); UART1_PutStr(":"); UART1_PutDec(2, (u16)minute); UART1_PutStr(":"); UART1_PutDec(2, (u16)second); UART1_PutStr("."); UART1_PutDec(1, elapsed_time);
+//			
+//			UART1_PutStr(" DC_METER Iout: "); UART1_PutDec(3, dc_power_meter_measure_Iout); // 2022.09.30
+//
+
+
+}
+
+
+void term_get_cmd_excute(void)
+{
+	
+//	if     (send_uart_term_start_flag)  {Send_Uart_Terminal();                                           }
+
+	if(send_uart_term_start_flag) 
+	{
+//		UART1_PutStr(T_CSHC);
+//		UART1_PutStr(T_CSHC1);
+		charging_infomation2();
+		send_uart_term_start = 0;
+	}
+	else
+	{
+		if(send_uart_term_start)       {Send_Uart_Terminal();                                           }
+		if(finish_newline_flag)        
+		{
+			UART1_PutStr(evsis_text1);
+			UART1_PutStr(evsis_text2);
+			UART1_PutStr(evsis_text3);
+			UART1_PutStr(evsis_text4);
+			UART1_PutStr(evsis_text5);
+			UART1_PutStr(evsis_text6);
+			UART1_PutStr(evsis_text7);
+			UART1_PutStr("\r 시스템 전체 동작 시간 : "); UART1_PutDec(3, (u16)g_day); UART1_PutStr(" [Day] ");UART1_PutDec(2, (u16)g_hour); UART1_PutStr(":"); UART1_PutDec(2, (u16)g_minute); UART1_PutStr(":"); UART1_PutDec(2, (u16)g_second);
+			
+			UART1_PutStr("\r\n\n\n\n\n\n\n\n\n\n"); 
+			finish_newline_flag = 0;
+		}
+	}
+
+			
+	if     (system_cmd == charging_info_start_cmd                     ){system_cmd = none; UART1_PutStr("\r\n\n 충전 정보 표시를 시작합니다. \r\n\n "); send_uart_term_start_flag = 1;}
+	else if(system_cmd == charging_info_stop_cmd                      ){system_cmd = none; UART1_PutStr("\r\n\n 충전 정보 표시를 종료합니다. \r\n\n "); send_uart_term_start_flag = 0;}
+	else if(system_cmd == system_reset_cmd && sequence_step == 0)
+	{
+		system_cmd = none; 
+		UART1_PutStr("\r\n\n 사용자 시스템 리셋!!  \r\n\n "); 
+		NVIC_SystemReset();            
+	}
+	else if(system_cmd == fw_update_cmd && sequence_step == 0   )
+	{
+		system_cmd = none; 
+		UART1_PutStr(evsis_text1);
+		UART1_PutStr(evsis_text2);
+		UART1_PutStr(evsis_text3);
+		UART1_PutStr(evsis_text4);
+		UART1_PutStr(evsis_text5);
+		UART1_PutStr(evsis_text6);
+		UART1_PutStr(evsis_text7);		
+		UART1_PutStr("\r\n ********************************************************************************************************** \r\n");				
+		UART1_PutStr("\r\n   펌웨어 업데이트 모드입니다. 파일 전송을 기다리는 중입니다. \r\n");
+		UART1_PutStr("\r\n   하이퍼 터미널 또는 응용프로그램에서 x-modem(1k)로 60초 이내에 bin(바이너리) 파일 전송을 시작해 주세요. 60초가 지나면 자동 복구됩니다. baud rate는 38400입니다. \n ");
+        UART1_PutStr("\r\n   펌웨어 업데이트 모드 실행 전에 HMI의 충전기(응용) 프로그램을 종료하지 않았다면 응용 프로그램 종료 후 반드시 업데이트 파일을 전송해야합니다. \r\n");
+		UART1_PutStr("\r\n   업데이트 파일을 전송하지 않으면 메인 프로그램으로 복구되지 않을 수 있습니다. \r\n"); 
+		UART1_PutStr("\r\n   1분 이상 이 상태가 지속되면 컨트롤보드의 리셋 버튼을 눌러서 부트 프로그램이 종료될 때까지(1분) 기다립니다. 또는 부트 프로그램과 메인 프로그램을 다시 다운로드 하세요. \n ");
+        UART1_PutStr("\r\n ********************************************************************************************************** \r\n");
+		FW_update();
+	}
+	else if(system_cmd == version_cmd)
+	{
+		system_cmd = none; 				
+		UART1_PutStr(evsis_text1);
+		UART1_PutStr(evsis_text2);
+		UART1_PutStr(evsis_text3);
+		UART1_PutStr(evsis_text4);
+		UART1_PutStr(evsis_text5);
+		UART1_PutStr(evsis_text6);
+		UART1_PutStr(evsis_text7);	
+													UART1_PutStr("\r\n [충전기 프로그램 정보]");
+													UART1_PutStr("\r\n 펌웨어 버전           : "); UART1_PutDec(1, (u16)(fw_version*0.01F)); UART1_PutChar('.'); UART1_PutDec(1, (u16)(fw_version*0.1F)); UART1_PutChar('.'); UART1_PutDec(1, (u16)fw_version);
+													UART1_PutStr("\r\n 마지막 업데이트 일자  : "); UART1_PutDec(2, (u16)last_update_year); UART1_PutChar('.'); UART1_PutDec(2, (u16)last_update_month); UART1_PutChar('.'); UART1_PutDec(2, (u16)last_update_day);	
+													UART1_PutStr("\r\n PLC 모뎀 펌웨어 버전  : "); UART1_PutDec(1, (u16)SECC_Msg.SECC_Status_1.seccVersionMajor); UART1_PutChar('.'); UART1_PutDec(1, (u16)SECC_Msg.SECC_Status_1.seccVersionMinor); UART1_PutChar('.'); UART1_PutDec(1, (u16)SECC_Msg.SECC_Status_1.seccVersionPatch);UART1_PutStr(" (정보가 안 나오면 모뎀과 통신이 안 된 것입니다. 모뎀 부팅시간 확보 후 다시 확인하세요.)");
+													UART1_PutStr("\r\n 파워 모듈             : 인피파워(INFYPOWER)");
+	if(!GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_2))   UART1_PutStr("\r\n 보드 점퍼핀 설정 정보 : 1 (왼쪽 채널) \r\n ");
+	else                                            UART1_PutStr("\r\n 보드 점퍼핀 설정 정보 : 2 (오른쪽 채널) \r\n ");
+	
+	UART1_PutStr("\r 시스템 전체 동작 시간 : "); UART1_PutDec(3, (u16)g_day); UART1_PutStr(" [Day] ");UART1_PutDec(2, (u16)g_hour); UART1_PutStr(":"); UART1_PutDec(2, (u16)g_minute); UART1_PutStr(":"); UART1_PutDec(2, (u16)g_second);
+	}
+	else if(system_cmd == charging_status) Send_Uart_Terminal_default();
+	else if(system_cmd == wrong_cmd) {UART1_PutStr("\r\n 잘못된 명령입니다. 명령을 취소합니다. \r\n"); system_cmd = none;}
+	else                                                                                      system_cmd = none;
+	
+	
+}
+
+
+
+
+ 
+//int main(void)
+//{
+//    printf("%x\r\n", UTF8_Type_Check(0));
+// 
+//    return 0;
+//}
+// 
+uint32_t UTF8_Type_Check(uint8_t num)
+{
+    uint32_t UTF8toUnicode = 0;
+    uint8_t UTF8_byte = UTF8_Byte_table[buff[num]]; //Buffer에 앞자리만 확인을 하여 UTF-8이 몇 Byte인지 확인을 해주고, Switch안에서는 Byte의 자리수에 따라 유니코드로 변환을 해줍니다.
+ 
+    switch (UTF8_byte) {
+        case 4:    
+            UTF8toUnicode += (buff[num++] & 0x07); UTF8toUnicode <<= 6;
+            UTF8toUnicode += (buff[num++] & 0x3f); UTF8toUnicode <<= 6;
+            UTF8toUnicode += (buff[num++] & 0x3f); UTF8toUnicode <<= 6;
+            UTF8toUnicode += (buff[num] & 0x3f);
+            UTF8toUnicode = 4;
+            break;
+ 
+        case 3:    
+            UTF8toUnicode += (buff[num++] & 0x0f);     UTF8toUnicode <<= 6;
+            UTF8toUnicode += (buff[num++] & 0x3f);     UTF8toUnicode <<= 6;
+            UTF8toUnicode += (buff[num] & 0x3f);
+            UTF8_Byte_val = 3;
+            break;
+ 
+        case 2:    
+            UTF8toUnicode += (buff[num++] & 0x1f); UTF8toUnicode <<= 6;
+            UTF8toUnicode += (buff[num] & 0x3f);
+            UTF8_Byte_val = 2;
+            break;
+ 
+        case 1:    
+            UTF8toUnicode += buff[num];
+            UTF8_Byte_val = 1;
+            break;
+    }
+ 
+    return UTF8toUnicode;
+}
+
+UINT8 rand_num_make_count;
+
+void make_random_number(void)
+{
+	uint8_t rand_number;
+	
+	rand_number = rand() % 7 + 1;
+	if(rand_num_make_count++ > 7) rand_num_make_count = 1;
+	if     (rand_num_make_count == 1) evsis_text1[5] = 0x30 + rand_number;
+	else if(rand_num_make_count == 2) evsis_text2[5] = 0x30 + rand_number;
+	else if(rand_num_make_count == 3) evsis_text3[5] = 0x30 + rand_number;
+	else if(rand_num_make_count == 4) evsis_text4[5] = 0x30 + rand_number;
+	else if(rand_num_make_count == 5) evsis_text5[5] = 0x30 + rand_number;
+	else if(rand_num_make_count == 6) evsis_text6[5] = 0x30 + rand_number;
+	else if(rand_num_make_count == 7) evsis_text7[5] = 0x30 + rand_number;
+}
+
+void total_operating_time(void)
+{
+	if(g_elapsed_time++ >= 864000) // 1day = 24hour = 1440min = 86400sec, 100ms timer 
+	{
+		g_day++;
+		g_elapsed_time = 0; 
+	}
+	g_elapsed_time_s = g_elapsed_time * 0.1F; // sec timer
+
+	g_minute = (uint16_t)(g_elapsed_time_s * 0.0166666667);
+	g_hour   = (uint16_t)(g_minute * 0.0166666667);
+	g_minute = (uint16_t)(g_minute % 60);
+	g_second = (uint16_t)((u16)g_elapsed_time_s % 60);
+	
+}
+
+uint8_t test_timer, test_timer1, soc_blink;
+UINT16 targetvoltage, current_demand;
+void charging_infomation (void) //log1, 50ms
+{
+	if     (SECC_Msg.SECC_Status_1.seccStatusCode == Idle_Wait                           ) UART1_PutStr(" Idle_Wait              ");                              
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Idle                                ) UART1_PutStr(" Idle                   ");                           
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Ready                               ) UART1_PutStr(" Ready                  "); 
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Low_Level_Comm                      ) UART1_PutStr(" Low_Level_Comm         ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == High_Level_Comm                     ) UART1_PutStr(" High_Level_Comm        "); 
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Authorization_ContractAuthentication) UART1_PutStr(" Authorization          ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == ChargeParameterDiscovery            ) UART1_PutStr(" ParameterDiscovery     ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == CableCheck                          ) UART1_PutStr(" CableCheck             ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == PreCharge                           ) UART1_PutStr(" PreCharge              ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Charging                            ) UART1_PutStr(" Charging               ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Renegotiation                       ) UART1_PutStr(" Renegotiation          ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == EV_Init_Stop_Charging               ) UART1_PutStr(" EV_Init_Stop_Charging  ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == EVSE_Init_Stop_Charging             ) UART1_PutStr(" EVSE_Init_Stop_Charging"); 
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Terminate                           ) UART1_PutStr(" Terminate              ");    
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == CertificateInstallation             ) UART1_PutStr(" CertificateInstallation");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == CertificatedUpdate                  ) UART1_PutStr(" CertificatedUpdate     ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == SECC_ERROR                          ) UART1_PutStr(" SECC_ERROR             ");
+//	UART1_PutStr(" "); // 구분
+	if     (SECC_Msg.SECC_Status_1.seccErrorCode == SECC_NO_ERROR                          ) UART1_PutStr(" SECC_NO_ERROR                  ");
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED                                 ) UART1_PutStr(" FAILED                         ");
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_SequenceError                   ) UART1_PutStr(" SequenceError                  ");
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ServiceIDInvalid                ) UART1_PutStr(" ServiceIDInvalid               ");
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_UnknownSession                  ) UART1_PutStr(" UnknownSession                 ");  
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ServiceSelectionInvalid         ) UART1_PutStr(" ServiceSelectionInvalid        "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_PaymentSelectionInvalid         ) UART1_PutStr(" PaymentSelectionInvalid        ");  
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_CertificateExpired              ) UART1_PutStr(" CertificateExpired             "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_SignatureError                  ) UART1_PutStr(" SignatureError                 "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_NoCertificateAvailable          ) UART1_PutStr(" NoCertificateAvailable         "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_CerChainError                   ) UART1_PutStr(" CerChainError                  "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ChallengeInvalid                ) UART1_PutStr(" ChallengeInvalid               "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ContractCanceled                ) UART1_PutStr(" ContractCanceled               "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_WrongChargeParameter            ) UART1_PutStr(" WrongChargeParameter           "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_PowerDeliveryNotApplied         ) UART1_PutStr(" PowerDeliveryNotApplied        "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_TariffSelectionInvalid          ) UART1_PutStr(" TariffSelectionInvalid         "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ChargingProfileInvalid          ) UART1_PutStr(" ChargingProfileInvalid         "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_MeteringSignatureNotValid       ) UART1_PutStr(" MeteringSignatureNotValid      "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_NoChargeServiceSelected         ) UART1_PutStr(" NoChargeServiceSelected        "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_WrongEnergyTransferMode         ) UART1_PutStr(" WrongEnergyTransferMode        "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ContactorError                  ) UART1_PutStr(" ContactorError                 "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_CertificateNotAllowedAtThisEVSE ) UART1_PutStr(" CertificateNotAllowedAtThisEVSE"); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_CertificateRevoked              ) UART1_PutStr(" CertificateRevoked             "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_NoNegotiation                   ) UART1_PutStr(" NoNegotiation                  "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == TIMEOUT_CommunicationSetup             ) UART1_PutStr(" TIMEOUT_CommunicationSetup     "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == TIMEOUT_Sequence                       ) UART1_PutStr(" TIMEOUT_Sequence               "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == TIMEOUT_NotificationMaxDelay           ) UART1_PutStr(" TIMEOUT_NotificationMaxDelay   "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == TIMEOUT_WeldingDetection               ) UART1_PutStr(" TIMEOUT_WeldingDetection       "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_WrongCPLevel                    ) UART1_PutStr(" FAILED_WrongCPLevel            "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ProximityError                  ) UART1_PutStr(" FAILED_ProximityError          "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_HLCError                        ) UART1_PutStr(" FAILED_HLCError                "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_HeartbeatError                  ) UART1_PutStr(" FAILED_HeartbeatError          "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_EVSECANInit                     ) UART1_PutStr(" FAILED_EVSECANInit             "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAULT_HPGPLinkDown                     ) UART1_PutStr(" FAULT_HPGPLinkDown             "); 
+//    UART1_PutStr(" "); // 구분
+	if     (SECC_Msg.SECC_Status_1.evErrorCode == EV_NO_ERROR                          ) UART1_PutStr(" EV_NO_ERROR                  "); 
+	else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_RESSTemperatureInhibit        ) UART1_PutStr(" RESSTemperatureInhibit       "); 
+	else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_EVShiftPosition               ) UART1_PutStr(" EVShiftPosition              "); 
+	else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_ChargerConnectorLockFault     ) UART1_PutStr(" ConnectorLockFault           "); 
+	else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_EVRESSMalfunction             ) UART1_PutStr(" EVRESSMalfunction            "); 
+	else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_ChargingCurrentdifferential   ) UART1_PutStr(" ChargingCurrentdifferential  "); 
+	else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_ChargingVoltageOutOfRange     ) UART1_PutStr(" ChargingVoltageOutOfRange    "); 
+	else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_ChargingSystemIncompatibility ) UART1_PutStr(" ChargingSystemIncompatibility"); 	
+
+	UART1_PutStr(" CP:");
+	if(SECC_Msg.SECC_Status_2.cpVoltage_12 < 0) {UART1_PutStr("-");UART1_PutDec(3, ~(SECC_Msg.SECC_Status_2.cpVoltage_12-1));} // short형 
+	else                                        {UART1_PutStr(" ");UART1_PutDec(3, (u16)SECC_Msg.SECC_Status_2.cpVoltage_12);}
+																				
+	if     (SECC_Msg.SECC_Status_2.CP_Status_0.bit.cpOscillator == TRUE) {UART1_PutStr(" PWM:");  UART1_PutStr("  ON"); }
+	else if(SECC_Msg.SECC_Status_2.CP_Status_0.bit.cpOscillator == FALSE){UART1_PutStr(" PWM:");  UART1_PutStr(" OFF"); }
+
+	UART1_PutStr("  80%까지 남은시간: "); UART1_PutDec(3, (u16)(SECC_Msg.SECC_EV_SoC_Related_Parameters.remainingTimeToBulkSOC_67 * 0.166666666F)); UART1_PutStr("분"); // 1/6 = 0.166666666F
+	UART1_PutStr(" 100%까지 남은시간: "); UART1_PutDec(3, (u16)(SECC_Msg.SECC_EV_SoC_Related_Parameters.remainingTimeToFullSOC_45 * 0.166666666F)); UART1_PutStr("분"); // ex) 198 -> 198/6 = 33min	
+	
+	targetvoltage  = (UINT16)((float)SECC_Msg.SECC_EV_TargetVoltage_Current.targetVoltage_01 * 0.1F);
+	current_demand = (UINT16)((float)SECC_Msg.SECC_EV_TargetVoltage_Current.targetCurrent_23 * 0.1F);
+	
+	UART1_PutStr(" 목표전압: "); UART1_PutDec(3, targetvoltage);  UART1_PutStr(" 현재전압: "); UART1_PutDec(3, (u16)Vout);
+	UART1_PutStr(" 요청전류: "); UART1_PutDec(3, current_demand); UART1_PutStr(" 현재전류: "); UART1_PutDec(3, (u16)Iout_Module);
+
+//	UART1_PutStr("충전 전력 : ");  
+//	if     (Vout * Iout_Module * 0.001F >= 100) {                   UART1_PutDec(3, (u16)(Vout * Iout_Module * 0.001F));}
+//	else if(Vout * Iout_Module * 0.001F >=  10) {UART1_PutStr(" "); UART1_PutDec(2, (u16)(Vout * Iout_Module * 0.001F));}
+//	else if(Vout * Iout_Module * 0.001F >=   0) {UART1_PutStr("  ");UART1_PutDec(1, (u16)(Vout * Iout_Module * 0.001F));}
+//	UART1_PutStr(" [kW], ");
+	
+//	UART1_PutStr("충전 전력량 : ");
+//	if     (dc_electric_energy >= 100) {                    UART1_PutDec(3, (u16)(dc_electric_energy));}
+//	else if(dc_electric_energy >=  10) {UART1_PutStr(" ");  UART1_PutDec(2, (u16)(dc_electric_energy));}
+//	else if(dc_electric_energy >=   0) {UART1_PutStr("  "); UART1_PutDec(1, (u16)(dc_electric_energy));}
+//	UART1_PutChar('.'); 
+//	UART1_PutDec(1, (u16)(dc_electric_energy * 100 * 0.1F));
+//	UART1_PutDec(1, (u16)(dc_electric_energy * 100));
+//	UART1_PutStr(" [kWh] ");
+	
+
+//	UART1_PutStr("커플러 온도 : ");
+//  UART1_PutStr("종료 메시지 : "); 
+//	if(SECC_Msg.SECC_Status_1.seccStatusCode == Charging)
+//	{
+//		elapsed_time++; // 100ms timer
+//		elapsed_time_s = elapsed_time * 0.1F; // sec timer
+//
+//		minute = (uint16_t)(elapsed_time_s * 0.0166666667);
+//		hour   = (uint16_t)(minute * 0.0166666667);
+//		minute = (uint16_t)(minute % 60);
+//		second = (uint16_t)((u16)elapsed_time_s % 60);
+//		
+//		UART1_PutStr("충전 시간 : "); UART1_PutDec(1, (u16)hour); UART1_PutStr(":"); UART1_PutDec(2, (u16)minute); UART1_PutStr(":"); UART1_PutDec(2, (u16)second); UART1_PutStr("."); UART1_PutDec(1, elapsed_time);
+//	}
+	
+//	UART1_PutStr(" 시작 배터리 : "); UART1_PutDec(2, start_SOC); UART1_PutStr("[%], ");
+//	UART1_PutStr(" 현재 배터리 : "); UART1_PutDec(3, (u16)SOC); UART1_PutStr("[%] ");	
+	UART1_PutStr(" SOC: "); UART1_PutDec(3, (u16)SOC); UART1_PutStr("[%] ");	
+	
+//	if(test_timer1++ >= 2) 	{test_timer1 = 0; soc_blink ^= 1;}
+//	if(test_timer++ >= 5){SOC++; test_timer = 0;}
+//	if(SOC >= 110) SOC = 0;
+//	if     (SOC >   0 && SOC <  10) if(soc_blink)UART1_PutStr("□           "); else UART1_PutStr("             ");
+//	else if(SOC >= 10 && SOC <  20) if(soc_blink)UART1_PutStr("□□          "); else UART1_PutStr("□            ");
+//	else if(SOC >= 20 && SOC <  30) if(soc_blink)UART1_PutStr("□□□         "); else UART1_PutStr("□□           ");
+//	else if(SOC >= 30 && SOC <  40) if(soc_blink)UART1_PutStr("□□□□        "); else UART1_PutStr("□□□          ");
+//	else if(SOC >= 40 && SOC <  50) if(soc_blink)UART1_PutStr("□□□□□       "); else UART1_PutStr("□□□□         ");
+//	else if(SOC >= 50 && SOC <  60) if(soc_blink)UART1_PutStr("□□□□□□      "); else UART1_PutStr("□□□□□        ");
+//	else if(SOC >= 60 && SOC <  70) if(soc_blink)UART1_PutStr("□□□□□□□     "); else UART1_PutStr("□□□□□□       ");
+//	else if(SOC >= 70 && SOC <  80) if(soc_blink)UART1_PutStr("□□□□□□□□    "); else UART1_PutStr("□□□□□□□      ");
+//	else if(SOC >= 80 && SOC <  90) if(soc_blink)UART1_PutStr("□□□□□□□□□   "); else UART1_PutStr("□□□□□□□□     ");
+//	else if(SOC >= 90 && SOC < 100) if(soc_blink)UART1_PutStr("□□□□□□□□□□  "); else UART1_PutStr("□□□□□□□□□    ");
+//	else if(SOC >= 100)                          UART1_PutStr("□□□□□□□□□□  ");
+	
+	
+	
+//	UART1_PutStr(" Connect_Temp:"); 
+//	if   (coupler_temperature_P == 1) UART1_PutStr("OPEN"); 
+//    else                              UART1_PutDec(4, (uint16_t)coupler_temperature_P);
+	
+    UART1_PutStr("\r\n ");
+}
+
+void charging_infomation2 (void)
+{
+	/*
+	UART1_PutStr(T_UNDERLINE);
+	UART1_PutStr("\r\n ");
+	if     (SECC_Msg.SECC_Status_1.seccStatusCode == Idle_Wait                           ) UART1_PutStr(" Idle_Wait              ");                              
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Idle                                ) UART1_PutStr(" Idle                   ");                           
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Ready                               ) UART1_PutStr(" Ready                  "); 
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Low_Level_Comm                      ) UART1_PutStr(" Low_Level_Comm         ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == High_Level_Comm                     ) UART1_PutStr(" High_Level_Comm        "); 
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Authorization_ContractAuthentication) UART1_PutStr(" Authorization          ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == ChargeParameterDiscovery            ) UART1_PutStr(" ParameterDiscovery     ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == CableCheck                          ) UART1_PutStr(" CableCheck             ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == PreCharge                           ) UART1_PutStr(" PreCharge              ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Charging                            ) UART1_PutStr(" Charging               ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Renegotiation                       ) UART1_PutStr(" Renegotiation          ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == EV_Init_Stop_Charging               ) UART1_PutStr(" EV_Init_Stop_Charging  ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == EVSE_Init_Stop_Charging             ) UART1_PutStr(" EVSE_Init_Stop_Charging"); 
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == Terminate                           ) UART1_PutStr(" Terminate              ");    
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == CertificateInstallation             ) UART1_PutStr(" CertificateInstallation");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == CertificatedUpdate                  ) UART1_PutStr(" CertificatedUpdate     ");
+	else if(SECC_Msg.SECC_Status_1.seccStatusCode == SECC_ERROR                          ) UART1_PutStr(" SECC_ERROR             ");
+//	UART1_PutStr(" "); // 구분
+	if     (SECC_Msg.SECC_Status_1.seccErrorCode == SECC_NO_ERROR                          ) UART1_PutStr(" SECC_NO_ERROR                  ");
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED                                 ) UART1_PutStr(" FAILED                         ");
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_SequenceError                   ) UART1_PutStr(" SequenceError                  ");
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ServiceIDInvalid                ) UART1_PutStr(" ServiceIDInvalid               ");
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_UnknownSession                  ) UART1_PutStr(" UnknownSession                 ");  
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ServiceSelectionInvalid         ) UART1_PutStr(" ServiceSelectionInvalid        "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_PaymentSelectionInvalid         ) UART1_PutStr(" PaymentSelectionInvalid        ");  
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_CertificateExpired              ) UART1_PutStr(" CertificateExpired             "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_SignatureError                  ) UART1_PutStr(" SignatureError                 "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_NoCertificateAvailable          ) UART1_PutStr(" NoCertificateAvailable         "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_CerChainError                   ) UART1_PutStr(" CerChainError                  "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ChallengeInvalid                ) UART1_PutStr(" ChallengeInvalid               "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ContractCanceled                ) UART1_PutStr(" ContractCanceled               "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_WrongChargeParameter            ) UART1_PutStr(" WrongChargeParameter           "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_PowerDeliveryNotApplied         ) UART1_PutStr(" PowerDeliveryNotApplied        "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_TariffSelectionInvalid          ) UART1_PutStr(" TariffSelectionInvalid         "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ChargingProfileInvalid          ) UART1_PutStr(" ChargingProfileInvalid         "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_MeteringSignatureNotValid       ) UART1_PutStr(" MeteringSignatureNotValid      "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_NoChargeServiceSelected         ) UART1_PutStr(" NoChargeServiceSelected        "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_WrongEnergyTransferMode         ) UART1_PutStr(" WrongEnergyTransferMode        "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ContactorError                  ) UART1_PutStr(" ContactorError                 "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_CertificateNotAllowedAtThisEVSE ) UART1_PutStr(" CertificateNotAllowedAtThisEVSE"); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_CertificateRevoked              ) UART1_PutStr(" CertificateRevoked             "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_NoNegotiation                   ) UART1_PutStr(" NoNegotiation                  "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == TIMEOUT_CommunicationSetup             ) UART1_PutStr(" TIMEOUT_CommunicationSetup     "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == TIMEOUT_Sequence                       ) UART1_PutStr(" TIMEOUT_Sequence               "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == TIMEOUT_NotificationMaxDelay           ) UART1_PutStr(" TIMEOUT_NotificationMaxDelay   "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == TIMEOUT_WeldingDetection               ) UART1_PutStr(" TIMEOUT_WeldingDetection       "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_WrongCPLevel                    ) UART1_PutStr(" FAILED_WrongCPLevel            "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_ProximityError                  ) UART1_PutStr(" FAILED_ProximityError          "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_HLCError                        ) UART1_PutStr(" FAILED_HLCError                "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_HeartbeatError                  ) UART1_PutStr(" FAILED_HeartbeatError          "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAILED_EVSECANInit                     ) UART1_PutStr(" FAILED_EVSECANInit             "); 
+	else if(SECC_Msg.SECC_Status_1.seccErrorCode == FAULT_HPGPLinkDown                     ) UART1_PutStr(" FAULT_HPGPLinkDown             "); 
+//    UART1_PutStr(" "); // 구분
+	if     (SECC_Msg.SECC_Status_1.evErrorCode == EV_NO_ERROR                          ) UART1_PutStr(" EV_NO_ERROR                  "); 
+	else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_RESSTemperatureInhibit        ) UART1_PutStr(" RESSTemperatureInhibit       "); 
+	else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_EVShiftPosition               ) UART1_PutStr(" EVShiftPosition              "); 
+	else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_ChargerConnectorLockFault     ) UART1_PutStr(" ConnectorLockFault           "); 
+	else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_EVRESSMalfunction             ) UART1_PutStr(" EVRESSMalfunction            "); 
+	else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_ChargingCurrentdifferential   ) UART1_PutStr(" ChargingCurrentdifferential  "); 
+	else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_ChargingVoltageOutOfRange     ) UART1_PutStr(" ChargingVoltageOutOfRange    "); 
+	else if(SECC_Msg.SECC_Status_1.evErrorCode == FAILED_ChargingSystemIncompatibility ) UART1_PutStr(" ChargingSystemIncompatibility"); 	
+	UART1_PutStr(T_RESET);
+	UART1_PutStr("\r\n ");
+	*/
+	
+	UART1_PutStr(" CP:");
+	if(SECC_Msg.SECC_Status_2.cpVoltage_12 < 0) {UART1_PutStr("-");UART1_PutDec(3, ~(SECC_Msg.SECC_Status_2.cpVoltage_12-1));} // short형 
+	else                                        {UART1_PutStr(" ");UART1_PutDec(3, (u16)SECC_Msg.SECC_Status_2.cpVoltage_12);}
+																				
+	if     (SECC_Msg.SECC_Status_2.CP_Status_0.bit.cpOscillator == TRUE) {UART1_PutStr(" PWM:");  UART1_PutStr("  ON"); }
+	else if(SECC_Msg.SECC_Status_2.CP_Status_0.bit.cpOscillator == FALSE){UART1_PutStr(" PWM:");  UART1_PutStr(" OFF"); }
+
+	UART1_PutStr("  80%까지 남은시간: "); UART1_PutDec(3, (u16)(SECC_Msg.SECC_EV_SoC_Related_Parameters.remainingTimeToBulkSOC_67 * 0.166666666F)); UART1_PutStr("분"); // 1/6 = 0.166666666F
+	UART1_PutStr(" 100%까지 남은시간: "); UART1_PutDec(3, (u16)(SECC_Msg.SECC_EV_SoC_Related_Parameters.remainingTimeToFullSOC_45 * 0.166666666F)); UART1_PutStr("분"); // ex) 198 -> 198/6 = 33min	
+	
+	targetvoltage  = (UINT16)((float)SECC_Msg.SECC_EV_TargetVoltage_Current.targetVoltage_01 * 0.1F);
+	current_demand = (UINT16)((float)SECC_Msg.SECC_EV_TargetVoltage_Current.targetCurrent_23 * 0.1F);
+	
+	UART1_PutStr(" 목표전압: "); UART1_PutDec(3, targetvoltage);  UART1_PutStr(" 현재전압: "); UART1_PutDec(3, (u16)Vout);
+	UART1_PutStr(" 요청전류: "); UART1_PutDec(3, current_demand); UART1_PutStr(" 현재전류: "); UART1_PutDec(3, (u16)Iout_Module);
+
+	UART1_PutStr("충전 전력 : ");  
+	if     (Vout * Iout_Module * 0.001F >= 100) {                   UART1_PutDec(3, (u16)(Vout * Iout_Module * 0.001F));}
+	else if(Vout * Iout_Module * 0.001F >=  10) {UART1_PutStr(" "); UART1_PutDec(2, (u16)(Vout * Iout_Module * 0.001F));}
+	else if(Vout * Iout_Module * 0.001F >=   0) {UART1_PutStr("  ");UART1_PutDec(1, (u16)(Vout * Iout_Module * 0.001F));}
+	UART1_PutStr(" [kW], ");
+	
+	UART1_PutStr("충전 전력량 : ");
+	if     (dc_electric_energy >= 100) {                    UART1_PutDec(3, (u16)(dc_electric_energy));}
+	else if(dc_electric_energy >=  10) {UART1_PutStr(" ");  UART1_PutDec(2, (u16)(dc_electric_energy));}
+	else if(dc_electric_energy >=   0) {UART1_PutStr("  "); UART1_PutDec(1, (u16)(dc_electric_energy));}
+	UART1_PutChar('.'); 
+	UART1_PutDec(1, (u16)(dc_electric_energy * 100 * 0.1F));
+	UART1_PutDec(1, (u16)(dc_electric_energy * 100));
+	UART1_PutStr(" [kWh] ");
+ 
+	if(SECC_Msg.SECC_Status_1.seccStatusCode == Charging)
+	{
+		elapsed_time++; // 100ms timer
+		elapsed_time_s = elapsed_time * 0.1F; // sec timer
+
+		minute = (uint16_t)(elapsed_time_s * 0.0166666667);
+		hour   = (uint16_t)(minute * 0.0166666667);
+		minute = (uint16_t)(minute % 60);
+		second = (uint16_t)((u16)elapsed_time_s % 60);
+	}
+	UART1_PutStr("충전 시간 : "); UART1_PutDec(1, (u16)hour); UART1_PutStr(":"); UART1_PutDec(2, (u16)minute); UART1_PutStr(":"); UART1_PutDec(2, (u16)second); UART1_PutStr("."); UART1_PutDec(1, elapsed_time);
+	
+	UART1_PutStr(" 시작 배터리 : "); UART1_PutDec(2, start_SOC); UART1_PutStr("[%], ");
+	UART1_PutStr(T_BOLD); UART1_PutStr(T_BrWHITE); UART1_PutStr(" 현재 배터리 : "); 
+	
+	if(test_timer1++ >= 2) 	{test_timer1 = 0; soc_blink ^= 1;}
+	if(test_timer++ >= 1){SOC += 10; test_timer = 0;}
+	if(SOC >= 100) SOC = 0;
+	UART1_PutStr("[");
+	if     (SOC >   0 && SOC <  10) {UART1_PutStr("\033[30;41m");if(soc_blink){UART1_PutStr("□");UART1_PutStr("\033[0m"); UART1_PutStr("                  ");}else {                 UART1_PutStr("\033[0m");UART1_PutStr("                    "); }}
+	else if(SOC >= 10 && SOC <  20) {UART1_PutStr("\033[30;41m");if(soc_blink){UART1_PutStr("□□");UART1_PutStr("\033[0m"); UART1_PutStr("                ");}else {UART1_PutStr("□");UART1_PutStr("\033[0m");UART1_PutStr("                  "); }}
+	else if(SOC >= 20 && SOC <  30) {UART1_PutStr("\033[30;43m");if(soc_blink){UART1_PutStr("□□□");UART1_PutStr("\033[0m"); UART1_PutStr("              ");}else {UART1_PutStr("□□");UART1_PutStr("\033[0m");UART1_PutStr("                "); }}
+	else if(SOC >= 30 && SOC <  40) {UART1_PutStr("\033[30;43m");if(soc_blink){UART1_PutStr("□□□□");UART1_PutStr("\033[0m"); UART1_PutStr("            ");}else {UART1_PutStr("□□□");UART1_PutStr("\033[0m");UART1_PutStr("              "); }}
+	else if(SOC >= 40 && SOC <  50) {UART1_PutStr("\033[30;43m");if(soc_blink){UART1_PutStr("□□□□□");UART1_PutStr("\033[0m"); UART1_PutStr("          ");}else {UART1_PutStr("□□□□");UART1_PutStr("\033[0m");UART1_PutStr("            "); }}
+	else if(SOC >= 50 && SOC <  60) {UART1_PutStr("\033[30;43m");if(soc_blink){UART1_PutStr("□□□□□□");UART1_PutStr("\033[0m"); UART1_PutStr("        ");}else {UART1_PutStr("□□□□□");UART1_PutStr("\033[0m");UART1_PutStr("          "); }}
+	else if(SOC >= 60 && SOC <  70) {UART1_PutStr("\033[30;43m");if(soc_blink){UART1_PutStr("□□□□□□□");UART1_PutStr("\033[0m"); UART1_PutStr("      ");}else {UART1_PutStr("□□□□□□");UART1_PutStr("\033[0m");UART1_PutStr("        "); }}
+	else if(SOC >= 70 && SOC <  80) {UART1_PutStr("\033[30;42m");if(soc_blink){UART1_PutStr("□□□□□□□□");UART1_PutStr("\033[0m"); UART1_PutStr("    ");}else {UART1_PutStr("□□□□□□□");UART1_PutStr("\033[0m");UART1_PutStr("      "); }}
+	else if(SOC >= 80 && SOC <  90) {UART1_PutStr("\033[30;42m");if(soc_blink){UART1_PutStr("□□□□□□□□□");UART1_PutStr("\033[0m"); UART1_PutStr("  ");}else {UART1_PutStr("□□□□□□□□");UART1_PutStr("\033[0m");UART1_PutStr("    "); }}
+	else if(SOC >= 90 && SOC < 100) {UART1_PutStr("\033[30;42m");if(soc_blink){UART1_PutStr("□□□□□□□□□□");UART1_PutStr("\033[0m"); UART1_PutStr("");}else {UART1_PutStr("□□□□□□□□□");UART1_PutStr("\033[0m");UART1_PutStr("  "); }}
+	else if(SOC >= 100)             {UART1_PutStr("\033[30;42m");              UART1_PutStr("□□□□□□□□□□"); }
+	else if(SOC == 0)               {UART1_PutStr("\033[0m"); UART1_PutStr("                    ");}
+	
+	UART1_PutStr("\033[0m");
+	UART1_PutStr(T_BOLD);UART1_PutStr(T_BrWHITE);
+	UART1_PutStr("] ");
+	if     ((s16)SOC >= 100) {                   UART1_PutDec(3, (u16)SOC);}
+	else if((s16)SOC >=  10) {UART1_PutStr(" "); UART1_PutDec(2, (u16)SOC);}
+	else if((s16)SOC >=   0) {UART1_PutStr("  ");UART1_PutDec(1, (u16)SOC);}
+	UART1_PutStr("[%] ");	
+	UART1_PutStr(T_RESET);
+	UART1_PutStr("\r ");	
+
+}

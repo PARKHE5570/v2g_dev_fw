@@ -1,0 +1,2151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<userOverrides>
+    <override>
+        <path>C:\HDD_Temp\New충전기\20kW 이동형 충전기\FW\20kW_Mobile_Charger_YH_UUGreen_v1.0_180117\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\New충전기\20kW 이동형 충전기\FW\20kW_Mobile_Charger_YH_UUGreen_v1.0_180117\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\New충전기\20kW 이동형 충전기\FW\20kW_Mobile_Charger_YH_UUGreen_v1.0_180118\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\New충전기\20kW 이동형 충전기\FW\20kW_Mobile_Charger_YH_UUGreen_v1.0_180118\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\New충전기\20kW 이동형 충전기\FW\20kW_Mobile_Charger_YH_UUGreen_v1.0_180119\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\New충전기\20kW 이동형 충전기\FW\20kW_Mobile_Charger_YH_UUGreen_v1.0_180119\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\New충전기\20kW 이동형 충전기\FW\20kW_Mobile_Charger_YH_UUGreen_v1.0_180119_2(for discharge_TEST)\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\New충전기\20kW 이동형 충전기\FW\20kW_Mobile_Charger_YH_UUGreen_v1.0_180119_2(for discharge_TEST)\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\New충전기\20kW 이동형 충전기\FW\20kW_Mobile_Charger_YH_UUGreen_v1.0_18kW_1test180123\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\New충전기\20kW 이동형 충전기\FW\20kW_Mobile_Charger_YH_UUGreen_v1.0_18kW_test180123\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\New충전기\20kW 이동형 충전기\FW\20kW_Mobile_Charger_YH_UUGreen_v1.0_25kW_test180208\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\New충전기\20kW 이동형 충전기\FW\Ver3_20170913_50kW_KD_UUGreen_171206\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\New충전기\20kW 이동형 충전기\FW\Ver3_20170913_50kW_KD_UUGreen_171206\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\New충전기\공단50kW\UUGreen\Ver3_20170913_50kW_KD_UUGreen_171205\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\New충전기\공단50kW\UUGreen\Ver3_20170913_50kW_KD_UUGreen_171205\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\New충전기\공단50kW\UUGreen\Ver3_20170913_50kW_KD_UUGreen_171206\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\New충전기\공단50kW\UUGreen\Ver3_20170913_50kW_KD_UUGreen_171206\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\공단급속충전기프로그램\Ver3_20170913_50kW_module_mdify_171101\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\공단급속충전기프로그램\Ver3_20170913_50kW_module_mdify_171101\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.0_180503\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.0_180504\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.1_180504\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.1_180504\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.2_180515\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.2_180516\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.2_180516\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.2_180516\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.2_180517\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.2_180517\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.2_180517\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.2_180517_2\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.2_180517_2\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.2_180518_3\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.2_180518_3\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.2_180518_3\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.3_180519\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.3_180519\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.3_180519\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.5_180518\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.5_180518\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.5_180518_CJ3\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.5_180518_CJ3\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.5_180518_CJ3\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.6_180519\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.6_180519\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.6_180519\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.7_180519_editing\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.7_180519_editing\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.7_180519_editing\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.8_180523_editing\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.8_180523_editing\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.8_180523_editing\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.9_180527\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.9_180527\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\에스트레픽\100kW 2Mode 2CH Ver\FW\FW_JC-6932-M3ST-100-BC_v1.9_180527\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\한전관련\Ver3_20170913_50kW_KD_UUGreen_171206\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\환경공단 급속충전기 프로그램\Ver3_20170913_50kW_KD_UUGreen_171101\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\HDD_Temp\환경공단 급속충전기 프로그램\Ver3_20170913_50kW_KD_UUGreen_171101\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\GH\Desktop\Ver3_20170426_50kW_module_17043\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\GH\Desktop\Ver3_20170426_50kW_module_17043\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Distribution_Test\FW_JC-6932-M3ST-100-B(C)_1ch_191005_v19101\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Distribution_Test\FW_JC-6932-M3ST-100-B(C)_1ch_191005_v19101\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Distribution_Test\FW_JC-6932-M3ST-100-B(C)_1ch_191005_v19101\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Distribution_Test\FW_JC-6932-M3ST-100-B(C)_1ch_191101_v19111\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Distribution_Test\FW_JC-6932-M3ST-100-B(C)_1ch_191101_v19111\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW\0_Released\JC-6932-M3ST-100-B\FW_JC-6932-M3ST-100-[B],[BB],[BC]_UU_v0x0200_1ch\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW\0_Released\JC-6932-M3ST-100-B\FW_JC-6932-M3ST-100-[B],[BB],[BC]_UU_v0x0200_1ch\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW\0_Released\JC-6932-M3ST-100-B,BC\FW_JC-6932-M3ST-100-[B],[BC]_UU15kW_v0x0200_v512_1ch\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW\0_Released\JC-6932-M3ST-100-B,BC\FW_JC-6932-M3ST-100-[B],[BC]_UU15kW_v0x0200_v512_1ch\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW\0_Released\JC-9932-M3ST-100-B,BC\FW_JC-9932-M3ST-100-B,BC_UU15kW_v1.1_1ch\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW\0_Released\JC-9932-M3ST-100-B,BC\FW_JC-9932-M3ST-100-B,BC_UU15kW_v1.1_1ch\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW\0_Released\JC-9932-M3ST-100-B,BC\FW_JC-9932-M3ST-100-B,BC_UU15kW_v1.1_1ch\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW\0_Released\JC-9932-M3ST-100-BC\FW_JC-9932-M3ST-100-BC_UU20_v1.0_1ch\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW\0_Released\JC-9932-M3ST-100-BC\FW_JC-9932-M3ST-100-BC_UU20_v1.0_1ch\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW\2_FW_ing\JC-9932-M3ST-100-B\FW_JC-9932-M3ST-100-B,BB,BC_UU_v1.0_1ch\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW\2_FW_ing\JC-9932-M3ST-100-B\FW_JC-9932-M3ST-100-B,BB,BC_UU_v1.0_1ch\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW\2_FW_ing\JC-9932-M3ST-100-B\FW_JC-9932-M3ST-100-B,BB,BC_UU_v1.0_1ch\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW\FW_ing\FW_JC-6932-M3ST-100-[B],[BB],[BC]\FW\FW_JC-6932-M3ST-100-[B],[BB],[BC]_UU_v1.0\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW\FW_ing\FW_JC-6932-M3ST-100-[B],[BB],[BC]\FW\FW_JC-6932-M3ST-100-[B],[BB],[BC]_UU_v1.0\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW\FW_ing\FW_JC-6932-M3ST-100-[B],[BB],[BC]\FW\FW_JC-6932-M3ST-100-[B],[BB],[BC]_UU_v1.0\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW\FW_ing\FW_JC-6932-M3ST-100-[B],[BB],[BC]\FW\FW_JC-6932-M3ST-100-[B],[BB],[BC]_UU_v1.0_1ch\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW\FW_ing\FW_JC-6932-M3ST-100-[B],[BB],[BC]\FW\FW_JC-6932-M3ST-100-[B],[BB],[BC]_UU_v1.0_1ch\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW\JC-6932-M3ST-100-[B],[BB],[BC]\FW\FW_JC-6932-M3ST-100-[B],[BB],[BC]_UU_v0x0101_1ch\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW\JC-6932-M3ST-100-[B],[BB],[BC]\FW\FW_JC-6932-M3ST-100-[B],[BB],[BC]_UU_v0x0101_1ch\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW\JC-6932-M3ST-100-[B],[BB],[BC]\FW\FW_JC-6932-M3ST-100-[B],[BB],[BC]_UU_v1.0_1ch\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW\JC-6932-M3ST-100-[B],[BB],[BC]\FW\FW_JC-6932-M3ST-100-[B],[BB],[BC]_UU_v1.0_1ch\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW\JC-6932-M3ST-100-[B],[BB],[BC]\FW\FW_JC-6932-M3ST-100-[B],[BB],[BC]_UU_v1.0_1ch\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW\Joas_B3\B3_Left_plc_3.0.4_Max90A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW_JC-6932-M3ST-100-B(C)_1ch_191005_v19101\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW_JC-6932-M3ST-100-B(C)_1ch_191005_v19101\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW_JC-6932-M3ST-100-B(C)_1ch_191005_v19101\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW_JC-6932-M3ST-100-BC_PLC_3_0_2ch\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW_JC-6932-M3ST-100-BC_PLC_3_0_2ch\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW_JC-6932-M3ST-100-BC_PLC_3_0_2ch\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW_JC-6932-M3ST-100-BC_v2.2.8_190611_1ch_100ms\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW_JC-6932-M3ST-100-BC_v2.2.8_190611_1ch_100ms\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW_JC-6932-M3ST-100-BC_v2.2.8_190611_1ch_100ms\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW_ref\plc_psd\FW_JC-6932-M3ST-100-BC_PLC_3_0_1ch\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\FW_ref\plc_psd\FW_JC-6932-M3ST-100-BC_PLC_3_0_1ch\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Fast_Charger_FW\()_JC-6932-M3ST-100-B(C)\DCGFx4\FW_JC-6932-M3ST-100-B(C)_1ch_125k_CAN_G01_G02_DCGFx4_191205_v19121\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Fast_Charger_FW\()_JC-6932-M3ST-100-B(C)\FW_JC-6932-M3ST-100-B(B)(C)_1ch_125k_CAN_G01_G02_191205_v19121\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Fast_Charger_FW\()_JC-6932-M3ST-100-B(C)\FW_JC-6932-M3ST-100-B(C)_1ch_125k_CAN_G01_G02_191205_v19121\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Fast_Charger_FW\()_JC-6932-M3ST-100-B(C)\FW_JC-6932-M3ST-100-B(C)_1ch_125k_CAN_G01_G02_191205_v19121\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Fast_Charger_FW\()_JC-6932-M3ST-100-B(C)\FW_JC-6932-M3ST-100-B(C)_1ch_125k_CAN_G01_G02_191205_v19121\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Fast_Charger_FW\()_PLC_Modem_3_0\FW_JC-6932-M3ST-100-B(B)(C)_1ch_125k_CAN_G01_G02_191205_v19121\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Fast_Charger_FW\()_PLC_Modem_3_0\FW_JC-6932-M3ST-100-B(B)(C)_1ch_125k_CAN_G01_G02_191205_v19121\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Fast_Charger_FW\()_PLC_Modem_3_0\FW_JC-6932-M3ST-100-B(B)(C)_1ch_125k_CAN_G01_G02_191205_v19121\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Fast_Charger_FW\Distribution_Test\Test_BMW_i3_in_Jeju\FW_JC-6932-M3ST-100-B(C)_1ch_125k_CAN_G01_G02_191205_v19121\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Fast_Charger_FW\Distribution_Test\Test_BMW_i3_in_Jeju\FW_JC-6932-M3ST-100-B(C)_1ch_191101_v19111\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Fast_Charger_FW\Distribution_Test\Test_BMW_i3_in_Jeju\FW_JC-6932-M3ST-100-B(C)_1ch_191101_v19111\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Fast_Charger_FW\Distribution_Test\Test_BMW_i3_in_Jeju\FW_JC-6932-M3ST-100-B(C)_1ch_191101_v19111\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Fast_Charger_FW\_PLC_Modem_3_0\FW_JC-6932-M3ST-100-B(B)(C)_1ch_125k_CAN_G01_G02_191205_v19121\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Fast_Charger_FW\_PLC_Modem_3_0\FW_JC-6932-M3ST-100-B(B)(C)_1ch_125k_CAN_G01_G02_191205_v19121\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Fast_Charger_FW\_PLC_Modem_3_0\FW_JC-6932-M3ST-100-B(B)(C)_1ch_125k_CAN_G01_G02_191205_v19121\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Fast_Charger_FW\_PLC_Modem_3_0\FW_JC-6932-M3ST-100-B(B)(C)_2ch_125k_CAN_G01_G02_191205_v19121\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Fast_Charger_FW\_PLC_Modem_3_0\FW_JC-6932-M3ST-100-B(B)(C)_2ch_125k_CAN_G01_G02_191205_v19121\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Fast_Charger_FW\_PLC_Modem_3_0\FW_JC-6932-M3ST-100-B(B)(C)_2ch_125k_CAN_G01_G02_191205_v19121\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Fast_Charger_FW\_PLC_Modem_3_0\FW_JC-6932-M3ST-100-BC_PLC_3_0\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Fast_Charger_FW\_PLC_Modem_3_0\FW_JC-6932-M3ST-100-BC_PLC_3_0\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Fast_Charger_FW\_PLC_Modem_3_0\FW_JC-6932-M3ST-100-BC_PLC_3_0_2ch\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Fast_Charger_FW\_PLC_Modem_3_0\FW_JC-6932-M3ST-100-BC_PLC_3_0_2ch\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Straffic\20190705_Straffic_100kW_v3.0.0_125k\FW_JC-6932-M3ST-100-BC_v3.0.0_190705_1ch_100ms\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Straffic\20190705_Straffic_100kW_v3.0.0_125k\FW_JC-6932-M3ST-100-BC_v3.0.0_190705_1ch_100ms\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\Straffic\20190705_Straffic_100kW_v3.0.0_125k\FW_JC-6932-M3ST-100-BC_v3.0.0_190705_1ch_100ms\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\청주에서 문의\FW_JC-6932-M3ST-100-BC_v3.0.0_190704_1ch_100ms\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\청주에서 문의\FW_JC-6932-M3ST-100-BC_v3.0.0_190704_1ch_100ms\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\청주에서 문의\JC-6932-M3ST-100-BC_FOR_TEST\FW_JC-6932-M3ST-100-BC_v3.0.0_190704_1ch_100ms\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\청주에서 문의\JC-6932-M3ST-100-BC_FOR_TEST\FW_JC-6932-M3ST-100-BC_v3.0.0_190704_1ch_100ms\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\청주에서 문의\JC-6932-M3ST-100-BC_FOR_TEST\FW_JC-6932-M3ST-100-BC_v3.0.0_190705_1ch_100ms\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\YYK\Desktop\청주에서 문의\JC-6932-M3ST-100-BC_FOR_TEST\FW_JC-6932-M3ST-100-BC_v3.0.0_190705_1ch_100ms\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\egkim\Desktop\Ver3_20160801_50kW_module\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\twkim\Desktop\JC-9642-150-0115_INFY_20230310A_ver354\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\twkim\Desktop\JC-9642-150-0115_INFY_20230310A_ver354\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\user\Desktop\Stand(JC-9642-150-0115)_WINLINE_20210416A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\user\Desktop\Stand(JC-9642-150-0115)_WINLINE_20210416B\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\최지혜\Desktop\표현\한전 100kW 일체형 버스\FW_JC-9932-M3ST-100-8215_UU20_v1.0_1ch\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\최지혜\Desktop\표현\한전 100kW 일체형 버스\FW_JC-9932-M3ST-100-BC_UU20_v1.0_1ch\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\최지혜\Desktop\표현\한전 100kW 일체형 버스\FW_JC-9932-M3ST-100-BC_UU20_v1.0_1ch\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\최지혜\Desktop\표현\한전 100kW 일체형 버스\시험\FW_JC-9932-M3ST-100-8215_UU20_v1.0_1ch\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_1806\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.0_180605\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_1806\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.0_180605\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_1806\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.0_180605\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_1806\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.0_180605_2ch\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_1806\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.0_180605_2ch\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_1806\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.0_180605_2ch\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_1806\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.1_180605_1ch\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_1806\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.1_180605_1ch\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_1806\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.1_180605_1ch\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.2_180626_1ch\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.2_180626_1ch\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.2_180626_1ch\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.2_180627_1ch\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.3_180627_1ch\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.3_180627_1ch\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.3_180627_1ch\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.4_180627_1ch\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.4_180627_1ch\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.5_180628_1ch\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.5_180628_1ch\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.5_180628_1ch_전력변환\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.5_180628_1ch_전력변환\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.5_180628_1ch_전력변환\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.6_180629_1ch_전력변환2\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.6_180629_1ch_전력변환2\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.6_180629_1ch_전력변환2\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.6_180702_1ch_전력변환3\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.6_180702_1ch_전력변환4\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.6_180702_1ch_전력변환4\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.6_180702_1ch_전력변환4\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.6_180702_1ch_전력변환5\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.6_180702_1ch_전력변환5\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.6_180702_1ch_전력변환5\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.6_180702_1ch_전력변환6\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.6_180702_1ch_전력변환6\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.6_180702_1ch_전력변환6\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.6_180709_1ch_전력변환6_1\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.6_180709_1ch_전력변환6_1\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.6_180709_1ch_전력변환6_1_1\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.6_180709_1ch_전력변환6_1_1\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.6_180709_1ch_전력변환6_1_1\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.6_180816_1ch_전력변환6_2\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.7_180910_1ch\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2.7_180910_1ch\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2_180625_1ch\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2_180625_1ch\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Work_2018\에스트래픽\100kW_2ch\FW_JC-6932-M3ST-100-BC_v2.2_180625_1ch\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\[2017 Project]\new charger(module charger)\Ver3_20170517_50kW_module_NTC_CT_final\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\[PROJECTS]\Ver3_20160812_50kW_module2\Project\STM32F105\main.c</path>
+        <encoding>KoreanUHC</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210317A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210317A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210317A\Project\STM32F105\power_module.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210317A\Project\STM32F105\power_module.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210317A\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_20210225A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_20210225A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_20210225A\Project\STM32F105\pt1000.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_20210225A\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210305A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210305A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210305A\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210305B\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210305B\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210305B\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210308A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210308A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210308A\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210308B\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210308B\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210309A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210309A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210309A\Project\STM32F105\power_module.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210309A\Project\STM32F105\power_module.h</path>
+        <encoding>Win-1252</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210310A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210310A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210310A\Project\STM32F105\power_module.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210310A\Project\STM32F105\power_module.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210310A\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210311A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210311A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210311A\Project\STM32F105\power_module.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210311A\Project\STM32F105\power_module.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210311A\Project\STM32F105\pt1000.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210311A\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210312A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210312A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210312A\Project\STM32F105\power_module.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210312A\Project\STM32F105\power_module.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210312A\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210312B\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210312B\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210312B\Project\STM32F105\power_module.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210312B\Project\STM32F105\power_module.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210312B\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210312B\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210315B\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210315B\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210315B\Project\STM32F105\power_module.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210315B\Project\STM32F105\power_module.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210315B\Project\STM32F105\pt1000.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210315B\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210315B\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210315C\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210315C\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210315C\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210316A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210316A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210316A\Project\STM32F105\power_module.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210316A\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210316B\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210316B\Project\STM32F105\power_module.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210316B\Project\STM32F105\power_module.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210316B\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210316C\Project\STM32F105\PLC_3_0.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210316C\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210316C\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210316C\Project\STM32F105\power_module.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210316C\Project\STM32F105\power_module.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210316E\Project\STM32F105\PLC_3_0.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210316E\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\300kW 성남시내버스 모란차고지 PLC 304(WINLINE) - 개발진행중\Stand(JC-9642-150-0115)_WINLINE_20210316E\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지]\Stand(JC-9642-150-0115)_WINLINE_20210416C_final\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지]\Stand(JC-9642-150-0115)_WINLINE_20210416C_final\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지]\Stand(JC-9642-150-0115)_WINLINE_20210419A\Project\STM32F105\PLC_3_0.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지]\Stand(JC-9642-150-0115)_WINLINE_20210419A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지]\Stand(JC-9642-150-0115)_WINLINE_20210419A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지]\Stand(JC-9642-150-0115)_WINLINE_20210419A\Project\STM32F105\power_module.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지]\Stand(JC-9642-150-0115)_WINLINE_20210419A\Project\STM32F105\power_module.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지]\Stand(JC-9642-150-0115)_WINLINE_20210419A\Project\STM32F105\pt1000.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지]\Stand(JC-9642-150-0115)_WINLINE_20210419A\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210409A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210412A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210412A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210412A\Project\STM32F105\power_module.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210412A\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210413A\Project\STM32F105\PLC_3_0.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210413A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210413A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210413A\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210414A\Project\STM32F105\PLC_3_0.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210414A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210414A\Project\STM32F105\power_module.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210414A\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210414A\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210415A\Project\STM32F105\PLC_3_0.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210415A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210415A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210415A\Project\STM32F105\power_module.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210415A\Project\STM32F105\power_module.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210415A\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210415B\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210416A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210416A\Project\STM32F105\power_module.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210416A\Project\STM32F105\power_module.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210416B\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210416B\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210416B\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210416C\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210416C\Project\STM32F105\power_module.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210416C\Project\STM32F105\power_module.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210416C\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210416C\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[01.Project]\[300kW 성남시내버스 모란차고지] - 개발중\Stand(JC-9642-150-0115)_WINLINE_20210416C_final\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[Sequential Charging]\JC-9642-150-0115(Stand)_20210629A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[Sequential Charging]\JC-9642-150-0115(Stand)_20210629A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[Sequential Charging]\JC-9642-150-0115(Stand)_20210629A\Project\STM32F105\power_module.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[Sequential Charging]\JC-9642-150-0115(Stand)_20210629A\Project\STM32F105\power_module.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[Sequential Charging]\JC-9642-150-0115(Stand)_20210629A\Project\STM32F105\pt1000.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[Sequential Charging]\JC-9642-150-0115(Stand)_20210629A\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[Sequential Charging]\JC-9642-150-0115(Stand)_20210712A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[Sequential Charging]\JC-9642-150-0115(Stand)_20210712A\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[Sequential Charging]\JC-9642-150-0115(Stand)_20210713A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[Sequential Charging]\JC-9642-150-0115(Stand)_20210713A\Project\STM32F105\power_module.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[Sequential Charging]\JC-9642-150-0115(Stand)_20210713A\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[분리형 대일교통, 광교운수 - 순차 충전 기능]\JC-9642-150-0115(Stand)_20210716A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[분리형 대일교통, 광교운수 - 순차 충전 기능]\JC-9642-150-0115(Stand)_20210716A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[분리형 대일교통, 광교운수 - 순차 충전 기능]\JC-9642-150-0115(Stand)_20210716A\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[순차 충전 기능]\JC-9642-150-0115(Stand)_20210714A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[순차 충전 기능]\JC-9642-150-0115(Stand)_20210714A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[순차 충전 기능]\JC-9642-150-0115(Stand)_20210714A\Project\STM32F105\power_module.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[순차 충전 기능]\JC-9642-150-0115(Stand)_20210714A\Project\STM32F105\power_module.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[순차 충전 기능]\JC-9642-150-0115(Stand)_20210714A\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[순차 충전 기능]\JC-9642-150-0115(Stand)_20210715A\Project\STM32F105\PLC_3_0.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[순차 충전 기능]\JC-9642-150-0115(Stand)_20210715A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[순차 충전 기능]\JC-9642-150-0115(Stand)_20210715A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[순차 충전 기능]\JC-9642-150-0115(Stand)_20210715A\Project\STM32F105\power_module.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[순차 충전 기능]\JC-9642-150-0115(Stand)_20210715A\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[순차 충전 기능]\JC-9642-150-0115(Stand)_20210715A\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[순차 충전 기능]\JC-9642-150-0115(Stand)_20210716A\Project\STM32F105\PLC_3_0.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[순차 충전 기능]\JC-9642-150-0115(Stand)_20210716A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[순차 충전 기능]\JC-9642-150-0115(Stand)_20210716A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[순차 충전 기능]\JC-9642-150-0115(Stand)_20210716A\Project\STM32F105\power_module.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[순차 충전 기능]\JC-9642-150-0115(Stand)_20210716A\Project\STM32F105\power_module.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop\[순차 충전 기능]\JC-9642-150-0115(Stand)_20210716A\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대일교통, 광교운수] - 순차 충전 기능, 범한버스\JC-9642-150-0115(Stand)_20210830A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대일교통, 광교운수] - 순차 충전 기능, 범한버스\JC-9642-150-0115(Stand)_20210903A - stateF\Project\STM32F105\PLC_3_0.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대일교통, 광교운수] - 순차 충전 기능, 범한버스\JC-9642-150-0115(Stand)_20210903A - stateF\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대일교통, 광교운수] - 순차 충전 기능, 범한버스\JC-9642-150-0115(Stand)_20210903A - stateF\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대일교통, 광교운수] - 순차 충전 기능, 범한버스\JC-9642-150-0115(Stand)_20210903A - stateF\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대일교통, 광교운수] - 순차 충전 기능, 범한버스\JC-9642-150-0115(Stand)_20210909A\Project\STM32F105\PLC_3_0.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대일교통, 광교운수] - 순차 충전 기능, 범한버스\JC-9642-150-0115(Stand)_20210909A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대일교통, 광교운수] - 순차 충전 기능, 범한버스\JC-9642-150-0115(Stand)_20210909A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대일교통, 광교운수] - 순차 충전 기능, 범한버스\JC-9642-150-0115(Stand)_20210909A\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대일교통, 광교운수] - 순차 충전 기능, 범한버스\JC-9642-150-0115(Stand)_20210913A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대일교통, 광교운수] - 순차 충전 기능, 범한버스\JC-9642-150-0115(Stand)_20210913A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대일교통, 광교운수] - 순차 충전 기능, 범한버스\JC-9642-150-0115(Stand)_20210913A\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대화교통] - 순차 충전 기능, 우선 충전 기능\JC-9642-150-0115(Stand)_20210913A 대화 교통 적용\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대화교통] - 순차 충전 기능, 우선 충전 기능\JC-9642-150-0115(Stand)_20211012A module_broadcast\Project\STM32F105\PLC_3_0.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대화교통] - 순차 충전 기능, 우선 충전 기능\JC-9642-150-0115(Stand)_20211012A module_broadcast\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대화교통] - 순차 충전 기능, 우선 충전 기능\JC-9642-150-0115(Stand)_20211012A module_broadcast\Project\STM32F105\power_module.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대화교통] - 순차 충전 기능, 우선 충전 기능\JC-9642-150-0115(Stand)_20211012A module_broadcast\Project\STM32F105\power_module.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대화교통] - 순차 충전 기능, 우선 충전 기능\JC-9642-150-0115(Stand)_20211012A module_broadcast\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대화교통] - 순차 충전 기능, 우선 충전 기능\JC-9642-150-0115(Stand)_20211012A module_broadcast\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대화교통] - 순차 충전 기능, 우선 충전 기능\JC-9642-150-0115(Stand)_20211018A advenced\Project\STM32F105\PLC_3_0.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대화교통] - 순차 충전 기능, 우선 충전 기능\JC-9642-150-0115(Stand)_20211018A advenced\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대화교통] - 순차 충전 기능, 우선 충전 기능\JC-9642-150-0115(Stand)_20211018A advenced\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대화교통] - 순차 충전 기능, 우선 충전 기능\JC-9642-150-0115(Stand)_20211018A advenced\Project\STM32F105\power_module.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대화교통] - 순차 충전 기능, 우선 충전 기능\JC-9642-150-0115(Stand)_20211018A advenced\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대화교통] - 순차 충전 기능, 우선 충전 기능\JC-9642-150-0115(Stand)_20211101A advenced\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대화교통] - 순차 충전 기능, 우선 충전 기능\JC-9642-150-0115(Stand)_20211101A advenced\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대화교통] - 순차 충전 기능, 우선 충전 기능\JC-9642-150-0115(Stand)_20211111A (설문)\Project\STM32F105\PLC_3_0.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대화교통] - 순차 충전 기능, 우선 충전 기능\JC-9642-150-0115(Stand)_20211111A (설문)\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대화교통] - 순차 충전 기능, 우선 충전 기능\JC-9642-150-0115(Stand)_20211111A (설문)\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대화교통] - 순차 충전 기능, 우선 충전 기능\JC-9642-150-0115(Stand)_20211111A (설문)\Project\STM32F105\power_module.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대화교통] - 순차 충전 기능, 우선 충전 기능\JC-9642-150-0115(Stand)_20211111A (설문)\Project\STM32F105\power_module.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2021-2] Develop_2\[300kW 대화교통] - 순차 충전 기능, 우선 충전 기능\JC-9642-150-0115(Stand)_20211111A (설문)\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2022 FW final]\[INFY integrated FW]\JC-9642-150-0115(Stand)_(4 IN 1SET)_INFY_20221110A_ver348 - term_cmd\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2022 FW final]\[INFY integrated FW]\JC-9642-150-0115(Stand)_(4 IN 1SET)_INFY_20221212A_ver348\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2022-01]\BUS\JC-9642-150-0115(Stand)_(2 IN 1SET)20220208A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[2022-01]\BUS\JC-9642-150-0115(Stand)_(2 IN 1SET)20220208A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\20201118C Stand(JC-6642-100-0115)\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\JC-6642-100-0115_left(up)\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\JC-6642-100-0115_left(up)\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\JC-6642-100-0115_left(up)\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\JC-6642-100-0115_left(up) 20201117A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\JC-6642-100-0115_left(up) 20201117A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\JC-6642-100-0115_left(up) 20201117A\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\JC-6642-100-0115_left(up) 20201117B\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\JC-6642-100-0115_left(up) 20201117B\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\JC-6642-100-0115_left(up) 20201117B\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\JC-6642-100-0115_left(up) 20201118A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\JC-6642-100-0115_left(up) 20201118A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\JC-6642-100-0115_left(up) 20201118A\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\JC-6642-100-0115_left(up) 20201118B\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\JC-6642-100-0115_left(up) 20201118B\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-6642-100-0115)_20201119A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-6642-100-0115)_20201119A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-6642-100-0115)_20201119A\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-6642-100-0115)_20201119B\Project\STM32F105\PLC_3_0.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-6642-100-0115)_20201120A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-6642-100-0115)_20201120A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-6642-100-0115)_20201120B\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-6642-100-0115)_20201120B\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-6642-100-0115)_20201120B\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-6642-100-0115)_20201120C\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-6642-100-0115)_20201120C\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-6642-100-0115)_20201120C\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-6642-100-0115)_20201123A\Project\STM32F105\PLC_3_0.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-6642-100-0115)_20201123A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-6642-100-0115)_20201123A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-6642-100-0115)_20201123A\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-6642-100-0115)_20201123B_optimized\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-6642-100-0115)_20201123B_optimized\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-6642-100-0115)_20201123C_optimized\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-6642-100-0115)_20201123C_optimized\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-6642-100-0115)_20201124A_optimized\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-6642-100-0115)_20201124A_optimized\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-6642-100-0115)_20201124A_optimized\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-6642-100-0115)_20201124B\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-6642-100-0115)_20201124B\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-6642-100-0115)_20201124B\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-9642-100-0115)_20201124B\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-9642-100-0115)_20201125A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-9642-100-0115)_20201125A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\Stand\Stand(JC-9642-100-0115)_20201125A\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\디스펜서형 한전향(세종시)\Stand(JC-9642-100-0115)_20201125A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\디스펜서형 한전향(세종시)\Stand(JC-9642-100-0115)_20201125A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\디스펜서형 한전향(세종시)\Stand(JC-9642-100-0115)_20201125A\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\디스펜서형 한전향(세종시)\Stand(JC-9642-100-0115)_20201202A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\디스펜서형 한전향(세종시)\Stand(JC-9642-100-0115)_20201202A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\디스펜서형 한전향(세종시)\Stand(JC-9642-100-0115)_20201202A\Project\STM32F105\pt1000.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\디스펜서형 한전향(세종시)\Stand(JC-9642-100-0115)_20201202A\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\디스펜서형 한전향(세종시)\Stand(JC-9642-100-0115)_20201207A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\디스펜서형 한전향(세종시)\Stand(JC-9642-100-0115)_20201207A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\디스펜서형 한전향(세종시)\Stand(JC-9642-100-0115)_20201207A\Project\STM32F105\pt1000.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\디스펜서형 한전향(세종시)\Stand(JC-9642-100-0115)_20201207A\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\디스펜서형 한전향(세종시)\Stand(JC-9642-100-0115)_20201216A - KTC인증원에서 테스트\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\디스펜서형 한전향(세종시)\Stand(JC-9642-100-0115)_20201216A - KTC인증원에서 테스트\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\디스펜서형 한전향(세종시)\Stand(JC-9642-100-0115)_20201216A - KTC인증원에서 테스트\Project\STM32F105\pt1000.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\Firmware\디스펜서형 한전향(세종시)\Stand(JC-9642-100-0115)_20201216A - KTC인증원에서 테스트\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\성남시내버스 야탑차고지 300kW\Firmware\Stand(JC-9642-150-0115)_20201216A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\성남시내버스 야탑차고지 300kW\Firmware\Stand(JC-9642-150-0115)_20201216A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\성남시내버스 야탑차고지 300kW\Firmware\Stand(JC-9642-150-0115)_20201216A\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\성남시내버스 야탑차고지 300kW\Firmware\Stand(JC-9642-150-0115)_20210125A - 출력 전류 확인(모니터링)\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\성남시내버스 야탑차고지 300kW\Firmware\Stand(JC-9642-150-0115)_20210125A - 출력 전류 확인(모니터링)\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\성남시내버스 야탑차고지 300kW\Firmware\Stand(JC-9642-150-0115)_20210125A - 출력 전류 확인(모니터링)\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\성남시내버스 야탑차고지 300kW\Firmware\Stand(JC-9642-150-0115)_20210208A\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\[BUS_CHARGER 2020]\성남시내버스 야탑차고지 300kW\Firmware\Stand(JC-9642-150-0115)_20210208A\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\work\150kw_BUS_Charger\JC6831_Control_v2.1_151214\Program\Mag\STM32F105_V3.5.0_20160216_Mag_master\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\work\150kw_BUS_Charger\JC6831_Control_v2.1_151214\Program\Mag\STM32F105_V3.5.0_20160217_Mag_master\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\work\150kw_BUS_Charger\JC6831_Control_v2.1_151214\Program\Mag\STM32F105_V3.5.0_20160218_Mag_master\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\work\150kw_BUS_Charger\JC6831_Control_v2.1_151214\Program\Mag\STM32F105_V3.5.0_20160218_Mag_master\Project\STM32F105\stm32f10x_it.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\work\150kw_BUS_Charger\JC6831_Control_v2.1_151214\Program\STM32F105_V3.5.0_20160104_bus_only\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\work\150kw_BUS_Charger\JC6831_Control_v2.1_151214\Program\STM32F105_V3.5.0_20160106\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\work\150kw_BUS_Charger\JC6831_Control_v2.1_151214\Program\STM32F105_V3.5.0_20160107\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\work\150kw_BUS_Charger\JC6831_Control_v2.1_151214\Program\STM32F105_V3.5.0_20160107_master\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\work\150kw_BUS_Charger\JC6831_Control_v2.1_151214\Program\STM32F105_V3.5.0_20160108_master\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\work\150kw_BUS_Charger\JC6831_Control_v2.1_151214\Program\STM32F105_V3.5.0_20160118_master\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\work\150kw_BUS_Charger\JC6831_Control_v2.1_151214\Program\STM32F105_V3.5.0_20160119_master\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\work\150kw_BUS_Charger\JC6831_Control_v2.1_151214\Program\STM32F105_V3.5.0_20160120_master\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\work\150kw_BUS_Charger\JC6831_Control_v2.1_151214\Program\STM32F105_V3.5.0_20160122_master\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\work\150kw_BUS_Charger\JC6831_Control_v2.1_151214\Program\STM32F105_V3.5.0_20160125_master\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\work\150kw_BUS_Charger\JC6831_Control_v2.1_151214\Program\STM32F105_V3.5.0_20160215_master\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\work\150kw_BUS_Charger\JC6831_Control_v2.1_151214\Program\STM32F105_V3.5.0_20160215_master\Project\STM32F105\stm32f10x_it.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\work\150kw_BUS_Charger\JC6831_Control_v2.1_151214\Program\STM32F105_V3.5.0_20160216_master\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\work\150kw_BUS_Charger\JC6831_Control_v2.1_151214\Program\STM32F105_V3.5.0_20160216_master\Project\STM32F105\stm32f10x_it.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\work\150kw_BUS_Charger\Program\STM32F105_V3.5.0_20151209\BSP\src\stm32_can.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\work\150kw_BUS_Charger\Program\STM32F105_V3.5.0_20151209\Project\STM32F105\stm32f10x_it.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\work\150kw_BUS_Charger\Program\STM32F105_V3.5.0_20151228_bus_only\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\work\150kw_BUS_Charger\Program\STM32F105_V3.5.0_20151228_bus_only\Project\STM32F105\stm32f10x_it.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\work\EVC\Module_DC_50kW\Program\STM32F105_V3.5.0_20160218_Mag_master\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\work\EVC\Module_DC_50kW\Program\STM32F105_V3.5.0_20160224_50kW_module\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\work\EVC\Module_DC_50kW\Program\STM32F105_V3.5.0_20160225_50kW_module\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\first\Program\STM32F105_V3.5.0_20160314_50kW_module_Certification\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\first\Program\STM32F105_V3.5.0_20160314_50kW_module_Certification\Project\STM32F105\stm32f10x_it.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\first\Program\STM32F105_V3.5.0_20160523_50kW_module_Certification\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\Ver3_20160701_50kW_module_Certification\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\Ver3_20160706_50kW_module_Certification\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\Ver3_20160720_50kW_module_Certification\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20160720_50kW_module\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20160722_50kW_module\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20160725_50kW_module\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20160727_50kW_module\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20160729_50kW_module\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20160801_50kW_module\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20160812_50kW_module\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20160812_50kW_module2\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20160825_50kW_module\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20160829_50kW_module\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20160830_50kW_module2\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20160830_50kW_module4\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20160902_50kW_module\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20160903_50kW_module\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20160905_50kW_module\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20160906_50kW_module\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20160908_50kW_module\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20160927_50kW_module_5ms\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20161006_50kW_module_5ms_currentAD_compensateA\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20161007_50kW_module_5ms_currentAD_compensateA_lowpassfilter\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20161007_50kW_module_lowpassfilter\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20161011_50kW_module_lowpassfilter\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20161012_50kW_module_lowpassfilter\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20161013_50kW_module\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20161013_50kW_module_tteesstt\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20161024_50kW_module\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20161026_50kW_module\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20161026_50kW_module_leaf\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20161031_50kW_module\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20161119_50kW_module\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20161125_50kW_module\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20161129_50kW_module\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20161130_50kW_module_rjatn\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20161201_50kW_module_rjatn\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20161201_50kW_module_rjatn2\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20161201_50kW_module_rjatn3\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20161202_50kW_module_rjatn\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20161202_50kW_module_rjatn2\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20161205_50kW_module_rjatn\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20161209_50kW_module_rjatn\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20161229_50kW_module_126\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20170109_50kW_module_011\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20170109_50kW_module_17011\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20170109_50kW_module_17012\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20170110_50kW_module_17012\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20170112_50kW_module_17013\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20170112_50kW_module_17041\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20170112_50kW_module_17042\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20170426_50kW_module_17043\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20170517_50kW_module_NTC_CT_final\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20170519_50kW_module_17052\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20170519_50kW_module_17052\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20170519_50kW_module_17061\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20170519_50kW_module_17062\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20170519_50kW_module_17062\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20170628_50kW_module_17063\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20170628_50kW_module_17063\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20170703_50kW_module_17071\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20170724_50kW_module_17073\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\Module_DC_50kW\third\program\[JC-6933] CONTROL BOARD. VER. 4.1_____[JC6933_CONTROL_160711]\Ver3_20170913_50kW_module_17092\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\S_TRAFFIC\FW_JC-6932-M3ST-100-BC_v2.2.6_180702_1ch_전력변환6\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\S_TRAFFIC\FW_JC-6932-M3ST-100-BC_v2.2.6_180702_1ch_전력변환6\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\work\EVC\S_TRAFFIC\FW_JC-6932-M3ST-100-BC_v2.2.6_180702_1ch_전력변환6\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>F:\FW_Straffic\FW_JC-6932-M3ST-100-BC_v2.2.8_190611_1ch_100ms\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>F:\FW_Straffic\FW_JC-6932-M3ST-100-BC_v2.2.8_190611_1ch_100ms\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>F:\FW_Straffic\FW_JC-6932-M3ST-100-BC_v2.2.8_190611_1ch_100ms\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>F:\FW_Straffic\영업지원 제공 FW\FW_JC-6932-M3ST-100-BC_v2.2.8_190611_1ch_100ms\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>F:\FW_Straffic\영업지원 제공 FW\FW_JC-6932-M3ST-100-BC_v2.2.8_190611_1ch_100ms\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>F:\FW_Straffic\영업지원 제공 FW\FW_JC-6932-M3ST-100-BC_v2.2.8_190611_1ch_100ms\Project\STM32F105\stm32f105_function1.c</path>
+        <encoding>System</encoding>
+    </override>
+</userOverrides>

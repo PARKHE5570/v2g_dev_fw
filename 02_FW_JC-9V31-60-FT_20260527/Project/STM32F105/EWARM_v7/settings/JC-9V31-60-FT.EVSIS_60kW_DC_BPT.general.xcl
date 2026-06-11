@@ -1,0 +1,15 @@
+D:\iar\ewarmc-9.70.2\arm\bin\armproc.dll
+
+ D:\iar\ewarmc-9.70.2\arm\bin\armstlink.dll
+
+ "C:\Users\user\Desktop\V2G temp test FW 20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Exe\JC-9642-300-012.out"
+
+ --plugin=D:\iar\ewarmc-9.70.2\arm\bin\armLibSupportUniversal.dll
+
+ --device_macro=D:\iar\ewarmc-9.70.2\arm/config/debugger/ST/STM32F1xx.dmac
+
+ --flash_loader=D:\iar\ewarmc-9.70.2\arm/config/flashloader/ST/FlashSTM32F105xC.board
+
+ 
+
+

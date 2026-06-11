@@ -1,0 +1,1722 @@
+###############################################################################
+#
+# IAR ELF Linker V9.70.2.500/W64 for ARM                  11/Jun/2026  16:46:06
+# Copyright 2007-2025 IAR Systems AB.
+#
+#    Output file  =
+#        C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Exe\JC-9642-300-012.out
+#    Map file     =
+#        C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\List\JC-9642-300-012.map
+#    Command line =
+#        -f "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Exe\JC-9642-300-012.out.rsp"
+#        ("C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\User_4889033380472473340.dir\digital_io.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\User_4889033380472473340.dir\fault_check.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\User_4889033380472473340.dir\FirmwareUpdate.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\User_4889033380472473340.dir\HMI_modbus.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\User_4889033380472473340.dir\Imd_communication.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\User_4889033380472473340.dir\INFY_V2G.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\User_4889033380472473340.dir\main.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\StdPeriph_Driver_12021012747841943037.dir\misc.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\User_4889033380472473340.dir\PLC_3_0.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\User_4889033380472473340.dir\pt1000.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\User_4889033380472473340.dir\self_check.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\User_4889033380472473340.dir\sequence.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\User_4889033380472473340.dir\sim200_can_sched.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\User_4889033380472473340.dir\sim200_port.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\User_4889033380472473340.dir\sim200_protocol.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\User_4889033380472473340.dir\SIM_100.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\StdPeriph_Driver_12021012747841943037.dir\startup_stm32f105xc.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\User_4889033380472473340.dir\stm32f105_init.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\StdPeriph_Driver_12021012747841943037.dir\stm32f10x_adc.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\StdPeriph_Driver_12021012747841943037.dir\stm32f10x_bkp.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\StdPeriph_Driver_12021012747841943037.dir\stm32f10x_can.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\StdPeriph_Driver_12021012747841943037.dir\stm32f10x_cec.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\StdPeriph_Driver_12021012747841943037.dir\stm32f10x_crc.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\StdPeriph_Driver_12021012747841943037.dir\stm32f10x_dac.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\StdPeriph_Driver_12021012747841943037.dir\stm32f10x_dbgmcu.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\StdPeriph_Driver_12021012747841943037.dir\stm32f10x_dma.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\StdPeriph_Driver_12021012747841943037.dir\stm32f10x_exti.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\StdPeriph_Driver_12021012747841943037.dir\stm32f10x_flash.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\StdPeriph_Driver_12021012747841943037.dir\stm32f10x_fsmc.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\StdPeriph_Driver_12021012747841943037.dir\stm32f10x_gpio.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\StdPeriph_Driver_12021012747841943037.dir\stm32f10x_i2c.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\User_4889033380472473340.dir\stm32f10x_it.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\StdPeriph_Driver_12021012747841943037.dir\stm32f10x_iwdg.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\StdPeriph_Driver_12021012747841943037.dir\stm32f10x_pwr.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\StdPeriph_Driver_12021012747841943037.dir\stm32f10x_rcc.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\StdPeriph_Driver_12021012747841943037.dir\stm32f10x_rtc.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\StdPeriph_Driver_12021012747841943037.dir\stm32f10x_sdio.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\StdPeriph_Driver_12021012747841943037.dir\stm32f10x_spi.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\StdPeriph_Driver_12021012747841943037.dir\stm32f10x_tim.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\StdPeriph_Driver_12021012747841943037.dir\stm32f10x_usart.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\StdPeriph_Driver_12021012747841943037.dir\stm32f10x_wwdg.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\CMSIS_13545061835669826545.dir\system_stm32f10x.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\User_4889033380472473340.dir\Terminal.o"
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\User_4889033380472473340.dir\UART.o"
+#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull
+#        --no_out_extension -o "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Exe\JC-9642-300-012.out"
+#        --map "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\List\JC-9642-300-012.map"
+#        --config "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\stm32f10x_flash.icf"
+#        --entry __iar_program_start --vfe --text_out locale --cpu=Cortex-M3
+#        --fpu=None) --diagnostics_format=sarif_stdout --dependencies=n
+#        "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Exe\JC-9642-300-012.out.iar_deps"
+#        --dynamic_output "C:\Users\user\Desktop\V2G temp test FW
+#        20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Exe\JC-9642-300-012.out.iar_dynout"
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__CPP_Runtime   = 1
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because --advanced_heap
+was not specified and the application did not appear to
+be primarily optimized for speed.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x800'8000 {  ro section .intvec };
+"P1":  place in [from 0x800'8000 to 0x803'ffff] {  ro };
+define block CSTACK with size = 1K, alignment = 8 { };
+define block HEAP with size = 512, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2000'ffff] {
+           rw,  block CSTACK,  block HEAP };
+initialize by copy {  rw };
+
+  Section            Kind         Address  Alignment      Size  Object
+  -------            ----         -------  ---------      ----  ------
+"A0":                                                    0x150
+  .intvec            ro code   0x800'8000          4     0x150  startup_stm32f105xc.o [2]
+                             - 0x800'8150                0x150
+
+"P1":                                                 0x1'2d9a
+  .text              ro code   0x800'8150          4    0x34a4  Terminal.o [3]
+  .text              ro code   0x800'b5f4          4     0x24a  stm32f10x_usart.o [2]
+  .text              ro code   0x800'b83e          2      0x14  toupper.o [4]
+  .text              ro code   0x800'b852          2      0x7e  lz77_init_single.o [6]
+  .text              ro code   0x800'b8d0          4      0x1a  U32ToFlt.o [5]
+  .rodata            const     0x800'b8ea          2       0x2  xlocale_c.o [4]
+  .text              ro code   0x800'b8ec          4      0xd8  FltMul.o [5]
+  .text              ro code   0x800'b9c4          4      0x48  FltToDbl.o [5]
+  .text              ro code   0x800'ba0c          4     0x1aa  DblMul.o [5]
+  .text              ro code   0x800'bbb8          4      0x36  DblToS32.o [5]
+  .text              ro code   0x800'bbf0          4      0x1c  U32ToDbl.o [5]
+  .text              ro code   0x800'bc0c          4      0x26  FltToS32.o [5]
+  .text              ro code   0x800'bc34          4      0x28  FltCmpGe.o [5]
+  .text              ro code   0x800'bc5c          4      0x84  FirmwareUpdate.o [3]
+  .text              ro code   0x800'bce0          4      0x98  rand.o [4]
+  .text              ro code   0x800'bd78          4     0x1c8  stm32f10x_rcc.o [2]
+  .text              ro code   0x800'bf40          4      0x24  xlocale_c.o [4]
+  .text              ro code   0x800'bf64          4     0x154  stm32f10x_flash.o [2]
+  .text              ro code   0x800'c0b8          4    0x2798  INFY_V2G.o [3]
+  .text              ro code   0x800'e850          4     0x5f6  stm32f10x_can.o [2]
+  .text              ro code   0x800'ee48          4      0x28  FltCmpLe.o [5]
+  .text              ro code   0x800'ee70          4      0x18  FltToU32.o [5]
+  .text              ro code   0x800'ee88          4    0x1158  sequence.o [3]
+  .text              ro code   0x800'ffe0          4     0xeb0  PLC_3_0.o [3]
+  .text              ro code   0x801'0e90          4     0xa24  stm32f105_init.o [3]
+  .text              ro code   0x801'18b4          4      0x68  DblToFlt.o [5]
+  .text              ro code   0x801'191c          4     0x24e  DblAddSub.o [5]
+  .text              ro code   0x801'1b6c          4     0x16e  FltAddSub.o [5]
+  .text              ro code   0x801'1cda          2       0x8  abs.o [4]
+  .text              ro code   0x801'1ce4          4      0x22  S32ToDbl.o [5]
+  .text              ro code   0x801'1d08          4     0x246  DblDiv.o [5]
+  .text              ro code   0x801'1f50          4     0x228  stm32f10x_dma.o [2]
+  .text              ro code   0x801'2178          4     0x21a  stm32f10x_adc.o [2]
+  .text              ro code   0x801'2394          4      0x78  misc.o [2]
+  .text              ro code   0x801'240c          4     0x10c  stm32f10x_tim.o [2]
+  .text              ro code   0x801'2518          4      0x40  stm32f10x_iwdg.o [2]
+  .text              ro code   0x801'2558          4      0x68  stm32f10x_wwdg.o [2]
+  .text              ro code   0x801'25c0          4     0x118  stm32f10x_gpio.o [2]
+  .text              ro code   0x801'26d8          4     0xeb8  UART.o [3]
+  .text              ro code   0x801'3590          4     0xbdc  HMI_modbus.o [3]
+  .text              ro code   0x801'416c          4      0x22  DblToU32.o [5]
+  .text              ro code   0x801'4190          4      0xa6  ABImemcpy.o [6]
+  .text              ro code   0x801'4238          4     0x118  FltDiv.o [5]
+  .text              ro code   0x801'4350          4      0x66  ABImemset.o [6]
+  .text              ro code   0x801'43b8          4     0xe54  self_check.o [3]
+  .text              ro code   0x801'520c          4      0x34  DblCmpGe.o [5]
+  .text              ro code   0x801'5240          4      0x34  DblCmpLe.o [5]
+  .text              ro code   0x801'5274          4     0xbac  stm32f10x_it.o [3]
+  .text              ro code   0x801'5e20          4     0x230  sim200_can_sched.o [3]
+  .text              ro code   0x801'6050          4     0x60c  sim200_protocol.o [3]
+  .text              ro code   0x801'665c          4      0x90  sim200_port.o [3]
+  .text              ro code   0x801'66ec          4     0x5a8  fault_check.o [3]
+  .text              ro code   0x801'6c94          4     0x500  digital_io.o [3]
+  .text              ro code   0x801'7194          4     0x2d4  SIM_100.o [3]
+  .text              ro code   0x801'7468          4     0x2b8  main.o [3]
+  .text              ro code   0x801'7720          4     0x148  pt1000.o [3]
+  .text              ro code   0x801'7868          4      0x24  S32ToFlt.o [5]
+  .rodata            const     0x801'788c          4     0x200  HMI_modbus.o [3]
+  .text              ro code   0x801'7a8c          4     0x158  system_stm32f10x.o [1]
+  .rodata            const     0x801'7be4          4      0xf4  Terminal.o [3]
+  .rodata            const     0x801'7cd8          4      0xdc  Terminal.o [3]
+  .rodata            const     0x801'7db4          4      0xd0  Terminal.o [3]
+  .rodata            const     0x801'7e84          4      0xb0  self_check.o [3]
+  .rodata            const     0x801'7f34          4      0x94  self_check.o [3]
+  .rodata            const     0x801'7fc8          4      0x94  Terminal.o [3]
+  .rodata            const     0x801'805c          4      0x88  self_check.o [3]
+  .rodata            const     0x801'80e4          4      0x84  Terminal.o [3]
+  .rodata            const     0x801'8168          4      0x80  self_check.o [3]
+  .rodata            const     0x801'81e8          4      0x7c  self_check.o [3]
+  .rodata            const     0x801'8264          4      0x7c  Terminal.o [3]
+  .rodata            const     0x801'82e0          4      0x78  Terminal.o [3]
+  .rodata            const     0x801'8358          4      0x74  self_check.o [3]
+  .rodata            const     0x801'83cc          4      0x74  self_check.o [3]
+  .rodata            const     0x801'8440          4      0x74  Terminal.o [3]
+  .rodata            const     0x801'84b4          4      0x70  self_check.o [3]
+  .rodata            const     0x801'8524          4      0x70  Terminal.o [3]
+  .rodata            const     0x801'8594          4      0x6c  self_check.o [3]
+  .rodata            const     0x801'8600          4      0x6c  self_check.o [3]
+  .rodata            const     0x801'866c          4      0x6c  self_check.o [3]
+  .rodata            const     0x801'86d8          4      0x68  pt1000.o [3]
+  .rodata            const     0x801'8740          4      0x68  self_check.o [3]
+  .rodata            const     0x801'87a8          4      0x68  self_check.o [3]
+  .rodata            const     0x801'8810          4      0x64  self_check.o [3]
+  .rodata            const     0x801'8874          4      0x64  self_check.o [3]
+  .rodata            const     0x801'88d8          4      0x64  Terminal.o [3]
+  .rodata            const     0x801'893c          4      0x64  Terminal.o [3]
+  .rodata            const     0x801'89a0          4      0x60  self_check.o [3]
+  .rodata            const     0x801'8a00          4      0x5c  Terminal.o [3]
+  .rodata            const     0x801'8a5c          4      0x5c  Terminal.o [3]
+  .rodata            const     0x801'8ab8          4      0x5c  Terminal.o [3]
+  .rodata            const     0x801'8b14          4      0x5c  Terminal.o [3]
+  .rodata            const     0x801'8b70          4      0x5c  Terminal.o [3]
+  .rodata            const     0x801'8bcc          4      0x5c  Terminal.o [3]
+  .rodata            const     0x801'8c28          4      0x5c  Terminal.o [3]
+  .rodata            const     0x801'8c84          4      0x5c  Terminal.o [3]
+  .rodata            const     0x801'8ce0          4      0x58  self_check.o [3]
+  .rodata            const     0x801'8d38          4      0x54  self_check.o [3]
+  .rodata            const     0x801'8d8c          4      0x54  self_check.o [3]
+  .rodata            const     0x801'8de0          4      0x50  self_check.o [3]
+  .rodata            const     0x801'8e30          4      0x50  self_check.o [3]
+  .rodata            const     0x801'8e80          4      0x50  self_check.o [3]
+  .rodata            const     0x801'8ed0          4      0x50  self_check.o [3]
+  .rodata            const     0x801'8f20          4      0x50  self_check.o [3]
+  .rodata            const     0x801'8f70          4      0x4c  self_check.o [3]
+  .rodata            const     0x801'8fbc          4      0x4c  self_check.o [3]
+  .rodata            const     0x801'9008          4      0x4c  self_check.o [3]
+  .rodata            const     0x801'9054          4      0x4c  self_check.o [3]
+  .rodata            const     0x801'90a0          4      0x4c  self_check.o [3]
+  .rodata            const     0x801'90ec          4      0x4c  self_check.o [3]
+  .rodata            const     0x801'9138          4      0x4c  self_check.o [3]
+  .rodata            const     0x801'9184          4      0x4c  Terminal.o [3]
+  .rodata            const     0x801'91d0          4      0x4c  Terminal.o [3]
+  .rodata            const     0x801'921c          4      0x44  self_check.o [3]
+  .rodata            const     0x801'9260          4      0x44  self_check.o [3]
+  .rodata            const     0x801'92a4          4      0x44  self_check.o [3]
+  .rodata            const     0x801'92e8          4      0x40  Terminal.o [3]
+  .rodata            const     0x801'9328          4      0x3c  main.o [3]
+  .rodata            const     0x801'9364          4      0x3c  self_check.o [3]
+  .rodata            const     0x801'93a0          4      0x3c  self_check.o [3]
+  .rodata            const     0x801'93dc          4      0x3c  Terminal.o [3]
+  .rodata            const     0x801'9418          4      0x38  self_check.o [3]
+  .rodata            const     0x801'9450          4      0x38  self_check.o [3]
+  .rodata            const     0x801'9488          4      0x38  Terminal.o [3]
+  .rodata            const     0x801'94c0          4      0x38  Terminal.o [3]
+  .rodata            const     0x801'94f8          4      0x38  Terminal.o [3]
+  .rodata            const     0x801'9530          4      0x38  Terminal.o [3]
+  .text              ro code   0x801'9568          2      0x38  zero_init3.o [6]
+  .rodata            const     0x801'95a0          4      0x34  self_check.o [3]
+  .rodata            const     0x801'95d4          4      0x34  Terminal.o [3]
+  .rodata            const     0x801'9608          4      0x34  Terminal.o [3]
+  .rodata            const     0x801'963c          4      0x34  Terminal.o [3]
+  .rodata            const     0x801'9670          4      0x34  Terminal.o [3]
+  .rodata            const     0x801'96a4          4      0x34  Terminal.o [3]
+  .rodata            const     0x801'96d8          4      0x30  self_check.o [3]
+  .rodata            const     0x801'9708          4      0x30  self_check.o [3]
+  .rodata            const     0x801'9738          4      0x30  Terminal.o [3]
+  .rodata            const     0x801'9768          4      0x30  Terminal.o [3]
+  .rodata            const     0x801'9798          4      0x2c  self_check.o [3]
+  .rodata            const     0x801'97c4          4      0x2c  Terminal.o [3]
+  .rodata            const     0x801'97f0          4      0x2c  Terminal.o [3]
+  .rodata            const     0x801'981c          4      0x2c  Terminal.o [3]
+  .rodata            const     0x801'9848          4      0x2c  Terminal.o [3]
+  .rodata            const     0x801'9874          4      0x28  self_check.o [3]
+  .rodata            const     0x801'989c          4      0x28  Terminal.o [3]
+  .rodata            const     0x801'98c4          4      0x28  Terminal.o [3]
+  .rodata            const     0x801'98ec          4      0x28  Terminal.o [3]
+  .rodata            const     0x801'9914          4      0x28  Terminal.o [3]
+  .rodata            const     0x801'993c          4      0x28  Terminal.o [3]
+  .rodata            const     0x801'9964          4      0x28  Terminal.o [3]
+  .rodata            const     0x801'998c          4      0x28  Terminal.o [3]
+  .rodata            const     0x801'99b4          4      0x28  Terminal.o [3]
+  .rodata            const     0x801'99dc          4      0x28  Terminal.o [3]
+  .text              ro code   0x801'9a04          4      0x28  data_init.o [6]
+  .rodata            const     0x801'9a2c          4      0x24  self_check.o [3]
+  .rodata            const     0x801'9a50          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9a74          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9a98          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9abc          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9ae0          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9b04          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9b28          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9b4c          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9b70          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9b94          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9bb8          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9bdc          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9c00          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9c24          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9c48          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9c6c          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9c90          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9cb4          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9cd8          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9cfc          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9d20          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9d44          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9d68          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9d8c          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9db0          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9dd4          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9df8          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9e1c          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9e40          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9e64          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9e88          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9eac          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9ed0          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9ef4          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9f18          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9f3c          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9f60          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9f84          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9fa8          4      0x24  Terminal.o [3]
+  .rodata            const     0x801'9fcc          4      0x24  Terminal.o [3]
+  .text              ro code   0x801'9ff0          4      0x22  cmain.o [6]
+  .text              ro code   0x801'a012          2       0x4  low_level_init.o [4]
+  .text              ro code   0x801'a016          2       0x4  exit.o [4]
+  .text              ro code   0x801'a01c          4       0x4  cexit.o [6]
+  .text              ro code   0x801'a020          4       0xa  cexit_2.o [6]
+  .text              ro code   0x801'a02c          4       0xc  XXexit.o [6]
+  .iar.init_table    const     0x801'a038          4      0x20  - Linker created -
+  .rodata            const     0x801'a058          4      0x20  self_check.o [3]
+  .rodata            const     0x801'a078          4      0x20  self_check.o [3]
+  .rodata            const     0x801'a098          4      0x20  self_check.o [3]
+  .rodata            const     0x801'a0b8          4      0x20  self_check.o [3]
+  .rodata            const     0x801'a0d8          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a0f8          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a118          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a138          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a158          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a178          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a198          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a1b8          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a1d8          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a1f8          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a218          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a238          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a258          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a278          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a298          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a2b8          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a2d8          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a2f8          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a318          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a338          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a358          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a378          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a398          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a3b8          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a3d8          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a3f8          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a418          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a438          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a458          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a478          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a498          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a4b8          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a4d8          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a4f8          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a518          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a538          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a558          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a578          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a598          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a5b8          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a5d8          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a5f8          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a618          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a638          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a658          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a678          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a698          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a6b8          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a6d8          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a6f8          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a718          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a738          4      0x20  Terminal.o [3]
+  .rodata            const     0x801'a758          4      0x20  Terminal.o [3]
+  .text              ro code   0x801'a778          4      0x1e  cstartup_M.o [6]
+  .rodata            const     0x801'a798          4      0x1c  Terminal.o [3]
+  .rodata            const     0x801'a7b4          4      0x1c  Terminal.o [3]
+  .rodata            const     0x801'a7d0          4      0x1c  Terminal.o [3]
+  .rodata            const     0x801'a7ec          4      0x1c  Terminal.o [3]
+  .rodata            const     0x801'a808          4      0x1c  Terminal.o [3]
+  .rodata            const     0x801'a824          4      0x1c  Terminal.o [3]
+  .rodata            const     0x801'a840          4      0x1c  Terminal.o [3]
+  .rodata            const     0x801'a85c          4      0x1c  Terminal.o [3]
+  .rodata            const     0x801'a878          4      0x1c  Terminal.o [3]
+  .rodata            const     0x801'a894          4      0x1c  Terminal.o [3]
+  .rodata            const     0x801'a8b0          4      0x1c  Terminal.o [3]
+  .rodata            const     0x801'a8cc          4      0x1c  Terminal.o [3]
+  .rodata            const     0x801'a8e8          4      0x1c  Terminal.o [3]
+  .rodata            const     0x801'a904          4      0x1c  Terminal.o [3]
+  .rodata            const     0x801'a920          4      0x1c  Terminal.o [3]
+  .rodata            const     0x801'a93c          4      0x1c  Terminal.o [3]
+  .rodata            const     0x801'a958          4      0x1c  Terminal.o [3]
+  .rodata            const     0x801'a974          4      0x18  self_check.o [3]
+  .rodata            const     0x801'a98c          4      0x18  Terminal.o [3]
+  .rodata            const     0x801'a9a4          4      0x18  Terminal.o [3]
+  .rodata            const     0x801'a9bc          4      0x18  Terminal.o [3]
+  .rodata            const     0x801'a9d4          4      0x18  Terminal.o [3]
+  .rodata            const     0x801'a9ec          4      0x18  Terminal.o [3]
+  .rodata            const     0x801'aa04          4      0x18  Terminal.o [3]
+  .rodata            const     0x801'aa1c          4      0x18  Terminal.o [3]
+  .rodata            const     0x801'aa34          4      0x14  self_check.o [3]
+  .rodata            const     0x801'aa48          4      0x14  self_check.o [3]
+  .rodata            const     0x801'aa5c          4      0x14  self_check.o [3]
+  .rodata            const     0x801'aa70          4      0x10  self_check.o [3]
+  .rodata            const     0x801'aa80          4      0x10  sim200_protocol.o [3]
+  .rodata            const     0x801'aa90          4      0x10  Terminal.o [3]
+  .rodata            const     0x801'aaa0          4      0x10  Terminal.o [3]
+  .rodata            const     0x801'aab0          4      0x10  Terminal.o [3]
+  .rodata            const     0x801'aac0          4      0x10  Terminal.o [3]
+  .rodata            const     0x801'aad0          4      0x10  Terminal.o [3]
+  .rodata            const     0x801'aae0          4      0x10  Terminal.o [3]
+  .rodata            const     0x801'aaf0          4      0x10  Terminal.o [3]
+  .rodata            const     0x801'ab00          4      0x10  Terminal.o [3]
+  .text              ro code   0x801'ab10          4      0x10  startup_stm32f105xc.o [2]
+  .rodata            const     0x801'ab20          4       0xc  self_check.o [3]
+  .rodata            const     0x801'ab2c          4       0xc  self_check.o [3]
+  .rodata            const     0x801'ab38          4       0xc  self_check.o [3]
+  .rodata            const     0x801'ab44          4       0xc  self_check.o [3]
+  .rodata            const     0x801'ab50          4       0xc  self_check.o [3]
+  .rodata            const     0x801'ab5c          4       0xc  sim200_protocol.o [3]
+  .rodata            const     0x801'ab68          4       0xc  Terminal.o [3]
+  .rodata            const     0x801'ab74          4       0xc  Terminal.o [3]
+  .rodata            const     0x801'ab80          4       0xc  Terminal.o [3]
+  .rodata            const     0x801'ab8c          4       0xc  Terminal.o [3]
+  .rodata            const     0x801'ab98          4       0xc  Terminal.o [3]
+  .rodata            const     0x801'aba4          4       0xc  Terminal.o [3]
+  .rodata            const     0x801'abb0          4       0xc  Terminal.o [3]
+  .rodata            const     0x801'abbc          4       0xc  Terminal.o [3]
+  .rodata            const     0x801'abc8          4       0xc  Terminal.o [3]
+  .rodata            const     0x801'abd4          4       0xc  Terminal.o [3]
+  .rodata            const     0x801'abe0          4       0xc  Terminal.o [3]
+  .rodata            const     0x801'abec          4       0xc  Terminal.o [3]
+  .rodata            const     0x801'abf8          4       0xc  Terminal.o [3]
+  .rodata            const     0x801'ac04          4       0xc  Terminal.o [3]
+  .rodata            const     0x801'ac10          4       0xc  Terminal.o [3]
+  .rodata            const     0x801'ac1c          4       0xc  Terminal.o [3]
+  .rodata            const     0x801'ac28          4       0xc  Terminal.o [3]
+  .rodata            const     0x801'ac34          4       0xc  Terminal.o [3]
+  .rodata            const     0x801'ac40          4       0x8  self_check.o [3]
+  .rodata            const     0x801'ac48          4       0x8  self_check.o [3]
+  .rodata            const     0x801'ac50          4       0x8  self_check.o [3]
+  .rodata            const     0x801'ac58          4       0x8  self_check.o [3]
+  .rodata            const     0x801'ac60          4       0x8  self_check.o [3]
+  .rodata            const     0x801'ac68          4       0x8  self_check.o [3]
+  .rodata            const     0x801'ac70          4       0x8  self_check.o [3]
+  .rodata            const     0x801'ac78          4       0x8  sim200_protocol.o [3]
+  .rodata            const     0x801'ac80          4       0x8  sim200_protocol.o [3]
+  .rodata            const     0x801'ac88          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'ac90          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'ac98          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'aca0          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'aca8          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'acb0          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'acb8          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'acc0          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'acc8          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'acd0          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'acd8          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'ace0          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'ace8          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'acf0          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'acf8          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'ad00          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'ad08          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'ad10          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'ad18          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'ad20          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'ad28          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'ad30          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'ad38          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'ad40          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'ad48          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'ad50          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'ad58          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'ad60          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'ad68          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'ad70          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'ad78          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'ad80          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'ad88          4       0x8  Terminal.o [3]
+  .rodata            const     0x801'ad90          4       0x4  sim200_protocol.o [3]
+  .rodata            const     0x801'ad94          4       0x4  sim200_protocol.o [3]
+  .rodata            const     0x801'ad98          4       0x4  sim200_protocol.o [3]
+  .text              ro code   0x801'ad9c          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'ada0          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'ada4          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'ada8          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'adac          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'adb0          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'adb4          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'adb8          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'adbc          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'adc0          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'adc4          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'adc8          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'adcc          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'add0          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'add4          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'add8          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'addc          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'ade0          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'ade4          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'ade8          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'adec          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'adf0          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'adf4          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'adf8          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'adfc          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'ae00          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'ae04          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'ae08          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'ae0c          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'ae10          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'ae14          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'ae18          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'ae1c          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'ae20          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'ae24          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'ae28          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'ae2c          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'ae30          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'ae34          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'ae38          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'ae3c          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'ae40          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'ae44          2       0x4  startup_stm32f105xc.o [2]
+  .text              ro code   0x801'ae48          2       0x4  startup_stm32f105xc.o [2]
+  .rodata            const     0x801'ae4c                  0x0  zero_init3.o [6]
+  .rodata            const     0x801'ae4c                  0x0  lz77_init_single.o [6]
+  Initializer bytes  const     0x801'ae4c                 0x9e  <for P2-1>
+                             - 0x801'aeea             0x1'2d9a
+
+"P2", part 1 of 3:                                       0x1e9
+  P2-1                        0x2000'0000                0x1e9  <Init block>
+    .data            inited   0x2000'0000          4      0x10  stm32f10x_rcc.o [2]
+    .data            inited   0x2000'0010          4       0x4  stm32f10x_rcc.o [2]
+    .data            inited   0x2000'0014          4      0x34  Terminal.o [3]
+    .data            inited   0x2000'0048          4      0x34  Terminal.o [3]
+    .data            inited   0x2000'007c          4      0x34  Terminal.o [3]
+    .data            inited   0x2000'00b0          4      0x34  Terminal.o [3]
+    .data            inited   0x2000'00e4          4      0x34  Terminal.o [3]
+    .data            inited   0x2000'0118          4      0x34  Terminal.o [3]
+    .data            inited   0x2000'014c          4      0x3c  Terminal.o [3]
+    .data            inited   0x2000'0188          4       0x8  rand.o [4]
+    .data            inited   0x2000'0190          4      0x48  xlocale_c.o [4]
+    .data            inited   0x2000'01d8                  0x1  digital_io.o [3]
+    .data            inited   0x2000'01d9                  0x1  digital_io.o [3]
+    .data            inited   0x2000'01da                  0x1  fault_check.o [3]
+    .data            inited   0x2000'01db                  0x1  fault_check.o [3]
+    .data            inited   0x2000'01dc                  0x1  fault_check.o [3]
+    .data            inited   0x2000'01dd                  0x1  fault_check.o [3]
+    .data            inited   0x2000'01de                  0x1  fault_check.o [3]
+    .data            inited   0x2000'01df                  0x1  fault_check.o [3]
+    .data            inited   0x2000'01e0                  0x1  fault_check.o [3]
+    .data            inited   0x2000'01e1                  0x1  fault_check.o [3]
+    .data            inited   0x2000'01e2                  0x1  fault_check.o [3]
+    .data            inited   0x2000'01e3                  0x1  fault_check.o [3]
+    .data            inited   0x2000'01e4                  0x1  HMI_modbus.o [3]
+    .data            inited   0x2000'01e5                  0x1  HMI_modbus.o [3]
+    .data            inited   0x2000'01e6                  0x1  INFY_V2G.o [3]
+    .data            inited   0x2000'01e7                  0x1  main.o [3]
+    .data            inited   0x2000'01e8                  0x1  sequence.o [3]
+                            - 0x2000'01e9                0x1e9
+
+"P2", part 2 of 3:                                      0x30f8
+  .bss               zero     0x2000'01ec          4    0x2000  main.o [3]
+  .bss               zero     0x2000'21ec          4     0x240  INFY_V2G.o [3]
+  .bss               zero     0x2000'242c          4     0x150  PLC_3_0.o [3]
+  .bss               zero     0x2000'257c          4     0x108  PLC_3_0.o [3]
+  .bss               zero     0x2000'2684          4      0xf0  HMI_modbus.o [3]
+  .bss               zero     0x2000'2774          4      0xbc  HMI_modbus.o [3]
+  .bss               zero     0x2000'2830          4      0x98  INFY_V2G.o [3]
+  .bss               zero     0x2000'28c8          4      0x90  INFY_V2G.o [3]
+  .bss               zero     0x2000'2958          4      0x84  rand.o [4]
+  .bss               zero     0x2000'29dc          4      0x78  main.o [3]
+  .bss               zero     0x2000'2a54          4      0x70  UART.o [3]
+  .bss               zero     0x2000'2ac4          4      0x70  UART.o [3]
+  .bss               zero     0x2000'2b34          4      0x68  sim200_protocol.o [3]
+  .bss               zero     0x2000'2b9c          4      0x64  HMI_modbus.o [3]
+  .bss               zero     0x2000'2c00          4      0x64  main.o [3]
+  .bss               zero     0x2000'2c64          4      0x64  UART.o [3]
+  .bss               zero     0x2000'2cc8          4      0x60  UART.o [3]
+  .bss               zero     0x2000'2d28          4      0x60  UART.o [3]
+  .bss               zero     0x2000'2d88          4      0x50  HMI_modbus.o [3]
+  .bss               zero     0x2000'2dd8          4      0x48  main.o [3]
+  .bss               zero     0x2000'2e20          4      0x48  UART.o [3]
+  .bss               zero     0x2000'2e68          4      0x44  sim200_protocol.o [3]
+  .bss               zero     0x2000'2eac          4      0x44  SIM_100.o [3]
+  .bss               zero     0x2000'2ef0          4      0x34  UART.o [3]
+  .bss               zero     0x2000'2f24          4      0x30  UART.o [3]
+  .bss               zero     0x2000'2f54          4      0x28  HMI_modbus.o [3]
+  .bss               zero     0x2000'2f7c          4      0x28  UART.o [3]
+  .bss               zero     0x2000'2fa4          4      0x24  UART.o [3]
+  .bss               zero     0x2000'2fc8          4      0x20  HMI_modbus.o [3]
+  .bss               zero     0x2000'2fe8          4      0x20  INFY_V2G.o [3]
+  .bss               zero     0x2000'3008          4      0x20  main.o [3]
+  .bss               zero     0x2000'3028          4      0x20  sim200_protocol.o [3]
+  .bss               zero     0x2000'3048          4      0x20  stm32f10x_it.o [3]
+  .bss               zero     0x2000'3068          4      0x14  INFY_V2G.o [3]
+  .bss               zero     0x2000'307c          4      0x14  INFY_V2G.o [3]
+  .bss               zero     0x2000'3090          4      0x14  main.o [3]
+  .bss               zero     0x2000'30a4          4      0x14  main.o [3]
+  .bss               zero     0x2000'30b8          4      0x14  main.o [3]
+  .bss               zero     0x2000'30cc          4      0x14  stm32f105_init.o [3]
+  .bss               zero     0x2000'30e0          4      0x14  stm32f105_init.o [3]
+  .bss               zero     0x2000'30f4          4      0x14  UART.o [3]
+  .bss               zero     0x2000'3108          4      0x10  UART.o [3]
+  .bss               zero     0x2000'3118          4       0xc  fault_check.o [3]
+  .bss               zero     0x2000'3124          4       0xc  HMI_modbus.o [3]
+  .bss               zero     0x2000'3130          4       0xc  INFY_V2G.o [3]
+  .bss               zero     0x2000'313c          4       0x8  pt1000.o [3]
+  .bss               zero     0x2000'3144          4       0x8  UART.o [3]
+  .bss               zero     0x2000'314c          4       0x8  UART.o [3]
+  .bss               zero     0x2000'3154          4       0x8  UART.o [3]
+  .bss               zero     0x2000'315c          4       0x8  UART.o [3]
+  .bss               zero     0x2000'3164          4       0x8  UART.o [3]
+  .bss               zero     0x2000'316c          4       0x8  UART.o [3]
+  .bss               zero     0x2000'3174          4       0x4  digital_io.o [3]
+  .bss               zero     0x2000'3178          4       0x4  digital_io.o [3]
+  .bss               zero     0x2000'317c          4       0x4  INFY_V2G.o [3]
+  .bss               zero     0x2000'3180          4       0x4  INFY_V2G.o [3]
+  .bss               zero     0x2000'3184          4       0x4  INFY_V2G.o [3]
+  .bss               zero     0x2000'3188          4       0x4  INFY_V2G.o [3]
+  .bss               zero     0x2000'318c          4       0x4  INFY_V2G.o [3]
+  .bss               zero     0x2000'3190          4       0x4  INFY_V2G.o [3]
+  .bss               zero     0x2000'3194          4       0x4  INFY_V2G.o [3]
+  .bss               zero     0x2000'3198          4       0x4  INFY_V2G.o [3]
+  .bss               zero     0x2000'319c          4       0x4  INFY_V2G.o [3]
+  .bss               zero     0x2000'31a0          4       0x4  INFY_V2G.o [3]
+  .bss               zero     0x2000'31a4          4       0x4  INFY_V2G.o [3]
+  .bss               zero     0x2000'31a8          4       0x4  INFY_V2G.o [3]
+  .bss               zero     0x2000'31ac          4       0x4  INFY_V2G.o [3]
+  .bss               zero     0x2000'31b0          4       0x4  INFY_V2G.o [3]
+  .bss               zero     0x2000'31b4          4       0x4  INFY_V2G.o [3]
+  .bss               zero     0x2000'31b8          4       0x4  INFY_V2G.o [3]
+  .bss               zero     0x2000'31bc          4       0x4  INFY_V2G.o [3]
+  .bss               zero     0x2000'31c0          4       0x4  INFY_V2G.o [3]
+  .bss               zero     0x2000'31c4          4       0x4  INFY_V2G.o [3]
+  .bss               zero     0x2000'31c8          4       0x4  INFY_V2G.o [3]
+  .bss               zero     0x2000'31cc          4       0x4  INFY_V2G.o [3]
+  .bss               zero     0x2000'31d0          4       0x4  INFY_V2G.o [3]
+  .bss               zero     0x2000'31d4          4       0x4  main.o [3]
+  .bss               zero     0x2000'31d8          4       0x4  main.o [3]
+  .bss               zero     0x2000'31dc          4       0x4  main.o [3]
+  .bss               zero     0x2000'31e0          4       0x4  main.o [3]
+  .bss               zero     0x2000'31e4          4       0x4  main.o [3]
+  .bss               zero     0x2000'31e8          4       0x4  pt1000.o [3]
+  .bss               zero     0x2000'31ec          4       0x4  sim200_can_sched.o [3]
+  .bss               zero     0x2000'31f0          4       0x4  sim200_can_sched.o [3]
+  .bss               zero     0x2000'31f4          4       0x4  Terminal.o [3]
+  .bss               zero     0x2000'31f8          4       0x4  Terminal.o [3]
+  .bss               zero     0x2000'31fc          4       0x4  Terminal.o [3]
+  .bss               zero     0x2000'3200          4       0x4  Terminal.o [3]
+  .bss               zero     0x2000'3204          4       0x4  Terminal.o [3]
+  .bss               zero     0x2000'3208          4       0x4  UART.o [3]
+  .bss               zero     0x2000'320c          4       0x4  UART.o [3]
+  .bss               zero     0x2000'3210          2       0x2  digital_io.o [3]
+  .bss               zero     0x2000'3212          2       0x2  fault_check.o [3]
+  .bss               zero     0x2000'3214          2       0x2  HMI_modbus.o [3]
+  .bss               zero     0x2000'3216          2       0x2  HMI_modbus.o [3]
+  .bss               zero     0x2000'3218          2       0x2  HMI_modbus.o [3]
+  .bss               zero     0x2000'321a          2       0x2  HMI_modbus.o [3]
+  .bss               zero     0x2000'321c          2       0x2  HMI_modbus.o [3]
+  .bss               zero     0x2000'321e          2       0x2  HMI_modbus.o [3]
+  .bss               zero     0x2000'3220          2       0x2  HMI_modbus.o [3]
+  .bss               zero     0x2000'3222          2       0x2  INFY_V2G.o [3]
+  .bss               zero     0x2000'3224          2       0x2  INFY_V2G.o [3]
+  .bss               zero     0x2000'3226          2       0x2  main.o [3]
+  .bss               zero     0x2000'3228          2       0x2  main.o [3]
+  .bss               zero     0x2000'322a          2       0x2  main.o [3]
+  .bss               zero     0x2000'322c          2       0x2  main.o [3]
+  .bss               zero     0x2000'322e          2       0x2  main.o [3]
+  .bss               zero     0x2000'3230          2       0x2  main.o [3]
+  .bss               zero     0x2000'3232          2       0x2  main.o [3]
+  .bss               zero     0x2000'3234          2       0x2  main.o [3]
+  .bss               zero     0x2000'3236          2       0x2  main.o [3]
+  .bss               zero     0x2000'3238          2       0x2  main.o [3]
+  .bss               zero     0x2000'323a          2       0x2  main.o [3]
+  .bss               zero     0x2000'323c          2       0x2  main.o [3]
+  .bss               zero     0x2000'323e          2       0x2  main.o [3]
+  .bss               zero     0x2000'3240          2       0x2  main.o [3]
+  .bss               zero     0x2000'3242          2       0x2  main.o [3]
+  .bss               zero     0x2000'3244          2       0x2  main.o [3]
+  .bss               zero     0x2000'3246          2       0x2  main.o [3]
+  .bss               zero     0x2000'3248          2       0x2  main.o [3]
+  .bss               zero     0x2000'324a          2       0x2  main.o [3]
+  .bss               zero     0x2000'324c          2       0x2  main.o [3]
+  .bss               zero     0x2000'324e          2       0x2  main.o [3]
+  .bss               zero     0x2000'3250          2       0x2  PLC_3_0.o [3]
+  .bss               zero     0x2000'3252          2       0x2  pt1000.o [3]
+  .bss               zero     0x2000'3254          2       0x2  pt1000.o [3]
+  .bss               zero     0x2000'3256          2       0x2  pt1000.o [3]
+  .bss               zero     0x2000'3258          2       0x2  self_check.o [3]
+  .bss               zero     0x2000'325a          2       0x2  sequence.o [3]
+  .bss               zero     0x2000'325c          2       0x2  sequence.o [3]
+  .bss               zero     0x2000'325e          2       0x2  sequence.o [3]
+  .bss               zero     0x2000'3260          2       0x2  sequence.o [3]
+  .bss               zero     0x2000'3262          2       0x2  sequence.o [3]
+  .bss               zero     0x2000'3264          2       0x2  SIM_100.o [3]
+  .bss               zero     0x2000'3266          2       0x2  SIM_100.o [3]
+  .bss               zero     0x2000'3268          2       0x2  Terminal.o [3]
+  .bss               zero     0x2000'326a          2       0x2  Terminal.o [3]
+  .bss               zero     0x2000'326c          2       0x2  Terminal.o [3]
+  .bss               zero     0x2000'326e          2       0x2  Terminal.o [3]
+  .bss               zero     0x2000'3270          2       0x2  Terminal.o [3]
+  .bss               zero     0x2000'3272          2       0x2  Terminal.o [3]
+  .bss               zero     0x2000'3274          2       0x2  Terminal.o [3]
+  .bss               zero     0x2000'3276          2       0x2  Terminal.o [3]
+  .bss               zero     0x2000'3278          2       0x2  UART.o [3]
+  .bss               zero     0x2000'327a                  0x1  digital_io.o [3]
+  .bss               zero     0x2000'327b                  0x1  digital_io.o [3]
+  .bss               zero     0x2000'327c                  0x1  digital_io.o [3]
+  .bss               zero     0x2000'327d                  0x1  fault_check.o [3]
+  .bss               zero     0x2000'327e                  0x1  fault_check.o [3]
+  .bss               zero     0x2000'327f                  0x1  fault_check.o [3]
+  .bss               zero     0x2000'3280                  0x1  fault_check.o [3]
+  .bss               zero     0x2000'3281                  0x1  HMI_modbus.o [3]
+  .bss               zero     0x2000'3282                  0x1  HMI_modbus.o [3]
+  .bss               zero     0x2000'3283                  0x1  HMI_modbus.o [3]
+  .bss               zero     0x2000'3284                  0x1  HMI_modbus.o [3]
+  .bss               zero     0x2000'3285                  0x1  HMI_modbus.o [3]
+  .bss               zero     0x2000'3286                  0x1  HMI_modbus.o [3]
+  .bss               zero     0x2000'3287                  0x1  HMI_modbus.o [3]
+  .bss               zero     0x2000'3288                  0x1  HMI_modbus.o [3]
+  .bss               zero     0x2000'3289                  0x1  HMI_modbus.o [3]
+  .bss               zero     0x2000'328a                  0x1  HMI_modbus.o [3]
+  .bss               zero     0x2000'328b                  0x1  HMI_modbus.o [3]
+  .bss               zero     0x2000'328c                  0x1  HMI_modbus.o [3]
+  .bss               zero     0x2000'328d                  0x1  HMI_modbus.o [3]
+  .bss               zero     0x2000'328e                  0x1  HMI_modbus.o [3]
+  .bss               zero     0x2000'328f                  0x1  HMI_modbus.o [3]
+  .bss               zero     0x2000'3290                  0x1  HMI_modbus.o [3]
+  .bss               zero     0x2000'3291                  0x1  HMI_modbus.o [3]
+  .bss               zero     0x2000'3292                  0x1  HMI_modbus.o [3]
+  .bss               zero     0x2000'3293                  0x1  HMI_modbus.o [3]
+  .bss               zero     0x2000'3294                  0x1  HMI_modbus.o [3]
+  .bss               zero     0x2000'3295                  0x1  INFY_V2G.o [3]
+  .bss               zero     0x2000'3296                  0x1  INFY_V2G.o [3]
+  .bss               zero     0x2000'3297                  0x1  INFY_V2G.o [3]
+  .bss               zero     0x2000'3298                  0x1  INFY_V2G.o [3]
+  .bss               zero     0x2000'3299                  0x1  INFY_V2G.o [3]
+  .bss               zero     0x2000'329a                  0x1  INFY_V2G.o [3]
+  .bss               zero     0x2000'329b                  0x1  INFY_V2G.o [3]
+  .bss               zero     0x2000'329c                  0x1  INFY_V2G.o [3]
+  .bss               zero     0x2000'329d                  0x1  INFY_V2G.o [3]
+  .bss               zero     0x2000'329e                  0x1  INFY_V2G.o [3]
+  .bss               zero     0x2000'329f                  0x1  INFY_V2G.o [3]
+  .bss               zero     0x2000'32a0                  0x1  main.o [3]
+  .bss               zero     0x2000'32a1                  0x1  main.o [3]
+  .bss               zero     0x2000'32a2                  0x1  main.o [3]
+  .bss               zero     0x2000'32a3                  0x1  main.o [3]
+  .bss               zero     0x2000'32a4                  0x1  main.o [3]
+  .bss               zero     0x2000'32a5                  0x1  main.o [3]
+  .bss               zero     0x2000'32a6                  0x1  main.o [3]
+  .bss               zero     0x2000'32a7                  0x1  main.o [3]
+  .bss               zero     0x2000'32a8                  0x1  main.o [3]
+  .bss               zero     0x2000'32a9                  0x1  main.o [3]
+  .bss               zero     0x2000'32aa                  0x1  main.o [3]
+  .bss               zero     0x2000'32ab                  0x1  main.o [3]
+  .bss               zero     0x2000'32ac                  0x1  main.o [3]
+  .bss               zero     0x2000'32ad                  0x1  main.o [3]
+  .bss               zero     0x2000'32ae                  0x1  PLC_3_0.o [3]
+  .bss               zero     0x2000'32af                  0x1  PLC_3_0.o [3]
+  .bss               zero     0x2000'32b0                  0x1  PLC_3_0.o [3]
+  .bss               zero     0x2000'32b1                  0x1  PLC_3_0.o [3]
+  .bss               zero     0x2000'32b2                  0x1  PLC_3_0.o [3]
+  .bss               zero     0x2000'32b3                  0x1  PLC_3_0.o [3]
+  .bss               zero     0x2000'32b4                  0x1  PLC_3_0.o [3]
+  .bss               zero     0x2000'32b5                  0x1  PLC_3_0.o [3]
+  .bss               zero     0x2000'32b6                  0x1  PLC_3_0.o [3]
+  .bss               zero     0x2000'32b7                  0x1  PLC_3_0.o [3]
+  .bss               zero     0x2000'32b8                  0x1  PLC_3_0.o [3]
+  .bss               zero     0x2000'32b9                  0x1  PLC_3_0.o [3]
+  .bss               zero     0x2000'32ba                  0x1  self_check.o [3]
+  .bss               zero     0x2000'32bb                  0x1  self_check.o [3]
+  .bss               zero     0x2000'32bc                  0x1  sequence.o [3]
+  .bss               zero     0x2000'32bd                  0x1  sequence.o [3]
+  .bss               zero     0x2000'32be                  0x1  sequence.o [3]
+  .bss               zero     0x2000'32bf                  0x1  sequence.o [3]
+  .bss               zero     0x2000'32c0                  0x1  sequence.o [3]
+  .bss               zero     0x2000'32c1                  0x1  sequence.o [3]
+  .bss               zero     0x2000'32c2                  0x1  sequence.o [3]
+  .bss               zero     0x2000'32c3                  0x1  sequence.o [3]
+  .bss               zero     0x2000'32c4                  0x1  sequence.o [3]
+  .bss               zero     0x2000'32c5                  0x1  sim200_can_sched.o [3]
+  .bss               zero     0x2000'32c6                  0x1  sim200_can_sched.o [3]
+  .bss               zero     0x2000'32c7                  0x1  sim200_can_sched.o [3]
+  .bss               zero     0x2000'32c8                  0x1  sim200_protocol.o [3]
+  .bss               zero     0x2000'32c9                  0x1  SIM_100.o [3]
+  .bss               zero     0x2000'32ca                  0x1  SIM_100.o [3]
+  .bss               zero     0x2000'32cb                  0x1  stm32f10x_it.o [3]
+  .bss               zero     0x2000'32cc                  0x1  stm32f10x_it.o [3]
+  .bss               zero     0x2000'32cd                  0x1  Terminal.o [3]
+  .bss               zero     0x2000'32ce                  0x1  Terminal.o [3]
+  .bss               zero     0x2000'32cf                  0x1  Terminal.o [3]
+  .bss               zero     0x2000'32d0                  0x1  Terminal.o [3]
+  .bss               zero     0x2000'32d1                  0x1  Terminal.o [3]
+  .bss               zero     0x2000'32d2                  0x1  Terminal.o [3]
+  .bss               zero     0x2000'32d3                  0x1  Terminal.o [3]
+  .bss               zero     0x2000'32d4                  0x1  Terminal.o [3]
+  .bss               zero     0x2000'32d5                  0x1  Terminal.o [3]
+  .bss               zero     0x2000'32d6                  0x1  Terminal.o [3]
+  .bss               zero     0x2000'32d7                  0x1  Terminal.o [3]
+  .bss               zero     0x2000'32d8                  0x1  UART.o [3]
+  .bss               zero     0x2000'32d9                  0x1  UART.o [3]
+  .bss               zero     0x2000'32da                  0x1  UART.o [3]
+  .bss               zero     0x2000'32db                  0x1  UART.o [3]
+  .bss               zero     0x2000'32dc                  0x1  UART.o [3]
+  .bss               zero     0x2000'32dd                  0x1  UART.o [3]
+  .bss               zero     0x2000'32de                  0x1  UART.o [3]
+  .bss               zero     0x2000'32df                  0x1  UART.o [3]
+  .bss               zero     0x2000'32e0                  0x1  UART.o [3]
+  .bss               zero     0x2000'32e1                  0x1  UART.o [3]
+                            - 0x2000'32e2               0x30f6
+
+"P2", part 3 of 3:                                       0x400
+  CSTACK                      0x2000'32e8          8     0x400  <Block>
+    CSTACK           uninit   0x2000'32e8                0x400  <Block tail>
+                            - 0x2000'36e8                0x400
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+   0x801'aeea   0x803'ffff  0x2'5116
+  0x2000'01e9  0x2000'01eb       0x3
+  0x2000'32e4  0x2000'32e7       0x4
+  0x2000'36e8  0x2000'ffff    0xc918
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x30f6:
+          0x2000'01ec  0x30f6
+
+Copy/lz77 (__iar_lz77_init_single3)
+    1 source range, total size 0x9e (32% of destination):
+           0x801'ae4c    0x9e
+    1 destination range, total size 0x1e9:
+          0x2000'0000   0x1e9
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                 ro code  ro data  rw data
+    ------                 -------  -------  -------
+command line/config:
+    ------------------------------------------------
+    Total:
+
+C:\Users\user\Desktop\V2G temp test FW 20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\CMSIS_13545061835669826545.dir: [1]
+    system_stm32f10x.o         344
+    ------------------------------------------------
+    Total:                     344
+
+C:\Users\user\Desktop\V2G temp test FW 20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\StdPeriph_Driver_12021012747841943037.dir: [2]
+    misc.o                     120
+    startup_stm32f105xc.o      528
+    stm32f10x_adc.o            538
+    stm32f10x_can.o          1'526
+    stm32f10x_dma.o            552
+    stm32f10x_flash.o          340
+    stm32f10x_gpio.o           280
+    stm32f10x_iwdg.o            64
+    stm32f10x_rcc.o            456        6       20
+    stm32f10x_tim.o            268
+    stm32f10x_usart.o          586
+    stm32f10x_wwdg.o           104
+    ------------------------------------------------
+    Total:                   5'362        6       20
+
+C:\Users\user\Desktop\V2G temp test FW 20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\User_4889033380472473340.dir: [3]
+    FirmwareUpdate.o           132
+    HMI_modbus.o             3'036      513      728
+    INFY_V2G.o              10'136             1'060
+    PLC_3_0.o                3'760               614
+    SIM_100.o                  724                74
+    Terminal.o              13'476    8'260      419
+    UART.o                   3'768               868
+    digital_io.o             1'280        1       15
+    fault_check.o            1'448        3       28
+    main.o                     696       60    8'653
+    pt1000.o                   328      104       18
+    self_check.o             3'668    4'120        4
+    sequence.o               4'440        1       20
+    sim200_can_sched.o         560                11
+    sim200_port.o              144
+    sim200_protocol.o        1'548       56      205
+    stm32f105_init.o         2'596                40
+    stm32f10x_it.o           2'988                34
+    ------------------------------------------------
+    Total:                  54'728   13'118   12'791
+
+dl7M_tlf.a: [4]
+    abs.o                        8
+    exit.o                       4
+    low_level_init.o             4
+    rand.o                     152        3      140
+    toupper.o                   20
+    xlocale_c.o                 36       25       72
+    ------------------------------------------------
+    Total:                     224       28      212
+
+m7M_tl.a: [5]
+    DblAddSub.o                590
+    DblCmpGe.o                  52
+    DblCmpLe.o                  52
+    DblDiv.o                   582
+    DblMul.o                   426
+    DblToFlt.o                 104
+    DblToS32.o                  54
+    DblToU32.o                  34
+    FltAddSub.o                366
+    FltCmpGe.o                  40
+    FltCmpLe.o                  40
+    FltDiv.o                   280
+    FltMul.o                   216
+    FltToDbl.o                  72
+    FltToS32.o                  38
+    FltToU32.o                  24
+    S32ToDbl.o                  34
+    S32ToFlt.o                  36
+    U32ToDbl.o                  28
+    U32ToFlt.o                  26
+    ------------------------------------------------
+    Total:                   3'094
+
+rt7M_tl.a: [6]
+    ABImemcpy.o                166
+    ABImemset.o                102
+    XXexit.o                    12
+    cexit.o                      4
+    cexit_2.o                   10
+    cmain.o                     34
+    cstartup_M.o                30
+    data_init.o                 40
+    lz77_init_single.o         126
+    zero_init3.o                56
+    ------------------------------------------------
+    Total:                     580
+
+    Gaps                        28        2
+    Linker created                       32    1'024
+----------------------------------------------------
+    Grand Total:            64'360   13'186   14'047
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address    Size  Type      Object
+-----                       -------    ----  ----      ------
+.iar.init_table$$Base    0x801'a038           --   Gb  - Linker created -
+.iar.init_table$$Limit   0x801'a058           --   Gb  - Linker created -
+?main                    0x801'9ff1          Code  Gb  cmain.o [6]
+ADC1_2_IRQHandler        0x801'534b    0x1c  Code  Gb  stm32f10x_it.o [3]
+ADC1_Configuration       0x801'1093    0xd0  Code  Gb  stm32f105_init.o [3]
+ADCConvertedValue       0x2000'30a4    0x14  Data  Gb  main.o [3]
+ADCPrescTable           0x2000'0010     0x4  Data  Lc  stm32f10x_rcc.o [2]
+ADC_ClearFlag            0x801'2389     0xa  Code  Gb  stm32f10x_adc.o [2]
+ADC_Cmd                  0x801'21c5    0x1c  Code  Gb  stm32f10x_adc.o [2]
+ADC_DMACmd               0x801'21e1    0x1c  Code  Gb  stm32f10x_adc.o [2]
+ADC_GetCalibrationStatus
+                         0x801'2225    0x14  Code  Gb  stm32f10x_adc.o [2]
+ADC_GetFlagStatus        0x801'236d    0x1c  Code  Gb  stm32f10x_adc.o [2]
+ADC_GetResetCalibrationStatus
+                         0x801'2207    0x14  Code  Gb  stm32f10x_adc.o [2]
+ADC_Init                 0x801'2179    0x4c  Code  Gb  stm32f10x_adc.o [2]
+ADC_RegularChannelConfig
+                         0x801'2255   0x110  Code  Gb  stm32f10x_adc.o [2]
+ADC_ResetCalibration     0x801'21fd     0xa  Code  Gb  stm32f10x_adc.o [2]
+ADC_SoftwareStartConvCmd
+                         0x801'2239    0x1c  Code  Gb  stm32f10x_adc.o [2]
+ADC_StartCalibration     0x801'221b     0xa  Code  Gb  stm32f10x_adc.o [2]
+APBAHBPrescTable        0x2000'0000    0x10  Data  Lc  stm32f10x_rcc.o [2]
+Acrel_DC_Power_Meter_ch1_Rx_from_0
+                        0x2000'2c64    0x64  Data  Gb  UART.o [3]
+Acrel_DC_Power_Meter_ch1_Tx_from_0
+                        0x2000'316c     0x8  Data  Gb  UART.o [3]
+Acrel_Rx_ch1_data       0x2000'2f7c    0x28  Data  Gb  UART.o [3]
+Acrel_ch1_Communication_Err_cnt
+                        0x2000'3278     0x2  Data  Gb  UART.o [3]
+AsciiToHex               0x800'82f3    0x1e  Code  Gb  Terminal.o [3]
+Automatic_self_check     0x801'43b9   0xe54  Code  Gb  self_check.o [3]
+BOARD_ID_RX             0x2000'328d     0x1  Data  Gb  HMI_modbus.o [3]
+BOARD_ID_TX             0x2000'328e     0x1  Data  Gb  HMI_modbus.o [3]
+BusFault_Handler         0x801'527b     0x2  Code  Gb  stm32f10x_it.o [3]
+CAN1_RX0_IRQHandler      0x801'5cb3    0x20  Code  Gb  stm32f10x_it.o [3]
+CAN1_RX1_IRQHandler      0x801'add9          Code  Wk  startup_stm32f105xc.o [2]
+CAN1_SCE_IRQHandler      0x801'addd          Code  Wk  startup_stm32f105xc.o [2]
+CAN1_TX_IRQHandler       0x801'add5          Code  Wk  startup_stm32f105xc.o [2]
+CAN2_RX0_IRQHandler      0x801'5cd3    0x3e  Code  Gb  stm32f10x_it.o [3]
+CAN2_RX1_IRQHandler      0x801'ae41          Code  Wk  startup_stm32f105xc.o [2]
+CAN2_RxISR_Handler       0x801'5fdf    0x12  Code  Gb  sim200_can_sched.o [3]
+CAN2_SCE_IRQHandler      0x801'ae45          Code  Wk  startup_stm32f105xc.o [2]
+CAN2_TX_IRQHandler       0x801'5d11    0x22  Code  Gb  stm32f10x_it.o [3]
+CAN_ClearITPendingBit    0x800'ed85    0x94  Code  Gb  stm32f10x_can.o [2]
+CAN_Config               0x801'1605   0x222  Code  Gb  stm32f105_init.o [3]
+CAN_FilterInit           0x800'e963    0xd8  Code  Gb  stm32f10x_can.o [2]
+CAN_GetITStatus          0x800'ec97    0xee  Code  Gb  stm32f10x_can.o [2]
+CAN_ITConfig             0x800'ec7f    0x18  Code  Gb  stm32f10x_can.o [2]
+CAN_Init                 0x800'e851   0x112  Code  Gb  stm32f10x_can.o [2]
+CAN_Receive              0x800'eb79   0x106  Code  Gb  stm32f10x_can.o [2]
+CAN_Transmit             0x800'ea3b   0x13e  Code  Gb  stm32f10x_can.o [2]
+CRC16                    0x801'4013    0x34  Code  Gb  HMI_modbus.o [3]
+CRC16::wCRCTable         0x801'788c   0x200  Data  Lc  HMI_modbus.o [3]
+CSTACK$$Base            0x2000'32e8           --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'36e8           --   Gb  - Linker created -
+Channel1_RUN            0x2000'32a7     0x1  Data  Gb  main.o [3]
+CheckITStatus            0x800'ee35    0x12  Code  Lc  stm32f10x_can.o [2]
+Combo_Load_Test_1CH      0x800'fa09   0x296  Code  Gb  sequence.o [3]
+Combo_Load_Test_1CH::ry1_error
+                        0x2000'32c3     0x1  Data  Lc  sequence.o [3]
+Combo_Load_Test_1CH::ry2_error
+                        0x2000'32c4     0x1  Data  Lc  sequence.o [3]
+Combo_Load_Test_1CH::test_step
+                        0x2000'32c2     0x1  Data  Lc  sequence.o [3]
+Combo_Load_Test_1CH::test_step_cnt
+                        0x2000'3262     0x2  Data  Lc  sequence.o [3]
+Combo_start_button_1CH  0x2000'32a3     0x1  Data  Gb  main.o [3]
+Combo_stop_button_1CH   0x2000'32a4     0x1  Data  Gb  main.o [3]
+DCIout_1CH              0x2000'31d8     0x4  Data  Gb  main.o [3]
+DCMeter_Pow11           0x2000'3208     0x4  Data  Gb  UART.o [3]
+DCVout_1CH              0x2000'31d4     0x4  Data  Gb  main.o [3]
+DCWatt_1CH              0x2000'31dc     0x4  Data  Gb  main.o [3]
+DMA1_Channel1_IRQHandler
+                         0x801'5287    0x14  Code  Gb  stm32f10x_it.o [3]
+DMA1_Channel2_IRQHandler
+                         0x801'529b    0x14  Code  Gb  stm32f10x_it.o [3]
+DMA1_Channel3_IRQHandler
+                         0x801'52af    0x18  Code  Gb  stm32f10x_it.o [3]
+DMA1_Channel4_IRQHandler
+                         0x801'adc9          Code  Wk  startup_stm32f105xc.o [2]
+DMA1_Channel5_IRQHandler
+                         0x801'adcd          Code  Wk  startup_stm32f105xc.o [2]
+DMA1_Channel6_IRQHandler
+                         0x801'add1          Code  Wk  startup_stm32f105xc.o [2]
+DMA1_Channel7_IRQHandler
+                         0x801'52c7    0x36  Code  Gb  stm32f10x_it.o [3]
+DMA1_Config              0x801'0f09   0x12a  Code  Gb  stm32f105_init.o [3]
+DMA2_Channel1_IRQHandler
+                         0x801'ae2d          Code  Wk  startup_stm32f105xc.o [2]
+DMA2_Channel2_IRQHandler
+                         0x801'ae31          Code  Wk  startup_stm32f105xc.o [2]
+DMA2_Channel3_IRQHandler
+                         0x801'ae35          Code  Wk  startup_stm32f105xc.o [2]
+DMA2_Channel4_IRQHandler
+                         0x801'ae39          Code  Wk  startup_stm32f105xc.o [2]
+DMA2_Channel5_IRQHandler
+                         0x801'ae3d          Code  Wk  startup_stm32f105xc.o [2]
+DMA_ClearITPendingBit    0x801'2127    0x10  Code  Gb  stm32f10x_dma.o [2]
+DMA_Cmd                  0x801'20ad    0x1e  Code  Gb  stm32f10x_dma.o [2]
+DMA_DeInit               0x801'1f51    0xf2  Code  Gb  stm32f10x_dma.o [2]
+DMA_GetFlagStatus        0x801'20e3    0x22  Code  Gb  stm32f10x_dma.o [2]
+DMA_GetITStatus          0x801'2105    0x22  Code  Gb  stm32f10x_dma.o [2]
+DMA_ITConfig             0x801'20cb    0x18  Code  Gb  stm32f10x_dma.o [2]
+DMA_Init                 0x801'2043    0x3c  Code  Gb  stm32f10x_dma.o [2]
+DMA_StructInit           0x801'207f    0x2e  Code  Gb  stm32f10x_dma.o [2]
+DM_cRxdMax              0x2000'32e1     0x1  Data  Gb  UART.o [3]
+DebugMon_Handler         0x801'5281     0x2  Code  Gb  stm32f10x_it.o [3]
+Digital_Input_Control    0x801'6c95   0x1b8  Code  Gb  digital_io.o [3]
+Digital_Output_Control   0x801'6e4d   0x128  Code  Gb  digital_io.o [3]
+Digital_input           0x2000'3174     0x4  Data  Gb  digital_io.o [3]
+Digital_output          0x2000'3178     0x4  Data  Gb  digital_io.o [3]
+EVSE_ID_buf             0x2000'3124     0xc  Data  Gb  HMI_modbus.o [3]
+EVSE_Msg                0x2000'242c   0x150  Data  Gb  PLC_3_0.o [3]
+EVSE_SECC_Period_1CH    0x2000'3250     0x2  Data  Gb  PLC_3_0.o [3]
+EVSE_SECC_cnt_1CH_200ms_1
+                        0x2000'32b6     0x1  Data  Gb  PLC_3_0.o [3]
+EVSE_SECC_cnt_1CH_500ms_1
+                        0x2000'32b7     0x1  Data  Gb  PLC_3_0.o [3]
+EVSE_SECC_cnt_1CH_500ms_2
+                        0x2000'32b8     0x1  Data  Gb  PLC_3_0.o [3]
+EVSE_SECC_cnt_1CH_500ms_3
+                        0x2000'32b9     0x1  Data  Gb  PLC_3_0.o [3]
+EVSE_SECC_cnt_1CH_50ms_1
+                        0x2000'32b4     0x1  Data  Gb  PLC_3_0.o [3]
+EVSE_SECC_cnt_1CH_50ms_2
+                        0x2000'32b5     0x1  Data  Gb  PLC_3_0.o [3]
+EVSE_SECC_cnt_1CH_reboot
+                        0x2000'32b3     0x1  Data  Gb  PLC_3_0.o [3]
+EXTI0_IRQHandler         0x801'adb5          Code  Wk  startup_stm32f105xc.o [2]
+EXTI15_10_IRQHandler     0x801'ae09          Code  Wk  startup_stm32f105xc.o [2]
+EXTI1_IRQHandler         0x801'adb9          Code  Wk  startup_stm32f105xc.o [2]
+EXTI2_IRQHandler         0x801'adbd          Code  Wk  startup_stm32f105xc.o [2]
+EXTI3_IRQHandler         0x801'adc1          Code  Wk  startup_stm32f105xc.o [2]
+EXTI4_IRQHandler         0x801'adc5          Code  Wk  startup_stm32f105xc.o [2]
+EXTI9_5_IRQHandler       0x801'ade1          Code  Wk  startup_stm32f105xc.o [2]
+Eastron_AC_Power_Meter_Rx_read_input_registers_1
+                        0x2000'2a54    0x70  Data  Gb  UART.o [3]
+Eastron_AC_Power_Meter_Rx_read_input_registers_2
+                        0x2000'2e20    0x48  Data  Gb  UART.o [3]
+Eastron_AC_Power_Meter_Rx_read_input_registers_3
+                        0x2000'30f4    0x14  Data  Gb  UART.o [3]
+Eastron_AC_Power_Meter_Rx_read_input_registers_4
+                        0x2000'2ef0    0x34  Data  Gb  UART.o [3]
+Eastron_AC_Power_Meter_Rx_read_input_registers_5
+                        0x2000'2ac4    0x70  Data  Gb  UART.o [3]
+Eastron_AC_Power_Meter_Tx_read_input_registers_1
+                        0x2000'3144     0x8  Data  Gb  UART.o [3]
+Eastron_AC_Power_Meter_Tx_read_input_registers_2
+                        0x2000'314c     0x8  Data  Gb  UART.o [3]
+Eastron_AC_Power_Meter_Tx_read_input_registers_3
+                        0x2000'3154     0x8  Data  Gb  UART.o [3]
+Eastron_AC_Power_Meter_Tx_read_input_registers_4
+                        0x2000'315c     0x8  Data  Gb  UART.o [3]
+Eastron_AC_Power_Meter_Tx_read_input_registers_5
+                        0x2000'3164     0x8  Data  Gb  UART.o [3]
+Eastron_Rx_data_1       0x2000'2cc8    0x60  Data  Gb  UART.o [3]
+Eastron_Rx_data_2       0x2000'2f24    0x30  Data  Gb  UART.o [3]
+Eastron_Rx_data_3       0x2000'3108    0x10  Data  Gb  UART.o [3]
+Eastron_Rx_data_4       0x2000'2fa4    0x24  Data  Gb  UART.o [3]
+Eastron_Rx_data_5       0x2000'2d28    0x60  Data  Gb  UART.o [3]
+FLASH_ClearFlag          0x800'c041     0x6  Code  Gb  stm32f10x_flash.o [2]
+FLASH_ErasePage          0x800'bf85    0x4c  Code  Gb  stm32f10x_flash.o [2]
+FLASH_GetBank1Status     0x800'c047    0x28  Code  Gb  stm32f10x_flash.o [2]
+FLASH_IRQHandler         0x801'adad          Code  Wk  startup_stm32f105xc.o [2]
+FLASH_Lock               0x800'bf77     0xe  Code  Gb  stm32f10x_flash.o [2]
+FLASH_ProgramWord        0x800'bfd1    0x70  Code  Gb  stm32f10x_flash.o [2]
+FLASH_Unlock             0x800'bf65    0x12  Code  Gb  stm32f10x_flash.o [2]
+FLASH_WaitForLastOperation
+                         0x800'c089    0x30  Code  Gb  stm32f10x_flash.o [2]
+FW_update                0x800'bc77    0x5e  Code  Gb  FirmwareUpdate.o [3]
+Fault_Check_1CH          0x801'66ed   0x318  Code  Gb  fault_check.o [3]
+GPIO_Config              0x801'1213   0x21a  Code  Gb  stm32f105_init.o [3]
+GPIO_Init                0x801'25c1    0xfc  Code  Gb  stm32f10x_gpio.o [2]
+GPIO_ReadInputDataBit    0x801'26bd    0x1c  Code  Gb  stm32f10x_gpio.o [2]
+Get_Temperature_From_LUT
+                         0x801'7721    0xba  Code  Gb  pt1000.o [3]
+Get_coupler_temperature_1CH
+                         0x801'77db    0x60  Code  Gb  pt1000.o [3]
+HMI_memory_reset         0x801'3c57    0x2c  Code  Gb  HMI_modbus.o [3]
+HMI_rx_data_parse        0x801'35af   0x2be  Code  Gb  HMI_modbus.o [3]
+HMI_tx_data_make         0x801'386d   0x3ea  Code  Gb  HMI_modbus.o [3]
+HardFault_Handler        0x801'5277     0x2  Code  Gb  stm32f10x_it.o [3]
+HexToAscii               0x800'816f    0x12  Code  Gb  Terminal.o [3]
+Holding_Memory          0x2000'2774    0xbc  Data  Gb  HMI_modbus.o [3]
+I2C1_ER_IRQHandler       0x801'adf9          Code  Wk  startup_stm32f105xc.o [2]
+I2C1_EV_IRQHandler       0x801'adf5          Code  Wk  startup_stm32f105xc.o [2]
+I2C2_ER_IRQHandler       0x801'ae01          Code  Wk  startup_stm32f105xc.o [2]
+I2C2_EV_IRQHandler       0x801'adfd          Code  Wk  startup_stm32f105xc.o [2]
+IWDG_Configuration       0x801'1163    0x22  Code  Gb  stm32f105_init.o [3]
+IWDG_Enable              0x801'2541     0xa  Code  Gb  stm32f10x_iwdg.o [2]
+IWDG_ReloadCounter       0x801'2537     0xa  Code  Gb  stm32f10x_iwdg.o [2]
+IWDG_SetPrescaler        0x801'2523     0xa  Code  Gb  stm32f10x_iwdg.o [2]
+IWDG_SetReload           0x801'252d     0xa  Code  Gb  stm32f10x_iwdg.o [2]
+IWDG_WriteAccessCmd      0x801'2519     0xa  Code  Gb  stm32f10x_iwdg.o [2]
+Init_RxMes               0x801'11ab    0x36  Code  Gb  stm32f105_init.o [3]
+Init_TxMes               0x801'11e1    0x32  Code  Gb  stm32f105_init.o [3]
+Input_Memory            0x2000'2684    0xf0  Data  Gb  HMI_modbus.o [3]
+Iout_G1                 0x2000'31e0     0x4  Data  Gb  main.o [3]
+Iout_Module_G1          0x2000'31bc     0x4  Data  Gb  INFY_V2G.o [3]
+Iout_ref_temp_G1        0x2000'31b0     0x4  Data  Gb  INFY_V2G.o [3]
+Iout_ref_temp_G2        0x2000'31b4     0x4  Data  Gb  INFY_V2G.o [3]
+LED_DISPLAY_RGBY_TEST    0x801'70a1    0x96  Code  Gb  digital_io.o [3]
+LED_DISPLAY_and_FAN_Service
+                         0x801'6f75   0x12c  Code  Gb  digital_io.o [3]
+Leakage_time            0x2000'3212     0x2  Data  Gb  fault_check.o [3]
+MODULE_INFO_TRANS        0x800'e7c1    0x26  Code  Gb  INFY_V2G.o [3]
+MemManage_Handler        0x801'5279     0x2  Code  Gb  stm32f10x_it.o [3]
+Module_Dial_Switch       0x800'c0f1    0x38  Code  Gb  INFY_V2G.o [3]
+Module_Tx_Init           0x800'c0b9    0x38  Code  Gb  INFY_V2G.o [3]
+NMI_Handler              0x801'5275     0x2  Code  Gb  stm32f10x_it.o [3]
+NVIC_Init                0x801'2395    0x66  Code  Gb  misc.o [2]
+OTG_FS_IRQHandler        0x801'ae49          Code  Wk  startup_stm32f105xc.o [2]
+OTG_FS_WKUP_IRQHandler   0x801'ae11          Code  Wk  startup_stm32f105xc.o [2]
+PLC_3_0_Msg_Send_1CH     0x801'01e9   0x600  Code  Gb  PLC_3_0.o [3]
+PLC_Reboot_1CH           0x800'fcc1    0x4a  Code  Gb  sequence.o [3]
+PT1000_1CH              0x2000'313c     0x8  Data  Gb  pt1000.o [3]
+PT1000_AD_1CH           0x2000'3252     0x2  Data  Gb  pt1000.o [3]
+PVD_IRQHandler           0x801'ada1          Code  Wk  startup_stm32f105xc.o [2]
+PendSV_Handler           0x801'5283     0x2  Code  Gb  stm32f10x_it.o [3]
+Power_Control_Value_1CH
+                         0x800'fd31   0x1d6  Code  Gb  sequence.o [3]
+RCC_AHBPeriphClockCmd    0x800'bec9    0x1c  Code  Gb  stm32f10x_rcc.o [2]
+RCC_APB1PeriphClockCmd   0x800'bf01    0x1c  Code  Gb  stm32f10x_rcc.o [2]
+RCC_APB2PeriphClockCmd   0x800'bee5    0x1c  Code  Gb  stm32f10x_rcc.o [2]
+RCC_GetClocksFreq        0x800'bd79   0x150  Code  Gb  stm32f10x_rcc.o [2]
+RCC_IRQHandler           0x801'adb1          Code  Wk  startup_stm32f105xc.o [2]
+RTC_Alarm_IRQHandler     0x801'ae0d          Code  Wk  startup_stm32f105xc.o [2]
+RTC_IRQHandler           0x801'ada9          Code  Wk  startup_stm32f105xc.o [2]
+RY_open_check            0x801'6b95    0x32  Code  Gb  fault_check.o [3]
+RY_welding_check         0x801'6bc7    0x32  Code  Gb  fault_check.o [3]
+ReadCnt                 0x2000'328b     0x1  Data  Gb  HMI_modbus.o [3]
+Read_Module_Data         0x800'd2c5   0xffe  Code  Gb  INFY_V2G.o [3]
+Region$$Table$$Base      0x801'a038           --   Gb  - Linker created -
+Region$$Table$$Limit     0x801'a058           --   Gb  - Linker created -
+Request_word_data_length_from_0
+                        0x2000'32de     0x1  Data  Gb  UART.o [3]
+Request_word_data_length_read_input_register_1
+                        0x2000'32d9     0x1  Data  Gb  UART.o [3]
+Request_word_data_length_read_input_register_2
+                        0x2000'32da     0x1  Data  Gb  UART.o [3]
+Request_word_data_length_read_input_register_3
+                        0x2000'32db     0x1  Data  Gb  UART.o [3]
+Request_word_data_length_read_input_register_4
+                        0x2000'32dc     0x1  Data  Gb  UART.o [3]
+Request_word_data_length_read_input_register_5
+                        0x2000'32dd     0x1  Data  Gb  UART.o [3]
+Reset_Handler            0x801'ab11          Code  Wk  startup_stm32f105xc.o [2]
+RxMessage1              0x2000'3068    0x14  Data  Gb  INFY_V2G.o [3]
+RxMessage2              0x2000'30cc    0x14  Data  Gb  stm32f105_init.o [3]
+Rx_Module                0x800'c155  0x1162  Code  Gb  INFY_V2G.o [3]
+Rxd_Acrel_ch1_data       0x801'26d9   0x17e  Code  Gb  UART.o [3]
+Rxd_Eastron_data_1       0x801'2857   0x3c0  Code  Gb  UART.o [3]
+Rxd_Eastron_data_2       0x801'2c17   0x1e0  Code  Gb  UART.o [3]
+Rxd_Eastron_data_3       0x801'2df7    0x92  Code  Gb  UART.o [3]
+Rxd_Eastron_data_4       0x801'2e89   0x152  Code  Gb  UART.o [3]
+Rxd_Eastron_data_5       0x801'2fdb   0x3c0  Code  Gb  UART.o [3]
+Rxd_SCI_2                0x801'3c83   0x1be  Code  Gb  HMI_modbus.o [3]
+SECC_Msg                0x2000'257c   0x108  Data  Gb  PLC_3_0.o [3]
+SECC_Msg_Receive_1CH     0x801'0849   0x612  Code  Gb  PLC_3_0.o [3]
+SIM200_BuildSetupChallengeResponse
+                         0x801'6115    0x24  Code  Gb  sim200_protocol.o [3]
+SIM200_GetMillis         0x801'5e2b     0x6  Code  Gb  sim200_can_sched.o [3]
+SIM200_Init              0x801'5ff9    0x22  Code  Gb  sim200_can_sched.o [3]
+SIM200_MillisTick        0x801'5e21     0xa  Code  Gb  sim200_can_sched.o [3]
+SIM200_Pack_Request3     0x801'610d     0x8  Code  Gb  sim200_protocol.o [3]
+SIM200_Port_TransmitHostFrame
+                         0x801'665d    0x86  Code  Gb  sim200_port.o [3]
+SIM200_Process           0x801'6049     0x8  Code  Gb  sim200_can_sched.o [3]
+SIM200_ProcessTxPoll     0x801'5ff1     0x8  Code  Gb  sim200_can_sched.o [3]
+SIM200_Protocol_Init     0x801'60c3    0x4a  Code  Gb  sim200_protocol.o [3]
+SIM200_Protocol_ProcessRx
+                         0x801'6319   0x330  Code  Gb  sim200_protocol.o [3]
+SIM200_mux_poll_0hz      0x801'aa80    0x10  Data  Gb  sim200_protocol.o [3]
+SIM200_mux_poll_0hz_count
+                         0x801'ad90     0x4  Data  Gb  sim200_protocol.o [3]
+SIM200_mux_poll_100hz    0x801'ab5c     0xc  Data  Gb  sim200_protocol.o [3]
+SIM200_mux_poll_100hz_count
+                         0x801'ad94     0x4  Data  Gb  sim200_protocol.o [3]
+SIM200_mux_poll_4hz      0x801'ac80     0x8  Data  Gb  sim200_protocol.o [3]
+SIM200_mux_poll_4hz_count
+                         0x801'ad98     0x4  Data  Gb  sim200_protocol.o [3]
+SIM_100_Transmit         0x801'7195   0x2b8  Code  Gb  SIM_100.o [3]
+SIM_100_Tx_step         0x2000'3264     0x2  Data  Gb  SIM_100.o [3]
+SIM_100_tx_cnt          0x2000'32ca     0x1  Data  Gb  SIM_100.o [3]
+SIM_Battery_Voltage_Max
+                        0x2000'3266     0x2  Data  Gb  SIM_100.o [3]
+SIM_info                0x2000'2eac    0x44  Data  Gb  SIM_100.o [3]
+SOC_1CH                 0x2000'3240     0x2  Data  Gb  main.o [3]
+SOC__old                0x2000'32b2     0x1  Data  Gb  PLC_3_0.o [3]
+SOC_old                 0x2000'3242     0x2  Data  Gb  main.o [3]
+SPI1_IRQHandler          0x801'52fd     0x2  Code  Gb  stm32f10x_it.o [3]
+SPI2_IRQHandler          0x801'ae05          Code  Wk  startup_stm32f105xc.o [2]
+SPI3_IRQHandler          0x801'ae19          Code  Wk  startup_stm32f105xc.o [2]
+SVC_Handler              0x801'527f     0x2  Code  Gb  stm32f10x_it.o [3]
+Send_Uart_Terminal       0x800'8531  0x17d4  Code  Gb  Terminal.o [3]
+Send_Uart_Terminal_default
+                         0x800'9db1   0x5f2  Code  Gb  Terminal.o [3]
+Sequence_control_1CH     0x800'ee89   0x9c6  Code  Gb  sequence.o [3]
+SetSysClock              0x801'7add     0x8  Code  Lc  system_stm32f10x.o [1]
+SetSysClockTo72          0x801'7ae5    0xd6  Code  Lc  system_stm32f10x.o [1]
+Set_Module_Data          0x800'e2dd   0x4e4  Code  Gb  INFY_V2G.o [3]
+Set_max_battery_flag    0x2000'32c9     0x1  Data  Gb  SIM_100.o [3]
+SysTick_Handler          0x801'5285     0x2  Code  Gb  stm32f10x_it.o [3]
+SystemInit               0x801'7a8d    0x50  Code  Gb  system_stm32f10x.o [1]
+System_Init              0x801'0e91    0x78  Code  Gb  stm32f105_init.o [3]
+TAMPER_IRQHandler        0x801'ada5          Code  Wk  startup_stm32f105xc.o [2]
+TIM1_BRK_IRQHandler      0x801'ade5          Code  Wk  startup_stm32f105xc.o [2]
+TIM1_CC_IRQHandler       0x801'aded          Code  Wk  startup_stm32f105xc.o [2]
+TIM1_Configuration       0x801'1033    0x60  Code  Gb  stm32f105_init.o [3]
+TIM1_TRG_COM_IRQHandler
+                         0x801'ade9          Code  Wk  startup_stm32f105xc.o [2]
+TIM1_UP_IRQHandler       0x801'52ff    0x4c  Code  Gb  stm32f10x_it.o [3]
+TIM2_IRQHandler          0x801'adf1          Code  Wk  startup_stm32f105xc.o [2]
+TIM3_IRQHandler          0x801'5367    0x1c  Code  Gb  stm32f10x_it.o [3]
+TIM4_IRQHandler          0x801'5383    0x58  Code  Gb  stm32f10x_it.o [3]
+TIM5_IRQHandler          0x801'ae15          Code  Wk  startup_stm32f105xc.o [2]
+TIM6_IRQHandler          0x801'ae25          Code  Wk  startup_stm32f105xc.o [2]
+TIM7_IRQHandler          0x801'ae29          Code  Wk  startup_stm32f105xc.o [2]
+TIM_ClearFlag            0x801'24f7     0xa  Code  Gb  stm32f10x_tim.o [2]
+TIM_Cmd                  0x801'24ad    0x1e  Code  Gb  stm32f10x_tim.o [2]
+TIM_GetFlagStatus        0x801'24e3    0x14  Code  Gb  stm32f10x_tim.o [2]
+TIM_ITConfig             0x801'24cb    0x18  Code  Gb  stm32f10x_tim.o [2]
+TIM_TimeBaseInit         0x801'240d    0x90  Code  Gb  stm32f10x_tim.o [2]
+TxMessage1              0x2000'307c    0x14  Data  Gb  INFY_V2G.o [3]
+TxMessage2              0x2000'30e0    0x14  Data  Gb  stm32f105_init.o [3]
+Txd_SCI_2                0x801'3e41   0x1d2  Code  Gb  HMI_modbus.o [3]
+UART1_Put2Hex            0x800'81dd    0x2e  Code  Gb  Terminal.o [3]
+UART1_Put4Hex            0x800'820b    0x18  Code  Gb  Terminal.o [3]
+UART1_PutChar            0x800'8181    0x22  Code  Gb  Terminal.o [3]
+UART1_PutDec             0x800'8223    0xd0  Code  Gb  Terminal.o [3]
+UART1_PutHex             0x800'81b9    0x24  Code  Gb  Terminal.o [3]
+UART1_PutStr             0x800'81a3    0x16  Code  Gb  Terminal.o [3]
+UART4_IRQHandler         0x801'ae1d          Code  Wk  startup_stm32f105xc.o [2]
+UART5_IRQHandler         0x801'ae21          Code  Wk  startup_stm32f105xc.o [2]
+UART_Init                0x801'142d   0x1d8  Code  Gb  stm32f105_init.o [3]
+USART1_IRQHandler        0x801'5a71   0x242  Code  Gb  stm32f10x_it.o [3]
+USART2_IRQHandler        0x801'5907   0x16a  Code  Gb  stm32f10x_it.o [3]
+USART3_IRQHandler        0x801'53db   0x52c  Code  Gb  stm32f10x_it.o [3]
+USART_ClearFlag          0x800'b7a3     0xc  Code  Gb  stm32f10x_usart.o [2]
+USART_ClearITPendingBit
+                         0x800'b819    0x26  Code  Gb  stm32f10x_usart.o [2]
+USART_Cmd                0x800'b6d1    0x1e  Code  Gb  stm32f10x_usart.o [2]
+USART_DMACmd             0x800'b75f    0x18  Code  Gb  stm32f10x_usart.o [2]
+USART_GetFlagStatus      0x800'b787    0x1c  Code  Gb  stm32f10x_usart.o [2]
+USART_GetITStatus        0x800'b7af    0x6a  Code  Gb  stm32f10x_usart.o [2]
+USART_ITConfig           0x800'b6ef    0x70  Code  Gb  stm32f10x_usart.o [2]
+USART_Init               0x800'b5f5    0xd8  Code  Gb  stm32f10x_usart.o [2]
+USART_ReceiveData        0x800'b77f     0x8  Code  Gb  stm32f10x_usart.o [2]
+USART_SendData           0x800'b777     0x8  Code  Gb  stm32f10x_usart.o [2]
+Uart1_Trnsmt_count      0x2000'32a6     0x1  Data  Gb  main.o [3]
+Uart3_Trnsmt_count      0x2000'32a5     0x1  Data  Gb  main.o [3]
+UsageFault_Handler       0x801'527d     0x2  Code  Gb  stm32f10x_it.o [3]
+V2G_inverter_mode_test   0x800'f84f   0x14e  Code  Gb  sequence.o [3]
+Variable_Initialize_1CH
+                         0x800'ffe1   0x208  Code  Gb  PLC_3_0.o [3]
+Vout_G1                 0x2000'31e4     0x4  Data  Gb  main.o [3]
+Vout_Module_G1          0x2000'31b8     0x4  Data  Gb  INFY_V2G.o [3]
+Vout_ref_temp_G1        0x2000'31a8     0x4  Data  Gb  INFY_V2G.o [3]
+Vout_ref_temp_G2        0x2000'31ac     0x4  Data  Gb  INFY_V2G.o [3]
+WWDG_ClearFlag           0x801'25ab     0x8  Code  Gb  stm32f10x_wwdg.o [2]
+WWDG_Configuration       0x801'1185    0x26  Code  Gb  stm32f105_init.o [3]
+WWDG_Enable              0x801'259d     0xe  Code  Gb  stm32f10x_wwdg.o [2]
+WWDG_IRQHandler          0x801'ad9d          Code  Wk  startup_stm32f105xc.o [2]
+WWDG_SetCounter          0x801'258f     0xe  Code  Gb  stm32f10x_wwdg.o [2]
+WWDG_SetPrescaler        0x801'2559    0x10  Code  Gb  stm32f10x_wwdg.o [2]
+WWDG_SetWindowValue      0x801'2569    0x26  Code  Gb  stm32f10x_wwdg.o [2]
+_100ms_flag             0x2000'32a1     0x1  Data  Gb  main.o [3]
+_10ms_flag              0x2000'32a0     0x1  Data  Gb  main.o [3]
+_LocaleC_islower         0x800'bf41     0x4  Code  Gb  xlocale_c.o [4]
+_LocaleC_toupper         0x800'bf4f     0xc  Code  Gb  xlocale_c.o [4]
+_Rand_idx               0x2000'29d8     0x4  Data  Lc  rand.o [4]
+_Rand_rv                0x2000'2958    0x80  Data  Lc  rand.o [4]
+_Randinit               0x2000'0188     0x1  Data  Gb  rand.o [4]
+_Randseed               0x2000'018c     0x4  Data  Gb  rand.o [4]
+__NVIC_SystemReset       0x800'bc5d    0x1a  Code  Lc  FirmwareUpdate.o [3]
+__NVIC_SystemReset       0x801'3591    0x1e  Code  Lc  HMI_modbus.o [3]
+__NVIC_SystemReset       0x800'8151    0x1e  Code  Lc  Terminal.o [3]
+__aeabi_cdcmple          0x801'5241          Code  Gb  DblCmpLe.o [5]
+__aeabi_cdrcmple         0x801'520d          Code  Gb  DblCmpGe.o [5]
+__aeabi_cfcmple          0x800'ee49          Code  Gb  FltCmpLe.o [5]
+__aeabi_cfrcmple         0x800'bc35          Code  Gb  FltCmpGe.o [5]
+__aeabi_d2f              0x801'18b5          Code  Gb  DblToFlt.o [5]
+__aeabi_d2iz             0x800'bbb9          Code  Gb  DblToS32.o [5]
+__aeabi_d2uiz            0x801'416d          Code  Gb  DblToU32.o [5]
+__aeabi_dadd             0x801'191d          Code  Gb  DblAddSub.o [5]
+__aeabi_ddiv             0x801'1d09          Code  Gb  DblDiv.o [5]
+__aeabi_dmul             0x800'ba0d          Code  Gb  DblMul.o [5]
+__aeabi_f2d              0x800'b9c5          Code  Gb  FltToDbl.o [5]
+__aeabi_f2iz             0x800'bc0d          Code  Gb  FltToS32.o [5]
+__aeabi_f2uiz            0x800'ee71          Code  Gb  FltToU32.o [5]
+__aeabi_fadd             0x801'1b6d          Code  Gb  FltAddSub.o [5]
+__aeabi_fdiv             0x801'4239          Code  Gb  FltDiv.o [5]
+__aeabi_fmul             0x800'b8ed          Code  Gb  FltMul.o [5]
+__aeabi_fsub             0x801'1c4d          Code  Gb  FltAddSub.o [5]
+__aeabi_i2d              0x801'1ce5          Code  Gb  S32ToDbl.o [5]
+__aeabi_i2f              0x801'7869          Code  Gb  S32ToFlt.o [5]
+__aeabi_memcpy           0x801'4191          Code  Gb  ABImemcpy.o [6]
+__aeabi_memcpy4          0x801'41b1          Code  Gb  ABImemcpy.o [6]
+__aeabi_memcpy8          0x801'41b1          Code  Gb  ABImemcpy.o [6]
+__aeabi_memset           0x801'4351          Code  Gb  ABImemset.o [6]
+__aeabi_ui2d             0x800'bbf1          Code  Gb  U32ToDbl.o [5]
+__aeabi_ui2f             0x800'b8d1          Code  Gb  U32ToFlt.o [5]
+__cmain                  0x801'9ff1          Code  Gb  cmain.o [6]
+__exit                   0x801'a02d          Code  Gb  XXexit.o [6]
+__iar_Memset             0x801'4351          Code  Gb  ABImemset.o [6]
+__iar_Memset_word        0x801'4359          Code  Gb  ABImemset.o [6]
+__iar_data_init3         0x801'9a05    0x28  Code  Gb  data_init.o [6]
+__iar_globLocale        0x2000'0190    0x48  Data  Lc  xlocale_c.o [4]
+__iar_global_Locale      0x800'bf5b     0x4  Code  Gb  xlocale_c.o [4]
+__iar_lz77_init_single3
+                         0x800'b853    0x7e  Code  Gb  lz77_init_single.o [6]
+__iar_program_start      0x801'a779          Code  Gb  cstartup_M.o [6]
+__iar_zero_init3         0x801'9569    0x38  Code  Gb  zero_init3.o [6]
+__low_level_init         0x801'a013     0x4  Code  Gb  low_level_init.o [4]
+__vector_table           0x800'8000          Data  Gb  startup_stm32f105xc.o [2]
+_call_main               0x801'9ffd          Code  Gb  cmain.o [6]
+_exit                    0x801'a01d          Code  Gb  cexit.o [6]
+_exit_2                  0x801'a021          Code  Gb  cexit_2.o [6]
+abs                      0x801'1cdb     0x8  Code  Wk  abs.o [4]
+ac_meter_communication_rx_fault
+                        0x2000'01dd     0x1  Data  Gb  fault_check.o [3]
+ac_meter_communication_rx_fault_count
+                        0x2000'3118     0xc  Data  Gb  fault_check.o [3]
+bRxSio_1                0x2000'2fc8    0x20  Data  Gb  HMI_modbus.o [3]
+bRxSio_2                0x2000'2d88    0x50  Data  Gb  HMI_modbus.o [3]
+bTxSio_1                0x2000'2f54    0x28  Data  Gb  HMI_modbus.o [3]
+bTxSio_2                0x2000'2b9c    0x64  Data  Gb  HMI_modbus.o [3]
+before_day              0x2000'3276     0x2  Data  Gb  Terminal.o [3]
+before_hour             0x2000'32d3     0x1  Data  Gb  Terminal.o [3]
+before_min              0x2000'32d4     0x1  Data  Gb  Terminal.o [3]
+before_sec              0x2000'32d5     0x1  Data  Gb  Terminal.o [3]
+blink_count             0x2000'327c     0x1  Data  Gb  digital_io.o [3]
+blink_flag              0x2000'01d8     0x1  Data  Gb  digital_io.o [3]
+cRxdMax_1               0x2000'01e4     0x1  Data  Gb  HMI_modbus.o [3]
+cRxdMax_2               0x2000'01e5     0x1  Data  Gb  HMI_modbus.o [3]
+cRxd_1                  0x2000'3282     0x1  Data  Gb  HMI_modbus.o [3]
+cRxd_2                  0x2000'3284     0x1  Data  Gb  HMI_modbus.o [3]
+cRxd_DM                 0x2000'32e0     0x1  Data  Gb  UART.o [3]
+cTxdMax_2               0x2000'3288     0x1  Data  Gb  HMI_modbus.o [3]
+cTxd_2                  0x2000'3285     0x1  Data  Gb  HMI_modbus.o [3]
+carpayment_authentication_complated
+                        0x2000'328f     0x1  Data  Gb  HMI_modbus.o [3]
+charge_mode_capacity    0x2000'32c1     0x1  Data  Gb  sequence.o [3]
+charger_out_maximum_current_1CH
+                        0x2000'324a     0x2  Data  Gb  main.o [3]
+charging_restart_counter
+                        0x2000'32bf     0x1  Data  Gb  sequence.o [3]
+charging_type_select_1CH
+                        0x2000'328c     0x1  Data  Gb  HMI_modbus.o [3]
+check_list_ok           0x2000'32bb     0x1  Data  Gb  self_check.o [3]
+cnt_module_can_error    0x2000'31a0     0x4  Data  Gb  INFY_V2G.o [3]
+cnt_read_module_50ms    0x2000'319c     0x4  Data  Gb  INFY_V2G.o [3]
+cnt_ry1_o               0x2000'324c     0x2  Data  Gb  main.o [3]
+cnt_ry1_w               0x2000'323a     0x2  Data  Gb  main.o [3]
+cnt_ry2_o               0x2000'324e     0x2  Data  Gb  main.o [3]
+cnt_ry2_w               0x2000'323c     0x2  Data  Gb  main.o [3]
+cnt_set_module_50ms     0x2000'3198     0x4  Data  Gb  INFY_V2G.o [3]
+communication_fault_check
+                         0x801'6a05   0x190  Code  Gb  fault_check.o [3]
+control_pilot_1CH       0x2000'32a8     0x1  Data  Gb  main.o [3]
+counter_ustart2_tx      0x2000'328a     0x1  Data  Gb  HMI_modbus.o [3]
+coupler_temperature_P_1CH
+                        0x2000'3256     0x2  Data  Gb  pt1000.o [3]
+cpOscillator_old        0x2000'32b1     0x1  Data  Gb  PLC_3_0.o [3]
+cp_error_chager_status  0x2000'01ec  0x2000  Data  Gb  main.o [3]
+cp_fault_status_copy_flag
+                        0x2000'32ab     0x1  Data  Gb  main.o [3]
+dc_electric_energy      0x2000'3204     0x4  Data  Gb  Terminal.o [3]
+dc_meter_communication_rx_fault
+                        0x2000'01dc     0x1  Data  Gb  fault_check.o [3]
+dc_meter_communication_rx_fault_count
+                        0x2000'327f     0x1  Data  Gb  fault_check.o [3]
+dc_side_current_limit   0x2000'31c4     0x4  Data  Gb  INFY_V2G.o [3]
+discharging_limit_iout  0x2000'31a4     0x4  Data  Gb  INFY_V2G.o [3]
+eFaultState_1CH         0x2000'327a     0x1  Data  Gb  digital_io.o [3]
+eSysState_1CH           0x2000'327b     0x1  Data  Gb  digital_io.o [3]
+elapsed_time            0x2000'31f4     0x4  Data  Gb  Terminal.o [3]
+elapsed_time_s          0x2000'31f8     0x4  Data  Gb  Terminal.o [3]
+end_SOC                 0x2000'3246     0x2  Data  Gb  main.o [3]
+evErrorCode_old         0x2000'32af     0x1  Data  Gb  PLC_3_0.o [3]
+ev_ry_fault_timer       0x2000'325a     0x2  Data  Gb  sequence.o [3]
+evsis_text1             0x2000'0014    0x34  Data  Gb  Terminal.o [3]
+evsis_text2             0x2000'0048    0x34  Data  Gb  Terminal.o [3]
+evsis_text3             0x2000'007c    0x34  Data  Gb  Terminal.o [3]
+evsis_text4             0x2000'00b0    0x34  Data  Gb  Terminal.o [3]
+evsis_text5             0x2000'00e4    0x34  Data  Gb  Terminal.o [3]
+evsis_text6             0x2000'0118    0x34  Data  Gb  Terminal.o [3]
+evsis_text7             0x2000'014c    0x3c  Data  Gb  Terminal.o [3]
+exit                     0x801'a017     0x4  Code  Gb  exit.o [4]
+fan_off_count           0x2000'3210     0x2  Data  Gb  digital_io.o [3]
+fault_history_function   0x800'ab01   0x760  Code  Gb  Terminal.o [3]
+fault_memory_cnt        0x2000'32ac     0x1  Data  Gb  main.o [3]
+fault_timer_1CH         0x2000'3236     0x2  Data  Gb  main.o [3]
+final_set_max_current_1CH
+                        0x2000'325e     0x2  Data  Gb  sequence.o [3]
+finish_newline_flag     0x2000'32d1     0x1  Data  Gb  Terminal.o [3]
+gCNT                    0x2000'2dd8    0x48  Data  Gb  main.o [3]
+g_day                   0x2000'326e     0x2  Data  Gb  Terminal.o [3]
+g_elapsed_time          0x2000'31fc     0x4  Data  Gb  Terminal.o [3]
+g_elapsed_time_s        0x2000'3200     0x4  Data  Gb  Terminal.o [3]
+g_hour                  0x2000'3272     0x2  Data  Gb  Terminal.o [3]
+g_minute                0x2000'3270     0x2  Data  Gb  Terminal.o [3]
+g_second                0x2000'3274     0x2  Data  Gb  Terminal.o [3]
+getNumberOfDaysInMonth   0x800'b573    0x54  Code  Gb  Terminal.o [3]
+getStartDay              0x800'b511    0x20  Code  Gb  Terminal.o [3]
+getTotalNumberOfDays     0x800'b531    0x42  Code  Gb  Terminal.o [3]
+history_flag            0x2000'32d2     0x1  Data  Gb  Terminal.o [3]
+hmi_485_communication_rx_fault
+                        0x2000'01da     0x1  Data  Gb  fault_check.o [3]
+hmi_485_communication_rx_fault_count
+                        0x2000'327d     0x1  Data  Gb  fault_check.o [3]
+hour                    0x2000'326a     0x2  Data  Gb  Terminal.o [3]
+i                       0x2000'32d7     0x1  Data  Lc  Terminal.o [3]
+imd_can_communication_rx_fault
+                        0x2000'01db     0x1  Data  Gb  fault_check.o [3]
+imd_can_communication_rx_fault_count
+                        0x2000'327e     0x1  Data  Gb  fault_check.o [3]
+isLeapYear               0x800'b5c7    0x2e  Code  Gb  Terminal.o [3]
+load_test_display_value_403
+                        0x2000'3216     0x2  Data  Gb  HMI_modbus.o [3]
+load_test_display_value_404
+                        0x2000'3218     0x2  Data  Gb  HMI_modbus.o [3]
+load_test_display_value_405
+                        0x2000'321a     0x2  Data  Gb  HMI_modbus.o [3]
+load_test_display_value_406
+                        0x2000'321c     0x2  Data  Gb  HMI_modbus.o [3]
+load_test_display_value_413
+                        0x2000'321e     0x2  Data  Gb  HMI_modbus.o [3]
+load_test_display_value_414
+                        0x2000'3220     0x2  Data  Gb  HMI_modbus.o [3]
+mac_address_authentication_complated
+                        0x2000'3290     0x1  Data  Gb  HMI_modbus.o [3]
+mac_address_authentication_failed
+                        0x2000'3291     0x1  Data  Gb  HMI_modbus.o [3]
+mac_address_recevied_complete
+                        0x2000'3292     0x1  Data  Gb  HMI_modbus.o [3]
+main                     0x801'7469   0x2b8  Code  Gb  main.o [3]
+make8                    0x801'415d    0x10  Code  Gb  HMI_modbus.o [3]
+make_Txd_Acrel_data_from_0
+                         0x801'339b    0x40  Code  Gb  UART.o [3]
+make_random_number       0x800'a80d    0x96  Code  Gb  Terminal.o [3]
+make_read_input_eastron_data_001_049
+                         0x801'33db    0x40  Code  Gb  UART.o [3]
+make_read_input_eastron_data_053_083
+                         0x801'341b    0x40  Code  Gb  UART.o [3]
+make_read_input_eastron_data_201_207
+                         0x801'345b    0x40  Code  Gb  UART.o [3]
+make_read_input_eastron_data_235_255
+                         0x801'349b    0x40  Code  Gb  UART.o [3]
+make_read_input_eastron_data_335_381
+                         0x801'34db    0x40  Code  Gb  UART.o [3]
+memset_flag_1CH         0x2000'3294     0x1  Data  Gb  HMI_modbus.o [3]
+minute                  0x2000'3268     0x2  Data  Gb  Terminal.o [3]
+mode_change             0x2000'01e8     0x1  Data  Gb  sequence.o [3]
+mode_change_timer       0x2000'3260     0x2  Data  Gb  sequence.o [3]
+module1_can_communication_rx_fault
+                        0x2000'01df     0x1  Data  Gb  fault_check.o [3]
+module2_can_communication_rx_fault
+                        0x2000'01e0     0x1  Data  Gb  fault_check.o [3]
+module3_can_communication_rx_fault
+                        0x2000'01e1     0x1  Data  Gb  fault_check.o [3]
+module4_can_communication_rx_fault
+                        0x2000'01e2     0x1  Data  Gb  fault_check.o [3]
+module5_can_communication_rx_fault
+                        0x2000'01e3     0x1  Data  Gb  fault_check.o [3]
+module_can_communication_start_G1
+                        0x2000'3297     0x1  Data  Gb  INFY_V2G.o [3]
+module_can_communication_start_G2
+                        0x2000'3298     0x1  Data  Gb  INFY_V2G.o [3]
+module_grid_connected_inverter
+                        0x2000'329e     0x1  Data  Gb  INFY_V2G.o [3]
+module_group            0x2000'329a     0x1  Data  Gb  INFY_V2G.o [3]
+module_info             0x2000'3130     0xc  Data  Gb  INFY_V2G.o [3]
+module_info_ac_line_voltage_avg
+                        0x2000'31c8     0x4  Data  Gb  INFY_V2G.o [3]
+module_info_ac_phase_current_avg
+                        0x2000'31cc     0x4  Data  Gb  INFY_V2G.o [3]
+module_info_total_active_power_avg
+                        0x2000'31d0     0x4  Data  Gb  INFY_V2G.o [3]
+module_internal_temperature
+                        0x2000'31c0     0x4  Data  Gb  INFY_V2G.o [3]
+module_off_grid_inverter
+                        0x2000'329f     0x1  Data  Gb  INFY_V2G.o [3]
+module_on_off_G1        0x2000'3295     0x1  Data  Gb  INFY_V2G.o [3]
+module_on_off_G2        0x2000'3296     0x1  Data  Gb  INFY_V2G.o [3]
+module_read_data        0x2000'21ec   0x240  Data  Gb  INFY_V2G.o [3]
+module_read_total_data  0x2000'28c8    0x90  Data  Gb  INFY_V2G.o [3]
+module_rectification    0x2000'329d     0x1  Data  Gb  INFY_V2G.o [3]
+module_set_data         0x2000'2830    0x98  Data  Gb  INFY_V2G.o [3]
+module_start_button     0x2000'329b     0x1  Data  Gb  INFY_V2G.o [3]
+module_stop_button      0x2000'329c     0x1  Data  Gb  INFY_V2G.o [3]
+module_write_data       0x2000'2fe8    0x20  Data  Gb  INFY_V2G.o [3]
+my_stand_standby_1CH    0x2000'01e7     0x1  Data  Gb  main.o [3]
+number_of_module        0x2000'3293     0x1  Data  Gb  HMI_modbus.o [3]
+number_of_using_module  0x2000'01e6     0x1  Data  Gb  INFY_V2G.o [3]
+plc_can_communication_rx_fault_1CH
+                        0x2000'01de     0x1  Data  Gb  fault_check.o [3]
+plc_can_communication_rx_fault_count_1CH
+                        0x2000'3280     0x1  Data  Gb  fault_check.o [3]
+plc_reset_step_1CH      0x2000'32be     0x1  Data  Gb  sequence.o [3]
+plc_reset_timer_1CH     0x2000'32bd     0x1  Data  Gb  sequence.o [3]
+power_meter_tx_data     0x2000'32d8     0x1  Data  Gb  UART.o [3]
+power_module_Communition_error_counter
+                        0x2000'3299     0x1  Data  Gb  INFY_V2G.o [3]
+power_module_can_communication_fail_1CH
+                        0x2000'32a9     0x1  Data  Gb  main.o [3]
+printMonth               0x800'b269    0x18  Code  Gb  Terminal.o [3]
+printMonthBody           0x800'b379    0xc8  Code  Gb  Terminal.o [3]
+printMonthName           0x800'b2dd    0x8e  Code  Gb  Terminal.o [3]
+printMonthTitle          0x800'b281    0x54  Code  Gb  Terminal.o [3]
+pt1000_adc_table         0x801'86d8    0x68  Data  Gb  pt1000.o [3]
+rand                     0x800'bce1    0x88  Code  Gb  rand.o [4]
+rand_num_make_count     0x2000'32d6     0x1  Data  Gb  Terminal.o [3]
+rcc_clocks              0x2000'30b8    0x14  Data  Gb  main.o [3]
+restart_flag_1CH        0x2000'32bc     0x1  Data  Gb  sequence.o [3]
+rgby_rotate             0x2000'01d9     0x1  Data  Gb  digital_io.o [3]
+rxok_2                  0x2000'3286     0x1  Data  Gb  HMI_modbus.o [3]
+rxok_DM                 0x2000'32df     0x1  Data  Gb  UART.o [3]
+rxok_DM_recovery_count  0x2000'32ad     0x1  Data  Gb  main.o [3]
+s_100hz_round           0x2000'32c7     0x1  Data  Lc  sim200_can_sched.o [3]
+s_mux_idx               0x2000'32c6     0x1  Data  Lc  sim200_can_sched.o [3]
+s_next_tx_ms            0x2000'31f0     0x4  Data  Lc  sim200_can_sched.o [3]
+s_phase                 0x2000'32c5     0x1  Data  Lc  sim200_can_sched.o [3]
+s_setup_expect_c3_result
+                        0x2000'32c8     0x1  Data  Lc  sim200_protocol.o [3]
+s_setup_xor_key          0x801'ac78     0x8  Data  Lc  sim200_protocol.o [3]
+s_sim200_millis         0x2000'31ec     0x4  Data  Lc  sim200_can_sched.o [3]
+seccErrorCode_old       0x2000'32b0     0x1  Data  Gb  PLC_3_0.o [3]
+seccStatusCode_old      0x2000'32ae     0x1  Data  Gb  PLC_3_0.o [3]
+second                  0x2000'326c     0x2  Data  Gb  Terminal.o [3]
+self_check_start        0x2000'32aa     0x1  Data  Gb  main.o [3]
+self_check_timer        0x2000'3258     0x2  Data  Gb  self_check.o [3]
+send_uart_term_start    0x2000'32cf     0x1  Data  Gb  Terminal.o [3]
+send_uart_term_start_flag
+                        0x2000'32ce     0x1  Data  Gb  Terminal.o [3]
+send_uart_term_system_info
+                         0x800'8311   0x16a  Code  Gb  Terminal.o [3]
+sequence_step_1CH       0x2000'3238     0x2  Data  Gb  main.o [3]
+set_power               0x2000'3214     0x2  Data  Gb  HMI_modbus.o [3]
+set_total_power_fix     0x2000'3248     0x2  Data  Gb  main.o [3]
+sim200_be16s             0x801'605d     0xe  Code  Lc  sim200_protocol.o [3]
+sim200_be16u             0x801'6051     0xc  Code  Lc  sim200_protocol.o [3]
+sim200_be32s             0x801'6083     0xc  Code  Lc  sim200_protocol.o [3]
+sim200_be32u             0x801'606b    0x18  Code  Lc  sim200_protocol.o [3]
+sim200_data_0hz         0x2000'2b34    0x68  Data  Gb  sim200_protocol.o [3]
+sim200_data_100hz       0x2000'3028    0x20  Data  Gb  sim200_protocol.o [3]
+sim200_data_4hz         0x2000'2e68    0x44  Data  Gb  sim200_protocol.o [3]
+sim200_handle_setup_c3   0x801'6139    0x6e  Code  Lc  sim200_protocol.o [3]
+sim200_host_tx_request3
+                         0x801'5e31    0x24  Code  Lc  sim200_can_sched.o [3]
+sim200_is_ack3           0x801'608f    0x1a  Code  Lc  sim200_protocol.o [3]
+sim200_is_nak3           0x801'60a9    0x1a  Code  Lc  sim200_protocol.o [3]
+sim200_macro_tx_poll     0x801'5e55   0x18a  Code  Lc  sim200_can_sched.o [3]
+sim200_parse_e0          0x801'61b1    0x2e  Code  Lc  sim200_protocol.o [3]
+sim200_parse_e1          0x801'61df    0x2e  Code  Lc  sim200_protocol.o [3]
+sim200_parse_e2          0x801'620d    0x2e  Code  Lc  sim200_protocol.o [3]
+sim200_parse_e3          0x801'623b    0x30  Code  Lc  sim200_protocol.o [3]
+sim200_parse_e4          0x801'626b    0x2c  Code  Lc  sim200_protocol.o [3]
+sim200_parse_e5          0x801'6297    0x1e  Code  Lc  sim200_protocol.o [3]
+sim200_parse_e6          0x801'62b5    0x32  Code  Lc  sim200_protocol.o [3]
+sim200_parse_e7          0x801'62e7    0x32  Code  Lc  sim200_protocol.o [3]
+sim200_rx_status_byte    0x801'61a7     0xa  Code  Lc  sim200_protocol.o [3]
+start_SOC               0x2000'3244     0x2  Data  Gb  main.o [3]
+stop_code_1CH           0x2000'32a2     0x1  Data  Gb  main.o [3]
+sum_PT1000_AD_1CH       0x2000'31e8     0x4  Data  Gb  pt1000.o [3]
+sum_counter_1CH         0x2000'3254     0x2  Data  Gb  pt1000.o [3]
+system_cmd              0x2000'32d0     0x1  Data  Gb  Terminal.o [3]
+temp_2                  0x2000'32cb     0x1  Data  Gb  stm32f10x_it.o [3]
+temp_3                  0x2000'32cc     0x1  Data  Gb  stm32f10x_it.o [3]
+term_get_cmd_excute      0x800'a41d   0x390  Code  Gb  Terminal.o [3]
+term_rx_msg_buffer_copy
+                        0x2000'3008    0x20  Data  Gb  main.o [3]
+test_rx_chartohex       0x2000'3048    0x20  Data  Gb  stm32f10x_it.o [3]
+test_step               0x2000'32ba     0x1  Data  Gb  self_check.o [3]
+timeout_timer_1CH       0x2000'323e     0x2  Data  Gb  main.o [3]
+timer_100ms             0x2000'322e     0x2  Data  Gb  main.o [3]
+timer_10ms              0x2000'322a     0x2  Data  Gb  main.o [3]
+timer_1ms               0x2000'3226     0x2  Data  Gb  main.o [3]
+timer_1s                0x2000'3234     0x2  Data  Gb  main.o [3]
+timer_200ms             0x2000'3230     0x2  Data  Gb  main.o [3]
+timer_500ms             0x2000'3232     0x2  Data  Gb  main.o [3]
+timer_50ms              0x2000'322c     0x2  Data  Gb  main.o [3]
+timer_5ms               0x2000'3228     0x2  Data  Gb  main.o [3]
+timer_step3_1CH         0x2000'325c     0x2  Data  Gb  sequence.o [3]
+total_operating_time     0x800'a8d1    0x8e  Code  Gb  Terminal.o [3]
+toupper                  0x800'b83f    0x14  Code  Gb  toupper.o [4]
+txnew_2                 0x2000'3287     0x1  Data  Gb  HMI_modbus.o [3]
+txnew_Test              0x2000'3281     0x1  Data  Gb  HMI_modbus.o [3]
+u16_Iout_Module_G1      0x2000'3224     0x2  Data  Gb  INFY_V2G.o [3]
+u16_Vout_Module_G1      0x2000'3222     0x2  Data  Gb  INFY_V2G.o [3]
+uart1_cnt               0x2000'3283     0x1  Data  Gb  HMI_modbus.o [3]
+uart3_rx_isr_cnt        0x2000'320c     0x4  Data  Gb  UART.o [3]
+ufFbIout_G1             0x2000'3194     0x4  Data  Gb  INFY_V2G.o [3]
+ufFbVout_G1             0x2000'3190     0x4  Data  Gb  INFY_V2G.o [3]
+ufRefDCI                0x2000'3180     0x4  Data  Gb  INFY_V2G.o [3]
+ufRefDCV                0x2000'317c     0x4  Data  Gb  INFY_V2G.o [3]
+ufRefDCW                0x2000'3184     0x4  Data  Gb  INFY_V2G.o [3]
+ufRefI_G1               0x2000'318c     0x4  Data  Gb  INFY_V2G.o [3]
+ufRefV_G1               0x2000'3188     0x4  Data  Gb  INFY_V2G.o [3]
+usRegHoldingBuf_2_1     0x2000'2c00    0x64  Data  Gb  main.o [3]
+usRegHoldingBuf_Test    0x2000'3090    0x14  Data  Gb  main.o [3]
+usRegInputBuf_2_1       0x2000'29dc    0x78  Data  Gb  main.o [3]
+usart2_tx_ok            0x2000'3289     0x1  Data  Gb  HMI_modbus.o [3]
+user_stop               0x2000'32c0     0x1  Data  Gb  sequence.o [3]
+view_count              0x2000'32cd     0x1  Data  Gb  Terminal.o [3]
+
+
+[1] = C:\Users\user\Desktop\V2G temp test FW 20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\CMSIS_13545061835669826545.dir
+[2] = C:\Users\user\Desktop\V2G temp test FW 20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\StdPeriph_Driver_12021012747841943037.dir
+[3] = C:\Users\user\Desktop\V2G temp test FW 20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\EVSIS_60kW_DC_BPT\Obj\User_4889033380472473340.dir
+[4] = dl7M_tlf.a
+[5] = m7M_tl.a
+[6] = rt7M_tl.a
+
+  64'360 bytes of readonly  code memory
+  13'186 bytes of readonly  data memory
+  14'047 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

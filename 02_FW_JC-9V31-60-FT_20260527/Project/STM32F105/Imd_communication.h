@@ -1,0 +1,3 @@
+#ifndef IMD_COMMUNICATION_H
+#define IMD_COMMUNICATION_H
+#endif

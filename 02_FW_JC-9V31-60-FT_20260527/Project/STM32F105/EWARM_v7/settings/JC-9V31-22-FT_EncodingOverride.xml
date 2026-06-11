@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<userOverrides>
+    <override>
+        <path>D:\000_Project\2024\003_V2G(JC-9V31-22-FT)\FW\20240812_JC-9V31-22-FT\JC-9V31-22-FT\Project\STM32F105\INFY_V2G.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\000_Project\2026\02_TUV_60kW_V2G(JC-9V31-60-FT)\06_FW\02_FW_JC-9V31-60-FT_20260413\Project\STM32F105\Board_Pin_Config.h</path>
+        <encoding>UTF-8</encoding>
+    </override>
+    <override>
+        <path>D:\000_Project\2026\02_TUV_60kW_V2G(JC-9V31-60-FT)\06_FW\02_FW_JC-9V31-60-FT_20260413\Project\STM32F105\main.c</path>
+        <encoding>UTF-8</encoding>
+    </override>
+    <override>
+        <path>D:\000_Project\2026\02_TUV_60kW_V2G(JC-9V31-60-FT)\97_References\01_FW_JC-9V31-22-FT\JC-9V31-22-FT_Init\Project\STM32F105\stm32f105_init.c</path>
+        <encoding>UTF-8</encoding>
+    </override>
+    <override>
+        <path>G:\My Drive\JC-9V31-22-FT_Init\Project\STM32F105\Board_Pin_Config.h</path>
+        <encoding>UTF-8</encoding>
+    </override>
+    <override>
+        <path>G:\My Drive\JC-9V31-22-FT_Init\Project\STM32F105\HMI_modbus.c</path>
+        <encoding>UTF-8</encoding>
+    </override>
+    <override>
+        <path>G:\My Drive\JC-9V31-22-FT_Init\Project\STM32F105\HMI_modbus.h</path>
+        <encoding>UTF-8</encoding>
+    </override>
+    <override>
+        <path>G:\My Drive\JC-9V31-22-FT_Init\Project\STM32F105\Imd_communication.c</path>
+        <encoding>UTF-8</encoding>
+    </override>
+    <override>
+        <path>G:\My Drive\JC-9V31-22-FT_Init\Project\STM32F105\PLC_3_0.c</path>
+        <encoding>UTF-8</encoding>
+    </override>
+    <override>
+        <path>G:\My Drive\JC-9V31-22-FT_Init\Project\STM32F105\PLC_3_0.h</path>
+        <encoding>UTF-8</encoding>
+    </override>
+    <override>
+        <path>G:\My Drive\JC-9V31-22-FT_Init\Project\STM32F105\SIM_100.c</path>
+        <encoding>UTF-8</encoding>
+    </override>
+    <override>
+        <path>G:\My Drive\JC-9V31-22-FT_Init\Project\STM32F105\Terminal.c</path>
+        <encoding>UTF-8</encoding>
+    </override>
+    <override>
+        <path>G:\My Drive\JC-9V31-22-FT_Init\Project\STM32F105\Terminal.h</path>
+        <encoding>UTF-8</encoding>
+    </override>
+    <override>
+        <path>G:\My Drive\JC-9V31-22-FT_Init\Project\STM32F105\UART.c</path>
+        <encoding>UTF-8</encoding>
+    </override>
+    <override>
+        <path>G:\My Drive\JC-9V31-22-FT_Init\Project\STM32F105\UART.h</path>
+        <encoding>UTF-8</encoding>
+    </override>
+    <override>
+        <path>G:\My Drive\JC-9V31-22-FT_Init\Project\STM32F105\fault_check.c</path>
+        <encoding>UTF-8</encoding>
+    </override>
+    <override>
+        <path>G:\My Drive\JC-9V31-22-FT_Init\Project\STM32F105\main.c</path>
+        <encoding>UTF-8</encoding>
+    </override>
+    <override>
+        <path>G:\My Drive\JC-9V31-22-FT_Init\Project\STM32F105\main.h</path>
+        <encoding>UTF-8</encoding>
+    </override>
+    <override>
+        <path>G:\My Drive\JC-9V31-22-FT_Init\Project\STM32F105\pt1000.c</path>
+        <encoding>UTF-8</encoding>
+    </override>
+    <override>
+        <path>G:\My Drive\JC-9V31-22-FT_Init\Project\STM32F105\pt1000.h</path>
+        <encoding>UTF-8</encoding>
+    </override>
+    <override>
+        <path>G:\My Drive\JC-9V31-22-FT_Init\Project\STM32F105\self_check.c</path>
+        <encoding>UTF-8</encoding>
+    </override>
+    <override>
+        <path>G:\My Drive\JC-9V31-22-FT_Init\Project\STM32F105\self_check.h</path>
+        <encoding>UTF-8</encoding>
+    </override>
+    <override>
+        <path>G:\My Drive\JC-9V31-22-FT_Init\Project\STM32F105\sequence.c</path>
+        <encoding>UTF-8</encoding>
+    </override>
+    <override>
+        <path>G:\My Drive\JC-9V31-22-FT_Init\Project\STM32F105\stm32f10x_it.c</path>
+        <encoding>UTF-8</encoding>
+    </override>
+</userOverrides>

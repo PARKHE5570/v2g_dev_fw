@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<userOverrides>
+    <override>
+        <path>D:\1. PROJECT\1. Intelligent Lab\1. SRC\100kW\JC-9932-100-CU07_Win_ver001\JC-9932-100-CU07_Win_ver001\Project\STM32F105\HMI_modbus.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\1. PROJECT\1. Intelligent Lab\1. SRC\100kW\JC-9932-100-CU07_Win_ver001\JC-9932-100-CU07_Win_ver001\Project\STM32F105\HMI_modbus.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\1. PROJECT\1. Intelligent Lab\1. SRC\100kW\JC-9932-100-CU07_Win_ver001\JC-9932-100-CU07_Win_ver001\Project\STM32F105\Imd_communication.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\1. PROJECT\1. Intelligent Lab\1. SRC\100kW\JC-9932-100-CU07_Win_ver001\JC-9932-100-CU07_Win_ver001\Project\STM32F105\Terminal.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\1. PROJECT\1. Intelligent Lab\1. SRC\100kW\JC-9932-100-CU07_Win_ver001\JC-9932-100-CU07_Win_ver001\Project\STM32F105\Terminal.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\1. PROJECT\1. Intelligent Lab\1. SRC\100kW\JC-9932-100-CU07_Win_ver001\JC-9932-100-CU07_Win_ver001\Project\STM32F105\fault_check.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\1. PROJECT\1. Intelligent Lab\1. SRC\100kW\JC-9932-100-CU07_Win_ver001\JC-9932-100-CU07_Win_ver001\Project\STM32F105\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\1. PROJECT\1. Intelligent Lab\1. SRC\100kW\JC-9932-100-CU07_Win_ver001\JC-9932-100-CU07_Win_ver001\Project\STM32F105\main.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\1. PROJECT\1. Intelligent Lab\1. SRC\100kW\JC-9932-100-CU07_Win_ver001\JC-9932-100-CU07_Win_ver001\Project\STM32F105\pt1000.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\1. PROJECT\1. Intelligent Lab\1. SRC\100kW\JC-9932-100-CU07_Win_ver001\JC-9932-100-CU07_Win_ver001\Project\STM32F105\self_check.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\1. PROJECT\1. Intelligent Lab\1. SRC\100kW\JC-9932-100-CU07_Win_ver001\JC-9932-100-CU07_Win_ver001\Project\STM32F105\self_check.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\1. PROJECT\1. Intelligent Lab\1. SRC\100kW\JC-9932-100-CU07_Win_ver001\JC-9932-100-CU07_Win_ver001\Project\STM32F105\sequence.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\1. PROJECT\1. Intelligent Lab\1. SRC\100kW\JC-9932-100-CU07_Win_ver001\JC-9932-100-CU07_Win_ver001\Project\STM32F105\stm32f10x_it.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\1. PROJECT\1. Intelligent Lab\1. SRC\100kW\JC-9932-100-CU07_Win_ver001\JC-9932-100-CU07_Win_ver001\Project\STM32F105\winline_module.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\1. PROJECT\1. Intelligent Lab\1. SRC\100kW\JC-9932-100-CU07_Win_ver001\JC-9932-100-CU07_Win_ver001\Project\STM32F105\winline_module.h</path>
+        <encoding>System</encoding>
+    </override>
+</userOverrides>
