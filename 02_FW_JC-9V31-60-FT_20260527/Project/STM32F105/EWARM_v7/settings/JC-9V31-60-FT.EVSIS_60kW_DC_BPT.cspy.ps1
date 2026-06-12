@@ -23,9 +23,9 @@
 
 if ($debugfile -eq "")
 {
-& "D:\iar\ewarmc-9.70.2\common\bin\cspybat" -f "C:\Users\user\Desktop\V2G temp test FW 20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\settings\JC-9V31-60-FT.EVSIS_60kW_DC_BPT.general.xcl" --backend -f "C:\Users\user\Desktop\V2G temp test FW 20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\settings\JC-9V31-60-FT.EVSIS_60kW_DC_BPT.driver.xcl" 
+& "D:\iar\ewarmc-9.70.2\common\bin\cspybat" -f "C:\Users\user\Desktop\v2g_dev_fw\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\settings\JC-9V31-60-FT.EVSIS_60kW_DC_BPT.general.xcl" --backend -f "C:\Users\user\Desktop\v2g_dev_fw\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\settings\JC-9V31-60-FT.EVSIS_60kW_DC_BPT.driver.xcl" 
 }
 else
 {
-& "D:\iar\ewarmc-9.70.2\common\bin\cspybat" -f "C:\Users\user\Desktop\V2G temp test FW 20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\settings\JC-9V31-60-FT.EVSIS_60kW_DC_BPT.general.xcl" --debug_file=$debugfile --backend -f "C:\Users\user\Desktop\V2G temp test FW 20260527\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\settings\JC-9V31-60-FT.EVSIS_60kW_DC_BPT.driver.xcl" 
+& "D:\iar\ewarmc-9.70.2\common\bin\cspybat" -f "C:\Users\user\Desktop\v2g_dev_fw\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\settings\JC-9V31-60-FT.EVSIS_60kW_DC_BPT.general.xcl" --debug_file=$debugfile --backend -f "C:\Users\user\Desktop\v2g_dev_fw\02_FW_JC-9V31-60-FT_20260527\Project\STM32F105\EWARM_v7\settings\JC-9V31-60-FT.EVSIS_60kW_DC_BPT.driver.xcl" 
 }

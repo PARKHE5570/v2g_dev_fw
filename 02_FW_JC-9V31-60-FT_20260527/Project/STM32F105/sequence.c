@@ -418,7 +418,10 @@ void Sequence_control_1CH()
 
 void V2G_inverter_mode_test(void) //240813
 {
-  if(Combo_start_button_1CH == 1){
+  static int8_t v2g_inverter_mode_test_step;
+  static int16_t v2g_inverter_mode_test_cnt;
+  if(Holding_Memory[1].Cable_Type == AC3) 
+  {
 	//20260611 PHE 
 	ufRefV_G1.ulValue  = (uint32_t)Holding_Memory[1].Test_Mode_Vout_Ref_high;
 	ufRefV_G1.ulValue |= (uint32_t)Holding_Memory[1].Test_Mode_Vout_Ref_low << 16;
@@ -431,51 +434,91 @@ void V2G_inverter_mode_test(void) //240813
 	  Vout_ref_temp_G1 = ufRefV_G1.fValue;
 	}
 	
-	Digital_output.O_RY1 = 1;
-	Digital_output.O_RY2 = 1;
-	//Input_Memory[1].out_voltage = (uint16_t) DCVout_1CH;    //HMI에서 받아 온 값을 왜 다시 보내지?
-	//Input_Memory[1].out_current = (uint16_t) DCIout_1CH;
-	
-	//	if((Vout_Module_G1 >= 150) && (SIM_info.SIM_Battery_Voltage.Vb >= 150))
-	//sim200_data_4hz.v_batt 으로 대체 가능
-	if((Vout_Module_G1 >= 150) && (sim200_data_4hz.v_batt > 150)) //20260526 임시로 현재 SIM 데이터 수신하는지 확인이 안돼서 삭제
+	if(Combo_stop_button_1CH == 1)
 	{
-	  module_grid_connected_inverter = 1;      
-	  
-	  if(module_set_data.set_single_pm_ac_basic_information.working_mode == grid_connected_inverter_mode){
-		module_on_off_G1 = MODULE_ON;
-		Channel1_RUN = 1;
-	  }
-	  else if(module_set_data.set_single_pm_ac_basic_information.working_mode != grid_connected_inverter_mode){
-		module_on_off_G1 = MODULE_OFF;
-		Channel1_RUN = 0;
-		eSysState_1CH = STATE_STANDBY;
-	  }
+	  v2g_inverter_mode_test_step = 4;
+	  Input_Memory[1].out_voltage = (uint16_t)Vout_Module_G1;
+	  Input_Memory[1].out_current = (uint16_t)Iout_Module_G1;
 	}
-	//	else if((Vout_Module_G1 < 150) && (SIM_info.SIM_Battery_Voltage.Vb < 150))
-	else if((Vout_Module_G1 < 150) && (sim200_data_4hz.v_batt < 150)) //20260526 임시로 현재 SIM 데이터 수신하는지 확인이 안돼서 삭제
-	{
+	
+	switch(v2g_inverter_mode_test_step){
+	case 0:
+	  if(Combo_start_button_1CH == 1) 
+	  {
+		Digital_output.O_MC1 = 1;
+		module_grid_connected_inverter = 1;   
+		v2g_inverter_mode_test_step = 1;
+	  }
+	  break;
+	  
+	case 1:
+	  if(Digital_input.bit.I_MC1 != 1) 
+	  {
+		//error log - MC1 is not working
+		//error count, retry max 2.
+		v2g_inverter_mode_test_step = 0;
+	  }else if(v2g_inverter_mode_test_cnt++ > 300) // 3s
+	  {
+		Module_Dial_Switch();
+		Digital_output.O_RY1 = 1;
+		Digital_output.O_RY2 = 1;
+		
+		v2g_inverter_mode_test_cnt = 0;
+		v2g_inverter_mode_test_step = 2;
+	  }
+	  break;
+	  
+	case 2 :
+	  if((Vout_Module_G1 >= 150) && (sim200_data_4hz.v_batt > 150)) //20260526 임시로 현재 SIM 데이터 수신하는지 확인이 안돼서 삭제
+	  {
+		v2g_inverter_mode_test_step = 3;
+		if(module_set_data.set_single_pm_ac_basic_information.working_mode == grid_connected_inverter_mode){
+		  module_on_off_G1 = MODULE_ON;
+		  Channel1_RUN = 1;
+		}
+		else if(module_set_data.set_single_pm_ac_basic_information.working_mode != grid_connected_inverter_mode){
+		  module_on_off_G1 = MODULE_OFF;
+		  Channel1_RUN = 0;
+		  eSysState_1CH = STATE_STANDBY;
+		}
+	  }
+	  
+	  break;
+	  
+	case 3:
+	  if((Vout_Module_G1 < 150) && (sim200_data_4hz.v_batt < 150)) //20260526 임시로 현재 SIM 데이터 수신하는지 확인이 안돼서 삭제
+	  {
+		v2g_inverter_mode_test_step = 4;
+	  }
+	  
+	  break;
+	  
+	case 4:
 	  module_grid_connected_inverter = 0;
+	  module_set_data.set_single_pm_ac_basic_information.working_mode = invalid;
 	  module_on_off_G1 = MODULE_OFF;
 	  Channel1_RUN = 0;
 	  eSysState_1CH = STATE_STANDBY;
+	  
+	  Digital_output.O_RY1 = 0;
+	  Digital_output.O_RY2 = 0;
+	  
+	  if(v2g_inverter_mode_test_cnt++ > 50) // 500ms
+	  {
+		v2g_inverter_mode_test_cnt = 0;
+		v2g_inverter_mode_test_step = 5;
+	  }
+	  break;
+	  
+	case 5:
+	  v2g_inverter_mode_test_step = 0;
+	  Digital_output.O_MC1 = 0;
+	  Digital_output.O_RY1 = 0;
+	  Digital_output.O_RY2 = 0;
+	  Channel1_RUN = 0;
+	  eSysState_1CH = STATE_STANDBY;
+	  break;
 	}
-  }
-  else if(Combo_stop_button_1CH == 1){
-	
-	module_grid_connected_inverter = 0;
-	module_set_data.set_single_pm_ac_basic_information.working_mode = invalid;
-	module_on_off_G1 = MODULE_OFF;
-	Channel1_RUN = 0;
-	eSysState_1CH = STATE_STANDBY;
-	
-	Digital_output.O_RY1 = 0;
-	Digital_output.O_RY2 = 0;
-	
-	//	Input_Memory[1].out_voltage = (uint16_t) SIM_info.SIM_Battery_Voltage.Vb;
-	Input_Memory[1].out_voltage = (uint16_t)Vout_Module_G1;
-	//	Input_Memory[1].out_current = (uint16_t) DCIout_1CH;
-	Input_Memory[1].out_current = (uint16_t)Iout_Module_G1;
   }
 }
 
@@ -619,9 +662,9 @@ void Combo_Load_Test_1CH(void) // 2020.12.16 인증용 프로그램을 위해 �
 		{
 		  Vout_ref_temp_G1 = DEFAULT_SET_VOLTAGE;
 		}else if(ufRefV_G1.fValue > MAX_OUTPUT_VOLTAGE){
-		   	Vout_ref_temp_G1 = MAX_OUTPUT_VOLTAGE;
+		  Vout_ref_temp_G1 = MAX_OUTPUT_VOLTAGE;
 		}else {
-			Vout_ref_temp_G1 = ufRefV_G1.fValue;
+		  Vout_ref_temp_G1 = ufRefV_G1.fValue;
 		}
 		
 		if(ufRefI_G1.fValue < DEFAULT_SET_CURRENT)

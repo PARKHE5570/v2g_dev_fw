@@ -2,7 +2,7 @@
 	"arguments" : 
 	[
 		"D:\\iar\\ewarmc-9.70.2\\arm\\bin\\iccarm.exe",
-		"C:\\Users\\user\\Desktop\\V2G temp test FW 20260527\\02_FW_JC-9V31-60-FT_20260527\\Project\\STM32F105\\stm32f105_init.c",
+		"C:\\Users\\user\\Desktop\\v2g_dev_fw\\02_FW_JC-9V31-60-FT_20260527\\Project\\STM32F105\\stm32f105_init.c",
 		"-nostdinc",
 		"-undef",
 		"-Wno-unaligned-access",
@@ -16,13 +16,13 @@
 		"-isystem",
 		"D:\\iar\\ewarmc-9.70.2\\arm\\inc\\c",
 		"-I",
-		"C:\\Users\\user\\Desktop\\V2G temp test FW 20260527\\02_FW_JC-9V31-60-FT_20260527\\Project\\STM32F105\\",
+		"C:\\Users\\user\\Desktop\\v2g_dev_fw\\02_FW_JC-9V31-60-FT_20260527\\Project\\STM32F105\\",
 		"-I",
-		"C:\\Users\\user\\Desktop\\V2G temp test FW 20260527\\02_FW_JC-9V31-60-FT_20260527\\BSP\\inc\\",
+		"C:\\Users\\user\\Desktop\\v2g_dev_fw\\02_FW_JC-9V31-60-FT_20260527\\BSP\\inc\\",
 		"-I",
-		"C:\\Users\\user\\Desktop\\V2G temp test FW 20260527\\02_FW_JC-9V31-60-FT_20260527\\Libraries\\CMSIS\\CM3\\DeviceSupport\\ST\\STM32F10x\\",
+		"C:\\Users\\user\\Desktop\\v2g_dev_fw\\02_FW_JC-9V31-60-FT_20260527\\Libraries\\CMSIS\\CM3\\DeviceSupport\\ST\\STM32F10x\\",
 		"-I",
-		"C:\\Users\\user\\Desktop\\V2G temp test FW 20260527\\02_FW_JC-9V31-60-FT_20260527\\Libraries\\STM32F10x_StdPeriph_Driver\\inc\\",
+		"C:\\Users\\user\\Desktop\\v2g_dev_fw\\02_FW_JC-9V31-60-FT_20260527\\Libraries\\STM32F10x_StdPeriph_Driver\\inc\\",
 		"-I",
 		"D:\\iar\\ewarmc-9.70.2\\arm\\CMSIS\\Core\\Include\\",
 		"--target=armv7m-none-eabi",
@@ -929,7 +929,7 @@
 		"-x",
 		"c"
 	],
-	"directory" : "C:\\Users\\user\\Desktop\\V2G temp test FW 20260527\\02_FW_JC-9V31-60-FT_20260527\\Project\\STM32F105",
-	"file" : "C:\\Users\\user\\Desktop\\V2G temp test FW 20260527\\02_FW_JC-9V31-60-FT_20260527\\Project\\STM32F105\\stm32f105_init.c",
-	"output" : "C:\\Users\\user\\Desktop\\V2G temp test FW 20260527\\02_FW_JC-9V31-60-FT_20260527\\Project\\STM32F105\\EWARM_v7\\EVSIS_60kW_DC_BPT\\Obj\\User_4889033380472473340.dir\\stm32f105_init.o"
+	"directory" : "C:\\Users\\user\\Desktop\\v2g_dev_fw\\02_FW_JC-9V31-60-FT_20260527\\Project\\STM32F105",
+	"file" : "C:\\Users\\user\\Desktop\\v2g_dev_fw\\02_FW_JC-9V31-60-FT_20260527\\Project\\STM32F105\\stm32f105_init.c",
+	"output" : "C:\\Users\\user\\Desktop\\v2g_dev_fw\\02_FW_JC-9V31-60-FT_20260527\\Project\\STM32F105\\EWARM_v7\\EVSIS_60kW_DC_BPT\\Obj\\User_4889033380472473340.dir\\stm32f105_init.o"
 }
